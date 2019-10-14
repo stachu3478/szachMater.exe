@@ -10,7 +10,7 @@ namespace Szachy
         public:
             Gracz(std::string nazwa);
             virtual ~Gracz();
-
+            std::string jakaNazwa() { return m_nazwa; }
         protected:
 
         private:

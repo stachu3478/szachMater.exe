@@ -1,15 +1,20 @@
 # depslib dependency file v1.0
-1570974908 source:c:\users\stach\desktop\szachmater\main.cpp
+1571076157 source:c:\users\stach\desktop\szachmater\main.cpp
 	<iostream>
+	<windows.h>
 	"Pole.h"
+	"TypPionka.h"
+	"Pionek.h"
+	"Gracz.h"
 
 1570913431 c:\users\stach\desktop\szachmater\include\pole.h
 	<string>
 
-1570975111 source:c:\users\stach\desktop\szachmater\src\pole.cpp
+1571074628 source:c:\users\stach\desktop\szachmater\src\pole.cpp
 	"Pole.h"
 	<cmath>
 	<string>
+	<iostream>
 
 1570914208 c:\users\stach\downloads\sfml-2.5.1-windows-gcc-5.1.0-tdm-32-bit\sfml-2.5.1\include\sfml\window.hpp
 	<SFML/System.hpp>
@@ -221,11 +226,12 @@
 
 1570914210 c:\users\stach\downloads\sfml-2.5.1-windows-gcc-5.1.0-tdm-32-bit\sfml-2.5.1\include\sfml\window\windowstyle.hpp
 
-1570916161 source:c:\users\stach\desktop\szachmater\src\typpionka.cpp
+1571074628 source:c:\users\stach\desktop\szachmater\src\typpionka.cpp
 	"TypPionka.h"
 	<string>
+	<iostream>
 
-1570970652 c:\users\stach\desktop\szachmater\include\typpionka.h
+1571087495 c:\users\stach\desktop\szachmater\include\typpionka.h
 	<string>
 
 1570914208 d:\sfml-2.5.1\include\sfml\window.hpp
@@ -466,4 +472,21 @@
 
 1571046592 e:\szachmater.exe\include\gracz.h
 	<string>
+
+1571074628 source:c:\users\stach\desktop\szachmater\src\gracz.cpp
+	"Gracz.h"
+
+1571075085 c:\users\stach\desktop\szachmater\include\gracz.h
+	<string>
+
+1571076134 source:c:\users\stach\desktop\szachmater\src\pionek.cpp
+	<iostream>
+	"Pionek.h"
+	"TypPionka.h"
+	"Pole.h"
+
+1571087658 c:\users\stach\desktop\szachmater\include\pionek.h
+	"TypPionka.h"
+	"Pole.h"
+	"Gracz.h"
 

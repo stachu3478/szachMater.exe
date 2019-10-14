@@ -6,14 +6,24 @@
 using namespace std;
 using namespace Szachy;
 
-Pionek::Pionek(const TypPionka& typ, const Pole& pozycja, const Gracz& gracz):
-    m_typ(typ),
-    m_pozycja(pozycja),
-    m_gracz(gracz)
+Pionek::Pionek(TypPionka* typ, const Pole& pozycja, Gracz* gracz):
+    m_pozycja(pozycja)
 {
     m_zbity = false;
-    cout << "Jestem pionkiem gracza " << endl << m_gracz.nazwa << endl;
-    m_typ.info();
+    m_gracz = gracz;
+    m_typ = typ;
+}
+
+void Pionek::przenies(Pole pole)
+{
+    m_pozycja = pole;
+    m_bylPierwszyRuch = true;
+}
+
+void Pionek::info()
+{
+    cout << "Pionek gracza " << m_gracz->jakaNazwa() << endl;
+    m_typ->info();
 }
 
 Pionek::~Pionek()
