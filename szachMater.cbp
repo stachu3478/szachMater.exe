@@ -33,17 +33,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add directory="../../Downloads/SFML-2.5.1-windows-gcc-5.1.0-tdm-32-bit/SFML-2.5.1/include" />
 		</Compiler>
-		<Linker>
-			<Add library="sfml-graphics" />
-			<Add library="sfml-window" />
-			<Add library="sfml-system" />
-			<Add directory="../../Downloads/SFML-2.5.1-windows-gcc-5.1.0-tdm-32-bit/SFML-2.5.1/lib" />
-		</Linker>
+		<Unit filename="include/Gracz.h" />
+		<Unit filename="include/Pionek.h" />
 		<Unit filename="include/Pole.h" />
 		<Unit filename="include/TypPionka.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Gracz.cpp" />
+		<Unit filename="src/Pionek.cpp" />
 		<Unit filename="src/Pole.cpp" />
 		<Unit filename="src/TypPionka.cpp" />
 		<Extensions>

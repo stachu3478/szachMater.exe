@@ -1,6 +1,7 @@
 #include "Pole.h"
 #include <cmath>
 #include <string>
+#include <iostream>
 
 using namespace Szachy;
 using namespace std;
@@ -10,7 +11,7 @@ Pole::Pole(int poziom, int pion)
     //ctor
     if (poziom < 1 || poziom > 8 || pion < 1 || pion > 8)
     {
-        printf("Niew³aœciwa pozycja pola\n");
+        cout << "NiewÅ‚aÅ›ciwa pozycja pola\n";
         throw -1;
     }
     this->numer = poziom * 8 + pion - 1;

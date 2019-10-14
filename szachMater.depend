@@ -438,3 +438,32 @@
 
 1570914210 d:\sfml-2.5.1\include\sfml\window\windowstyle.hpp
 
+1571045228 source:e:\szachmater.exe\main.cpp
+	<iostream>
+	<windows.h>
+	"Pole.h"
+	"TypPionka.h"
+
+1571043490 e:\szachmater.exe\include\pole.h
+	<string>
+
+1571045300 source:e:\szachmater.exe\src\pole.cpp
+	"Pole.h"
+	<cmath>
+	<string>
+	<iostream>
+
+1571046980 source:e:\szachmater.exe\src\typpionka.cpp
+	"TypPionka.h"
+	<string>
+	<iostream>
+
+1571046592 e:\szachmater.exe\include\typpionka.h
+	<string>
+
+1571046734 source:e:\szachmater.exe\src\gracz.cpp
+	"Gracz.h"
+
+1571046592 e:\szachmater.exe\include\gracz.h
+	<string>
+

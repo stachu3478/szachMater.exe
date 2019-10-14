@@ -3,20 +3,24 @@
 
 #include <string>
 
-class TypPionka
+namespace Szachy
 {
-    public:
-        /** Default constructor */
-        TypPionka(std::string nazwa, std::string opis, std::string sciezka);
-        /** Default destructor */
-        virtual ~TypPionka();
+    class TypPionka
+    {
+        public:
+            /** Default constructor */
+            TypPionka(std::string nazwa, std::string opis, char sciezka);
+            /** Default destructor */
+            virtual ~TypPionka();
+            std::string info();
 
-        const std::string nazwa; //!< Member variable "nazwa"
-        const std::string opis; //!< Member variable "opis"
+        protected:
 
-    protected:
-
-    private:
-};
+        private:
+            std::string nazwa; //!< Member variable "nazwa"
+            std::string opis; //!< Member variable "opis"
+            std::string litera;
+    };
+}
 
 #endif // TYPPIONKA_H
