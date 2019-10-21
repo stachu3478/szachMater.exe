@@ -6,7 +6,7 @@
 using namespace Szachy;
 using namespace std;
 
-Pole::Pole(int poziom, int pion)
+Pole::Pole(unsigned int poziom, unsigned int pion)
 {
     //ctor
     if (poziom < 1 || poziom > 8 || pion < 1 || pion > 8)
@@ -27,6 +27,20 @@ Pole& Pole::operator=(const Pole& rhs)
     if (this == &rhs) return *this; //assignment operator
     this->numer = rhs.numer;
     return *this;
+}
+
+Pole generuj(unsigned int szerokosc, unsigned int wysokosc)
+{
+    Pole pola[szerokosc * wysokosc];
+    unsigned int licznik = 0;
+    for(unsigned int szer = 1; szer <= szerokosc; szer++)
+    {
+        for(unsigned int wys = 1; wys <= wysokosc; wys++, licznik++)
+        {
+            pola[licznik] = new Pole(szer, wys);
+        }
+    }
+    return pola;
 }
 
 bool Pole::operator==(const Pole& rhs)

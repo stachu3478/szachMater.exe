@@ -10,14 +10,14 @@ namespace Szachy
     class Pionek
     {
         public:
-            Pionek(TypPionka* typ, const Pole& pozycja, Gracz* gracz);
+            Pionek(TypPionka* typ, const Pole* pozycja, Gracz* gracz);
             virtual ~Pionek();
 
             TypPionka jakiTyp() { return *m_typ; }
             Pole jakaPozycja() { return m_pozycja; }
             Pole* mozliwosciRuchu();
             std::string jakaLitera() { return m_typ->jakaLitera(); }
-            void przenies(Pole val);
+            void przenies(Pole* val);
             Gracz jakiGracz() { return *m_gracz; }
             bool czyBylPierwszyruch() { return m_bylPierwszyRuch; }
             bool czyZbity() { return m_zbity; }

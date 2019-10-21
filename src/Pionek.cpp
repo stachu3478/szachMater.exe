@@ -6,12 +6,12 @@
 using namespace std;
 using namespace Szachy;
 
-Pionek::Pionek(TypPionka* typ, const Pole& pozycja, Gracz* gracz):
-    m_pozycja(pozycja)
+Pionek::Pionek(TypPionka* typ, const Pole* pozycja, Gracz* gracz)
 {
     m_zbity = false;
     m_gracz = gracz;
     m_typ = typ;
+    m_pozycja = pozycja;
 }
 
 void Pionek::przenies(Pole pole)

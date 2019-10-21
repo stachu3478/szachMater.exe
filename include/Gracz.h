@@ -8,6 +8,7 @@ namespace Szachy
     class Gracz
     {
         public:
+            Gracz();
             Gracz(std::string nazwa);
             virtual ~Gracz();
             std::string jakaNazwa() { return m_nazwa; }
