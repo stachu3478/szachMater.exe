@@ -22,7 +22,8 @@ namespace Szachy
             Pionek* m_Pionek;
             Pole* m_PozycjaStartowa;
             Pole* m_PozycjaDocelowa;
-            TypPionka* m_zbityPionek;
+            Pionek* m_zbityPionek;
+            bool m_wykonany;
     };
 }
 

@@ -21,7 +21,7 @@ class Gra
         Gracz GetGracz2() { return m_Gracz2; }
         void SetGracz2(Gracz val) { m_Gracz2 = val; }
         Plansza GetPlansza() { return m_Plansza; }
-        void SetPlansza(Plansza val) { m_Plansza = val; }
+        void resetuj();
 
     protected:
 

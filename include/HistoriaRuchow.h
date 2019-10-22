@@ -16,7 +16,8 @@ namespace Szachy
             Ruch& Ruch::operator+=(const Ruch& rhs);
 
             void renderuj();
-            void zapisz();
+            void zapisz(std::string nazwa);
+            static void zaladuj(std::string nazwa);
 
         protected:
 

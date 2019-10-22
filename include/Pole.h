@@ -2,6 +2,7 @@
 #define POLE_H
 
 #include <string>
+#include "Pionek.h"
 
 namespace Szachy
 {
@@ -29,9 +30,13 @@ namespace Szachy
             virtual ~Pole();
             /// Implementacja przypisania klas typu Pole
             Pole& operator=(const Pole& other);
+            /// Implementacja przenoszenia pionka na dane pole
+            Pole& operator=(const Pionek& other);
             /// Implementacje porównań klas typu Pole
             bool operator==(const Pole& other);
             bool operator!=(const Pole& other);
+            /// Zwrot informacji o pionku
+            Pionek* jakiPionek() { return m_pionek };
 
         protected:
 
@@ -39,7 +44,8 @@ namespace Szachy
             /// Reprezentuje pozycjê pola na szachownicy
             /// jest rozumiany jako liczony od prawej do lewej
             /// a nastêpnie od góry do dołu
-            unsigned short numer;
+            unsigned char numer;
+            Pionek* m_pionek;
     };
 }
 

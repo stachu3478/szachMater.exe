@@ -8,7 +8,7 @@ using namespace std;
 
 Pole::Pole(unsigned int poziom, unsigned int pion)
 {
-    //ctor
+    m_pionek = 0;
     if (poziom < 1 || poziom > 8 || pion < 1 || pion > 8)
     {
         cout << "Niewłaściwa pozycja pola\n";
@@ -19,13 +19,25 @@ Pole::Pole(unsigned int poziom, unsigned int pion)
 
 Pole::~Pole()
 {
-    //dtor
+    delete m_pionek;
 }
 
 Pole& Pole::operator=(const Pole& rhs)
 {
     if (this == &rhs) return *this; //assignment operator
     this->numer = rhs.numer;
+    return *this;
+}
+
+Pole& Pole::operator=(const Pionek& rhs)
+{
+    if (m_pionek == &rhs) return *this; //assignment operator
+    if (m_pionek != 0)
+    {
+        m_pionek->zbij();
+    }
+    m_pionek = rhs;
+    m_pionek->przenies(this);
     return *this;
 }
 

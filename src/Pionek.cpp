@@ -14,7 +14,7 @@ Pionek::Pionek(TypPionka* typ, const Pole* pozycja, Gracz* gracz)
     m_pozycja = pozycja;
 }
 
-void Pionek::przenies(Pole pole)
+void Pionek::przenies(Pole* pole)
 {
     m_pozycja = pole;
     m_bylPierwszyRuch = true;

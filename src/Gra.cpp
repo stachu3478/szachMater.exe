@@ -28,6 +28,12 @@ Gra::Gra()
     m_TypyPionkow = utworzTypyPionkow();
 }
 
+void Gra::resetuj()
+{
+    delete m_Plansza;
+    m_HistoriaRuchow.zapisz(m_Gracz1.jakaNazwa() + ' vs ' + m_Gracz2.jakaNazwa())
+}
+
 Gra::~Gra()
 {
     //dtor
