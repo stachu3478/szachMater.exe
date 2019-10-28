@@ -6,7 +6,7 @@
 using namespace std;
 using namespace Szachy;
 
-Pionek::Pionek(TypPionka* typ, const Pole* pozycja, Gracz* gracz)
+Pionek::Pionek(TypPionka* typ, Pole* pozycja, Gracz* gracz)
 {
     m_zbity = false;
     m_gracz = gracz;

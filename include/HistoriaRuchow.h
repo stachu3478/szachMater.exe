@@ -13,7 +13,7 @@ namespace Szachy
             HistoriaRuchow();
             HistoriaRuchow(std::string plik);
             virtual ~HistoriaRuchow();
-            Ruch& Ruch::operator+=(const Ruch& rhs);
+            Szachy::Ruch HistoriaRuchow::operator+=(const Ruch& rhs);
 
             void renderuj();
             void zapisz(std::string nazwa);
@@ -24,8 +24,7 @@ namespace Szachy
         private:
             unsigned int m_Licznik;
             unsigned int m_Pozycja;
-            Ruch m_Lista[];
-            void zaladuj(std::string plik);
+            Szachy::Ruch m_Lista[];
     };
 }
 

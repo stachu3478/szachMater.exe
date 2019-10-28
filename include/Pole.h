@@ -22,7 +22,7 @@ namespace Szachy
             /// jest mniej znacz¹ca w wartoœci
             Pole(unsigned int poziom, unsigned int pion);
             /// Tworzy zdefiniowaną listę pól z odniesieniem pozycji
-            static Pole generuj(unsigned int szerokosc, unsigned int wysokosc);
+            static Pole* generuj(unsigned int szerokosc, unsigned int wysokosc);
             /// Zwraca czyteln¹ nazwê pola na szachownicy
             /// \return - Reprezentacja cyfrowej i literowej pozycji np. 5C, 1A, 5F
             std::string nazwa();
@@ -31,12 +31,12 @@ namespace Szachy
             /// Implementacja przypisania klas typu Pole
             Pole& operator=(const Pole& other);
             /// Implementacja przenoszenia pionka na dane pole
-            Pole& operator=(const Pionek& other);
+            Pole& operator=(const Szachy::Pionek& other);
             /// Implementacje porównań klas typu Pole
             bool operator==(const Pole& other);
             bool operator!=(const Pole& other);
             /// Zwrot informacji o pionku
-            Pionek* jakiPionek() { return m_pionek };
+            Szachy::Pionek* jakiPionek() { return m_pionek };
 
         protected:
 
@@ -45,7 +45,7 @@ namespace Szachy
             /// jest rozumiany jako liczony od prawej do lewej
             /// a nastêpnie od góry do dołu
             unsigned char numer;
-            Pionek* m_pionek;
+            Szachy::Pionek* m_pionek;
     };
 }
 

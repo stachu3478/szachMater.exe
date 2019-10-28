@@ -41,7 +41,7 @@ Pole& Pole::operator=(const Pionek& rhs)
     return *this;
 }
 
-Pole generuj(unsigned int szerokosc, unsigned int wysokosc)
+Pole* generuj(unsigned int szerokosc, unsigned int wysokosc)
 {
     Pole pola[szerokosc * wysokosc];
     unsigned int licznik = 0;
