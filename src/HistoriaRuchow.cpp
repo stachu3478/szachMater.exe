@@ -9,7 +9,8 @@ using namespace std;
 
 HistoriaRuchow::HistoriaRuchow()
 {
-    m_Lista = new Ruch[100];
+    Ruch listaRuchow[100];
+    m_Lista = listaRuchow;
     m_Licznik = 0;
     m_Pozycja = 0;
 }
@@ -17,13 +18,13 @@ HistoriaRuchow::HistoriaRuchow()
 void HistoriaRuchow::zapisz(std::string plik)
 {
     ofstream dest(plik);
-
+    // TODO zapisac dane binarnie
 }
 
 Ruch[] HistoriaRuchow::zaladuj(std::string plik)
 {
     ifstream source(plik);
-    source.width
+    // TODO zaladowac dane binarne
 }
 
 HistoriaRuchow::HistoriaRuchow(std::string plik)
@@ -34,6 +35,7 @@ HistoriaRuchow::HistoriaRuchow(std::string plik)
 HistoriaRuchow& HistoriaRuchow::operator+=(const Ruch& ruch)
 {
     m_Lista[m_Licznik++] = ruch;
+    return *this;
 }
 
 HistoriaRuchow::~HistoriaRuchow()

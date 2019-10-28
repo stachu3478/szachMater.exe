@@ -490,3 +490,58 @@
 	"Pole.h"
 	"Gracz.h"
 
+1572250875 source:d:\skrypty\szachmater.exe\main.cpp
+	<iostream>
+	<windows.h>
+	"Gra.h"
+
+1572268251 d:\skrypty\szachmater.exe\include\gra.h
+	"Gracz.h"
+	"Plansza.h"
+	"TypPionka.h"
+	"HistoriaRuchow.h"
+
+1572270187 d:\skrypty\szachmater.exe\include\gracz.h
+	<string>
+	"Pionek.h"
+	"TypPionka.h"
+	"Plansza.h"
+
+1572266876 d:\skrypty\szachmater.exe\include\pionek.h
+	"TypPionka.h"
+	"Pole.h"
+	"Gracz.h"
+
+1572256192 d:\skrypty\szachmater.exe\include\typpionka.h
+	<string>
+
+1572266593 d:\skrypty\szachmater.exe\include\pole.h
+	<string>
+
+1572268888 d:\skrypty\szachmater.exe\include\plansza.h
+	"Pole.h"
+	"TypPionka.h"
+
+1572267025 d:\skrypty\szachmater.exe\include\historiaruchow.h
+	"Ruch.h"
+	<string>
+
+1572250571 d:\skrypty\szachmater.exe\include\ruch.h
+	"Pionek.h"
+	"Pole.h"
+	"TypPionka.h"
+
+1572268248 source:d:\skrypty\szachmater.exe\src\gra.cpp
+	"Gra.h"
+	"Gracz.h"
+	"Plansza.h"
+	"TypPionka.h"
+	"HistoriaRuchow.h"
+
+1572269938 source:d:\skrypty\szachmater.exe\src\gracz.cpp
+	"Gracz.h"
+	<iostream>
+	"TypPionka.h"
+	"Pionek.h"
+	"Plansza.h"
+

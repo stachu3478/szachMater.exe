@@ -14,14 +14,14 @@ namespace Szachy
             Gracz(TypPionka* typyPionkow, Plansza* plansza, bool czarne);
             Gracz(std::string nazwa);
             virtual ~Gracz();
-            static Pionek* generujPionki(TypPionka* typyPionkow);
+            static Szachy::Pionek* generujPionki(TypPionka* typyPionkow, Plansza* plansza, bool czarne);
             std::string jakaNazwa() { return m_nazwa; };
             bool czyCzarny() { return m_jestCzarny; };
         protected:
 
         private:
             std::string m_nazwa;
-            Pionek pionki[];
+            Szachy::Pionek* m_pionki;
             bool m_jestCzarny;
     };
 }

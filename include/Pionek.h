@@ -10,7 +10,7 @@ namespace Szachy
     class Pionek
     {
         public:
-            Pionek(TypPionka* typ, Pole* pozycja, Szachy::Gracz* gracz);
+            Pionek(TypPionka* typ, Pole* pozycja);
             virtual ~Pionek();
 
             TypPionka jakiTyp() { return *m_typ; }
@@ -18,7 +18,8 @@ namespace Szachy
             Pole* mozliwosciRuchu();
             std::string jakaLitera() { return m_typ->jakaLitera(); }
             void przenies(Szachy::Pole* val);
-            Szachy::Gracz jakiGracz() { return *m_gracz; }
+            // FIXME
+            // Szachy::Gracz jakiGracz() { return *m_gracz; }
             bool czyBylPierwszyruch() { return m_bylPierwszyRuch; }
             bool czyZbity() { return m_zbity; }
             void zbij() { m_zbity = true; }
@@ -29,7 +30,8 @@ namespace Szachy
         private:
             Szachy::TypPionka* m_typ;
             Szachy::Pole* m_pozycja;
-            Szachy::Gracz* m_gracz;
+            // FIXME
+            // Szachy::Gracz* m_gracz;
             bool m_bylPierwszyRuch;
             bool m_zbity;
     };

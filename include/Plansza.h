@@ -14,7 +14,7 @@ namespace Szachy
 
             void rysuj();
             void zresetuj();
-            Pole pobierzPole(unsigned int poziom, unsigned int pion);
+            Pole* pobierzPole(unsigned int poziom, unsigned int pion);
 
         protected:
 

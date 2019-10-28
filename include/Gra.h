@@ -30,10 +30,10 @@ namespace Szachy
         private:
             unsigned int m_Status;
             unsigned int m_LicznikCzasu;
+            Szachy::Plansza m_Plansza;
             Szachy::Gracz m_Gracz1;
             Szachy::Gracz m_Gracz2;
-            Szachy::Plansza m_Plansza;
-            Szachy::TypPionka m_TypyPionkow[];
+            Szachy::TypPionka* m_TypyPionkow;
             Szachy::HistoriaRuchow m_HistoriaRuchow;
     };
 }

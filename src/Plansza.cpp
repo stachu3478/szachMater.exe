@@ -21,9 +21,9 @@ void Plansza::zresetuj()
     m_Pola = Pole::generuj(rozmiar, rozmiar);
 }
 
-Pole Plansza::pobierzPole(unsigned int poziom, unsigned int pion)
+Pole* Plansza::pobierzPole(unsigned int poziom, unsigned int pion)
 {
-    return m_Pola[poziom * 8 + pion - 1];
+    return &m_Pola[poziom * 8 + pion - 1];
 }
 
 Plansza::~Plansza()
