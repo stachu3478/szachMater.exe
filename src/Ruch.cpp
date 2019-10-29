@@ -8,39 +8,30 @@
 using namespace Szachy;
 using namespace std;
 
-Ruch::Ruch(Pionek* pionek, Pole* od, Pole* na)
+Ruch::Ruch(Pionek* pionek, Pole* od, Pole* na, Pionek* zbityPionek)
 {
     m_Pionek = pionek;
-    m_pozycjaStartowa = od;
-    m_pozycjaDocelowa = na;
-    m_zbityPionek = 0;
-    m_wykonany = false;
+    m_PozycjaStartowa = od;
+    m_PozycjaDocelowa = na;
+    m_ZbityPionek = zbityPionek;
+    m_Wykonany = false;
 }
 
 void Ruch::renderuj()
 {
-    cout << m_Pionek->jakiGracz()->jakaNazwa() << ' przeniósł z ' << m_pozycjaStartowa->nazwa() << ' na ' << m_pozycjaDocelowa->nazwa() << endl;
-    if(m_zbityPionek != 0)
+    // TODO polyfill dla nazwy gracza
+    cout << 'Gracz' << ' przeniósł z ' << m_PozycjaStartowa->nazwa() << ' na ' << m_PozycjaDocelowa->nazwa() << endl;
+    if(m_ZbityPionek != 0)
     {
-        cout << 'Pionek ' << m_zbityPionek->nazwa() << ' został zbity.' << endl;
+        cout << 'Pionek ' << m_ZbityPionek->nazwa() << ' został zbity.' << endl;
     }
 }
 
 void Ruch::wykonaj()
-{
-    if
-    Pionek* pionek = m_pozycjaDocelowa->jakiPionek();
-    if(pionek != 0)
-    {
-        m_zbityPionek = pionek;
-    }
-    m_pozycjaDocelowa = pionek;
-}
+{}
 
 void Ruch::cofnij()
-{
-
-}
+{}
 
 Ruch::~Ruch()
 {

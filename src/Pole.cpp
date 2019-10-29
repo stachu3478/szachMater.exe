@@ -8,19 +8,16 @@ using namespace std;
 
 Pole::Pole(unsigned int poziom, unsigned int pion)
 {
-    m_pionek = 0;
     if (poziom < 1 || poziom > 8 || pion < 1 || pion > 8)
     {
-        cout << "NiewÅ‚aÅ›ciwa pozycja pola\n";
+        cout << "Niew³aœciwa pozycja pola\n";
         throw -1;
     }
     this->numer = poziom * 8 + pion - 1;
 }
 
 Pole::~Pole()
-{
-    delete m_pionek;
-}
+{}
 
 Pole& Pole::operator=(const Pole& rhs)
 {
@@ -29,7 +26,7 @@ Pole& Pole::operator=(const Pole& rhs)
     return *this;
 }
 
-Pole& Pole::operator=(const Pionek& rhs)
+/*Pole& Pole::operator=(const Pionek& rhs)
 {
     if (m_pionek == &rhs) return *this; //assignment operator
     if (m_pionek != 0)
@@ -39,11 +36,11 @@ Pole& Pole::operator=(const Pionek& rhs)
     m_pionek = rhs;
     m_pionek->przenies(this);
     return *this;
-}
+}*/
 
-Pole* generuj(unsigned int szerokosc, unsigned int wysokosc)
+Pole* Pole::generuj(unsigned int szerokosc, unsigned int wysokosc)
 {
-    Pole pola[szerokosc * wysokosc];
+    Pole* pola[szerokosc * wysokosc];
     unsigned int licznik = 0;
     for(unsigned int szer = 1; szer <= szerokosc; szer++)
     {
@@ -52,7 +49,7 @@ Pole* generuj(unsigned int szerokosc, unsigned int wysokosc)
             pola[licznik] = new Pole(szer, wys);
         }
     }
-    return pola;
+    return *pola;
 }
 
 bool Pole::operator==(const Pole& rhs)

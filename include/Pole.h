@@ -18,7 +18,7 @@ namespace Szachy
             /// \param pion - pozycja od lewej do prawej
             /// najmniejsza wartoœæ okreœla pole po lewej
             /// jako literowa pozycja pola (od 1 do 8)
-            /// jest mniej znacz¹ca w wartoœci
+            /// jest mniej znacząca w wartoœci
             Pole(unsigned int poziom, unsigned int pion);
             /// Tworzy zdefiniowaną listę pól z odniesieniem pozycji
             static Pole* generuj(unsigned int szerokosc, unsigned int wysokosc);

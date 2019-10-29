@@ -11,20 +11,21 @@ namespace Szachy
     {
         public:
             HistoriaRuchow();
-            HistoriaRuchow(std::string plik);
+            HistoriaRuchow(const char* plik);
             virtual ~HistoriaRuchow();
             HistoriaRuchow& operator+=(const Ruch& rhs);
 
             void renderuj();
-            void zapisz(std::string nazwa);
-            static void zaladuj(std::string nazwa);
+            void zapisz(const char* nazwa);
+            static Ruch* zaladuj(const char* nazwa);
+            static Ruch* przygotujListe();
 
         protected:
 
         private:
             unsigned int m_Licznik;
             unsigned int m_Pozycja;
-            Szachy::Ruch m_Lista[];
+            Szachy::Ruch* m_Lista;
     };
 }
 

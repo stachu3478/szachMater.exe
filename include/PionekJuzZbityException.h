@@ -1,7 +1,7 @@
 #ifndef PIONEKJUZZBITYEXCEPTION_H
 #define PIONEKJUZZBITYEXCEPTION_H
 
-#include <std/exception.h>
+#include <stdexcept>
 
 namespace Szachy
 {
@@ -9,7 +9,6 @@ namespace Szachy
     {
         public:
             PionekJuzZbityException(std::string msg);
-            virtual ~PionekJuzZbityException();
 
             std::string getMessage() { return message; }
 

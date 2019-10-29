@@ -14,6 +14,7 @@ namespace Szachy
             virtual ~TypPionka();
             static TypPionka* generuj();
             std::string jakaLitera() { return litera; };
+            std::string jakaNazwa() { return nazwa; };
             std::string info();
 
         protected:

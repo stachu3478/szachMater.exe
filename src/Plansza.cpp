@@ -5,9 +5,14 @@
 
 using namespace Szachy;
 
-Plansza::Plansza(unsigned int rozmiar = 8)
+Plansza::Plansza(unsigned int rozmiar)
 {
-    zresetuj();
+    zresetuj(rozmiar);
+}
+
+Plansza::Plansza()
+{
+    zresetuj(8);
 }
 
 void Plansza::rysuj()
@@ -15,7 +20,7 @@ void Plansza::rysuj()
 
 }
 
-void Plansza::zresetuj()
+void Plansza::zresetuj(unsigned int rozmiar)
 {
     delete m_Pola;
     m_Pola = Pole::generuj(rozmiar, rozmiar);

@@ -3,7 +3,6 @@
 
 #include "TypPionka.h"
 #include "Pole.h"
-#include "Gracz.h"
 
 namespace Szachy
 {
@@ -17,6 +16,7 @@ namespace Szachy
             Pole* jakaPozycja() { return m_pozycja; }
             Pole* mozliwosciRuchu();
             std::string jakaLitera() { return m_typ->jakaLitera(); }
+            std::string nazwa() { return m_typ->jakaNazwa(); };
             void przenies(Szachy::Pole* val);
             // FIXME
             // Szachy::Gracz jakiGracz() { return *m_gracz; }

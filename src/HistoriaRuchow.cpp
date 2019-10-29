@@ -7,28 +7,39 @@
 using namespace Szachy;
 using namespace std;
 
+Ruch* HistoriaRuchow::przygotujListe()
+{
+    Ruch* lista[100];
+    return *lista;
+}
+
 HistoriaRuchow::HistoriaRuchow()
 {
-    Ruch listaRuchow[100];
-    m_Lista = listaRuchow;
+    m_Lista = przygotujListe();
     m_Licznik = 0;
     m_Pozycja = 0;
 }
 
-void HistoriaRuchow::zapisz(std::string plik)
+void HistoriaRuchow::zapisz(const char* plik)
 {
     ofstream dest(plik);
+    dest.close();
     // TODO zapisac dane binarnie
 }
 
-Ruch[] HistoriaRuchow::zaladuj(std::string plik)
+Ruch* HistoriaRuchow::zaladuj(const char* plik)
 {
     ifstream source(plik);
+    source.close();
+    return przygotujListe();
     // TODO zaladowac dane binarne
 }
 
-HistoriaRuchow::HistoriaRuchow(std::string plik)
+HistoriaRuchow::HistoriaRuchow(const char* plik)
 {
+    m_Lista = zaladuj(plik);
+    m_Licznik = 0;
+    m_Pozycja = 0;
     // TODO ładowanie pliku
 }
 

@@ -20,11 +20,12 @@ void Pionek::przenies(Pole* pole)
     m_bylPierwszyRuch = true;
 }
 
-void Pionek::info()
-{
-    cout << "Pionek gracza " << m_gracz->jakaNazwa() << endl;
-    m_typ->info();
-}
+// FIXME
+// void Pionek::info()
+// {
+//    cout << "Pionek gracza " << m_gracz->jakaNazwa() << endl;
+//    m_typ->info();
+//}
 
 Pionek::~Pionek()
 {

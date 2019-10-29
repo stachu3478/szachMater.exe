@@ -1,11 +1,13 @@
 #include "Gra.h"
 
+#include <string>
 #include "Plansza.h"
 #include "TypPionka.h"
 #include "Gracz.h"
 #include "HistoriaRuchow.h"
 
 using namespace Szachy;
+using namespace std;
 
 Gra::Gra():
     m_Plansza(8),
@@ -20,7 +22,11 @@ void Gra::resetuj()
 {
     // FIXME
     // delete m_Plansza;
-    m_HistoriaRuchow.zapisz(m_Gracz1.jakaNazwa() + " vs " + m_Gracz2.jakaNazwa());
+    string str = m_Gracz1.jakaNazwa() + " vs " + m_Gracz2.jakaNazwa();
+    char c[str.size() + 1];
+    str.copy(c, str.size() + 1);
+    c[str.size()] = '\0';
+    m_HistoriaRuchow.zapisz(c);
 }
 
 Gra::~Gra()

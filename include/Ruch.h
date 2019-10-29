@@ -1,16 +1,16 @@
 #ifndef RUCH_H
 #define RUCH_H
 
-#include "Pionek.h"
 #include "Pole.h"
 #include "TypPionka.h"
+#include "Pionek.h"
 
 namespace Szachy
 {
     class Ruch
     {
         public:
-            Ruch(Pionek* pionek, Pole* od, Pole* na);
+            Ruch(Pionek* pionek, Pole* od, Pole* na, Pionek* zbity);
             virtual ~Ruch();
             void renderuj();
             void wykonaj();
@@ -22,8 +22,8 @@ namespace Szachy
             Pionek* m_Pionek;
             Pole* m_PozycjaStartowa;
             Pole* m_PozycjaDocelowa;
-            Pionek* m_zbityPionek;
-            bool m_wykonany;
+            Pionek* m_ZbityPionek;
+            bool m_Wykonany;
     };
 }
 
