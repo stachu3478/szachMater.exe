@@ -10,7 +10,7 @@ Pole::Pole(unsigned int poziom, unsigned int pion)
 {
     if (poziom < 1 || poziom > 8 || pion < 1 || pion > 8)
     {
-        cout << "Niew�a�ciwa pozycja pola\n";
+        cout << "Niew³aœciwa pozycja pola\n";
         throw -1;
     }
     this->numer = poziom * 8 + pion - 1;
@@ -26,6 +26,7 @@ Pole& Pole::operator=(const Pole& rhs)
     return *this;
 }
 
+/// CO TO MA KUŹWA ZNACZYĆ? BRAK PRZECHODNIEJ REKURSJI WSKAŹNIKÓW???!!!
 /*Pole& Pole::operator=(const Pionek& rhs)
 {
     if (m_pionek == &rhs) return *this; //assignment operator

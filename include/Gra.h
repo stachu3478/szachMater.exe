@@ -11,7 +11,7 @@ namespace Szachy
     class Gra
     {
         public:
-            Gra();
+            Gra(TypPionka* a);
             virtual ~Gra();
 
             unsigned int GetStatus() { return m_Status; }
@@ -23,6 +23,8 @@ namespace Szachy
             Szachy::Gracz GetGracz2() { return m_Gracz2; }
             void SetGracz2(Szachy::Gracz val) { m_Gracz2 = val; }
             Szachy::Plansza GetPlansza() { return m_Plansza; }
+            void rozpocznij();
+            void tura();
             void resetuj();
 
         protected:

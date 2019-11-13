@@ -13,7 +13,7 @@ namespace Szachy
             Plansza();
             virtual ~Plansza();
 
-            void rysuj();
+            void rysuj(char* a, char* b);
             void zresetuj(unsigned int rozmiar);
             Pole* pobierzPole(unsigned int poziom, unsigned int pion);
 

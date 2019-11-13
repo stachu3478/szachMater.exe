@@ -41,9 +41,23 @@ Gracz::Gracz(TypPionka* typyPionkow, Plansza* plansza, bool czarne)
     cout << endl;
 }
 
-Gracz::Gracz(std::string nazwa)
+Ruch* mozliwosciRuchu()
 {
-    m_nazwa = nazwa;
+
+}
+
+// TODO
+bool Gracz::czySzach()
+{
+    // operuj na m_pionki[12]
+    return false;
+}
+
+// TODO
+bool Gracz::czyPrzegral()
+{
+    // operuj na m_pionki[12]
+    return false;
 }
 
 Gracz::~Gracz()

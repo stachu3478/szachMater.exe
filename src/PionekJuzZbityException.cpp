@@ -2,7 +2,8 @@
 
 using namespace std;
 
-PionekJuzZbityException::PionekJuzZbityException(std::string msg)
+// FIXME
+/*PionekJuzZbityException::PionekJuzZbityException(std::string msg)
 {
     m_message = msg
 }
@@ -10,4 +11,4 @@ PionekJuzZbityException::PionekJuzZbityException(std::string msg)
 PionekJuzZbityException::~PionekJuzZbityException()
 {
     //dtor
-}
+}*/

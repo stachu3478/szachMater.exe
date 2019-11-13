@@ -20,10 +20,10 @@ Ruch::Ruch(Pionek* pionek, Pole* od, Pole* na, Pionek* zbityPionek)
 void Ruch::renderuj()
 {
     // TODO polyfill dla nazwy gracza
-    cout << 'Gracz' << ' przeniósł z ' << m_PozycjaStartowa->nazwa() << ' na ' << m_PozycjaDocelowa->nazwa() << endl;
+    cout << "Gracz" << " przeniósł z " << m_PozycjaStartowa->nazwa() << " na " << m_PozycjaDocelowa->nazwa() << endl;
     if(m_ZbityPionek != 0)
     {
-        cout << 'Pionek ' << m_ZbityPionek->nazwa() << ' został zbity.' << endl;
+        cout << "Pionek " << m_ZbityPionek->nazwa() << " został zbity." << endl;
     }
 }
 

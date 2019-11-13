@@ -2,6 +2,7 @@
 #define GRACZ_H
 
 #include <string>
+#include "Ruch.h"
 #include "Pionek.h"
 #include "TypPionka.h"
 #include "Plansza.h"
@@ -12,11 +13,14 @@ namespace Szachy
     {
         public:
             Gracz(TypPionka* typyPionkow, Plansza* plansza, bool czarne);
-            Gracz(std::string nazwa);
             virtual ~Gracz();
             static Szachy::Pionek* generujPionki(TypPionka* typyPionkow, Plansza* plansza, bool czarne);
             std::string jakaNazwa() { return m_nazwa; };
             bool czyCzarny() { return m_jestCzarny; };
+            bool czySzach();
+            bool czyPrzegral();
+            Pionek* pobierzPionek(int n) { return &m_pionki[n]; };
+            Ruch* mozliwosciRuchu();
         protected:
 
         private:

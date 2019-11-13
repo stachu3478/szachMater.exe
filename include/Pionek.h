@@ -14,7 +14,7 @@ namespace Szachy
 
             TypPionka jakiTyp() { return *m_typ; }
             Pole* jakaPozycja() { return m_pozycja; }
-            Pole* mozliwosciRuchu();
+            Pole** mozliwosciRuchu();
             std::string jakaLitera() { return m_typ->jakaLitera(); }
             std::string nazwa() { return m_typ->jakaNazwa(); };
             void przenies(Szachy::Pole* val);

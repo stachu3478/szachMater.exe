@@ -16,6 +16,7 @@ namespace Szachy
             std::string jakaLitera() { return litera; };
             std::string jakaNazwa() { return nazwa; };
             std::string info();
+            int** mozliwosciRuchu();
 
         protected:
 

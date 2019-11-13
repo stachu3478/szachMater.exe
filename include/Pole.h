@@ -35,9 +35,10 @@ namespace Szachy
             /// Implementacje porównań klas typu Pole
             bool operator==(const Pole& other);
             bool operator!=(const Pole& other);
-            /// Zwrot informacji o pionku
-            // FIXME
-            // Szachy::Pionek* jakiPionek() { return m_pionek };
+            /// Zwrot identyfikatora
+            char pobierzNumer() { return numer; };
+            char poziom() { return numer / 8; };
+            char pion() { return numer % 8; };
 
         protected:
 

@@ -3,7 +3,8 @@
 
 #include <stdexcept>
 
-namespace Szachy
+/// FIXME
+/*namespace Szachy
 {
     class PionekJuzZbityException : public std::exception
     {
@@ -17,6 +18,6 @@ namespace Szachy
         private:
             std::string message;
     };
-}
+}*/
 
 #endif // PIONEKJUZZBITYEXCEPTION_H
