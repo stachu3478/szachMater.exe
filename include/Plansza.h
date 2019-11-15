@@ -9,18 +9,19 @@ namespace Szachy
     class Plansza
     {
         public:
-            Plansza(unsigned int rozmiar);
+            Plansza(int rozmiar);
             Plansza();
             virtual ~Plansza();
 
             void rysuj(char* a, char* b);
-            void zresetuj(unsigned int rozmiar);
+            void zresetuj(int rozmiar);
+            void generujPola(int a, int b);
             Pole* pobierzPole(unsigned int poziom, unsigned int pion);
 
         protected:
 
         private:
-            Szachy::Pole* m_Pola;
+            Szachy::Pole* m_Pola[64];
     };
 }
 

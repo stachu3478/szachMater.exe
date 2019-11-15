@@ -8,34 +8,32 @@
 using namespace Szachy;
 using namespace std;
 
-Pionek* Gracz::generujPionki(TypPionka* typyPionkow, Plansza* plansza, bool czarne)
+void Gracz::generujPionki(TypPionka* typyPionkow, Plansza* plansza)
 {
-    Pionek* pionki[16];
-    int poziom = czarne ? 2 : 7;
+    int poziom = m_jestCzarny ? 2 : 7;
     for(unsigned int pion = 1; pion <= 8; pion++) // generowanie pionow
     {
-        pionki[pion - 1] = new Pionek(&typyPionkow[0], plansza->pobierzPole(poziom, pion));
+        m_pionki[pion - 1] = new Pionek(&typyPionkow[0], plansza->pobierzPole(poziom, pion));
     }
 
-    poziom = czarne ? 1 : 8;
-    int inc = czarne ? 1 : -1;
-    int pion = czarne ? 1 : 8;
-    pionki[8] = new Pionek(&typyPionkow[3], plansza->pobierzPole(poziom, pion += inc)); // wieza
-    pionki[9] = new Pionek(&typyPionkow[1], plansza->pobierzPole(poziom, pion += inc)); // skoczek
-    pionki[10] = new Pionek(&typyPionkow[2], plansza->pobierzPole(poziom, pion += inc)); // goniec
-    pionki[11] = new Pionek(&typyPionkow[4], plansza->pobierzPole(poziom, pion += inc)); // hetman
-    pionki[12] = new Pionek(&typyPionkow[5], plansza->pobierzPole(poziom, pion += inc)); // krol
-    pionki[13] = new Pionek(&typyPionkow[2], plansza->pobierzPole(poziom, pion += inc)); // goniec
-    pionki[14] = new Pionek(&typyPionkow[1], plansza->pobierzPole(poziom, pion += inc)); // skoczek
-    pionki[15] = new Pionek(&typyPionkow[3], plansza->pobierzPole(poziom, pion += inc)); // wieza
-
-    return *pionki;
+    poziom = m_jestCzarny ? 1 : 8;
+    int inc = m_jestCzarny ? 1 : -1;
+    int pion = m_jestCzarny ? 1 : 8;
+    m_pionki[8] = new Pionek(&typyPionkow[3], plansza->pobierzPole(poziom, pion)); // wieza
+    m_pionki[9] = new Pionek(&typyPionkow[1], plansza->pobierzPole(poziom, pion += inc)); // skoczek
+    m_pionki[10] = new Pionek(&typyPionkow[2], plansza->pobierzPole(poziom, pion += inc)); // goniec
+    m_pionki[11] = new Pionek(&typyPionkow[4], plansza->pobierzPole(poziom, pion += inc)); // hetman
+    m_pionki[12] = new Pionek(&typyPionkow[5], plansza->pobierzPole(poziom, pion += inc)); // krol
+    m_pionki[13] = new Pionek(&typyPionkow[2], plansza->pobierzPole(poziom, pion += inc)); // goniec
+    m_pionki[14] = new Pionek(&typyPionkow[1], plansza->pobierzPole(poziom, pion += inc)); // skoczek
+    m_pionki[15] = new Pionek(&typyPionkow[3], plansza->pobierzPole(poziom, pion += inc)); // wieza
 }
 
 Gracz::Gracz(TypPionka* typyPionkow, Plansza* plansza, bool czarne)
 {
-    m_pionki = generujPionki(typyPionkow, plansza, czarne);
+    cout << "Inicjalizacja gracza" << endl;
     m_jestCzarny = czarne;
+    generujPionki(typyPionkow, plansza);
     cout << "Podaj nazwę gracza: ";
     cin >> m_nazwa;
     cout << endl;

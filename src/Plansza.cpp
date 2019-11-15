@@ -7,9 +7,25 @@
 using namespace Szachy;
 using namespace std;
 
-Plansza::Plansza(unsigned int rozmiar)
+void Plansza::generujPola(int szerokosc, int wysokosc)
 {
-    zresetuj(rozmiar);
+    unsigned int licznik = 0;
+    for(int szer = 1; szer <= szerokosc; szer++)
+    {
+        for(int wys = 1; wys <= wysokosc; wys++, licznik++)
+        {
+            cout << "Pole nr " << licznik << endl;
+            m_Pola[licznik] = new Pole(szer, wys);
+        }
+    }
+}
+
+Plansza::Plansza(int rozmiar)
+{
+    cout << "Przygotowywanie planszy" << endl;
+    generujPola(rozmiar, rozmiar);
+    cout << "Przygotowywanie planszy koniec" << endl;
+    //zresetuj(rozmiar);
 }
 
 Plansza::Plansza()
@@ -30,21 +46,26 @@ void Plansza::rysuj(char* dane, char* kolory)
             SetConsoleTextAttribute(hConsole, *(kolory + i * 8 + j));
             cout << *(dane + i * 8 + j);
         }
+        SetConsoleTextAttribute(hConsole, 7);
         cout << i + 1 << endl;
     }
-    SetConsoleTextAttribute(hConsole, 0);
+    SetConsoleTextAttribute(hConsole, 7);
     cout << " ABCDEFGH " << endl;
 }
 
-void Plansza::zresetuj(unsigned int rozmiar)
+void Plansza::zresetuj(int rozmiar)
 {
-    delete m_Pola;
-    m_Pola = Pole::generuj(rozmiar, rozmiar);
+    // delete m_Pola;
+    generujPola(rozmiar, rozmiar);
 }
 
 Pole* Plansza::pobierzPole(unsigned int poziom, unsigned int pion)
 {
-    return &m_Pola[poziom * 8 + pion - 1];
+    int indeks = poziom * 8 + pion - 9;
+    cout << "Pobieram indeks " << indeks << endl;
+    Pole* pole = m_Pola[indeks];
+    cout << "Pobrane pole ma numer " << (int)pole->pobierzNumer() << endl;
+    return pole;
 }
 
 Plansza::~Plansza()

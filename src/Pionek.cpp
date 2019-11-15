@@ -12,6 +12,7 @@ Pionek::Pionek(TypPionka* typ, Pole* pozycja)
     // m_gracz = gracz;
     m_typ = typ;
     m_pozycja = pozycja;
+    cout << "Nowy pionek ma pole nr " << (int)pozycja->pobierzNumer() << endl;
 }
 
 void Pionek::przenies(Pole* pole)

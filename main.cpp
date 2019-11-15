@@ -12,6 +12,8 @@ int main()
 
     cout << "Inicjalizacja" << endl;
     Gra* szachy = new Gra(TypPionka::generuj());
+    cout << "Rozpoczęcie gry" << endl;
+    szachy->rozpocznij();
     // cout << "A oto nazwa gracza 1: " << szachy.GetGracz1().jakaNazwa() << endl;
     /* Pole pole1(1, 1);
     Pole pole2(1, 1);

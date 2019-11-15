@@ -15,6 +15,7 @@ Ruch* HistoriaRuchow::przygotujListe()
 
 HistoriaRuchow::HistoriaRuchow()
 {
+    cout << "Inicjalizacja listy ruchów" << endl;
     m_Lista = przygotujListe();
     m_Licznik = 0;
     m_Pozycja = 0;

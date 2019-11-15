@@ -19,6 +19,7 @@ char toChar(std::string str)
     return *c;
 }
 
+/// Typy pionków muszą być w argumencie aby zainicjalizować gracza z pionkami
 Gra::Gra(TypPionka* typyPionkow):
     m_Plansza(8),
     m_Gracz1(typyPionkow, &m_Plansza, true),
@@ -26,51 +27,54 @@ Gra::Gra(TypPionka* typyPionkow):
     m_HistoriaRuchow()
 {
     cout << "konstruktor gra" << endl;
-    // m_TypyPionkow = TypPionka::generuj();
+    m_TypyPionkow = typyPionkow;
 }
 
 void Gra::rozpocznij()
 {
-    while(1)
-    {
+    //while(1)
+    //{
         // Rysowanie planszy - start
         int zhakowanyRozmiar = 64;
         char dane[zhakowanyRozmiar];
         char kolory[zhakowanyRozmiar];
         for (int i = 0; i < 64; i++)
         {
-            dane[i] = '_';
-            kolory[i] = 6 + (i % 2) >> 1;
+            dane[i] = ' ';
+            kolory[i] = 16 * (4 + (((i / 8 + i % 8) % 2) << 1));
         }
+        cout << "Początkowe dane planszy przygotowane" << endl;
         for (int i = 0; i < 16; i++)
         {
             Pionek* pionek = m_Gracz1.pobierzPionek(i);
-            if (pionek->czyZbity())
+            if (!pionek->czyZbity())
             {
                 Pole* pole = pionek->jakaPozycja();// m_Gracz1.pobierzPionek(i).jakaPozycja();
                 char numer = pole->pobierzNumer();
 
+                cout << "Wpis do planszy " << (int)numer << endl;
                 dane[numer] = toChar(pionek->jakaLitera());
-                kolory[numer] = 240;
+                kolory[numer] += 0;
             }
         }
         for (int i = 0; i < 16; i++)
         {
             Pionek* pionek = m_Gracz2.pobierzPionek(i);
-            if (pionek->czyZbity())
+            if (!pionek->czyZbity())
             {
                 Pole* pole = pionek->jakaPozycja();// m_Gracz1.pobierzPionek(i).jakaPozycja();
                 char numer = pole->pobierzNumer();
 
                 dane[numer] = toChar(pionek->jakaLitera());
-                kolory[numer] = 15;
+                kolory[numer] += 7;
             }
         }
+        cout << "Dane pionków wpisane do planszy" << endl;
         m_Plansza.rysuj(dane, kolory);
         // Rysowanie planszy - end
 
 
-    }
+    //}
 }
 
 void Gra::resetuj()

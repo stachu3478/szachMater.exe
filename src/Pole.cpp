@@ -6,14 +6,15 @@
 using namespace Szachy;
 using namespace std;
 
-Pole::Pole(unsigned int poziom, unsigned int pion)
+Pole::Pole(int rzad, int kolumna)
 {
-    if (poziom < 1 || poziom > 8 || pion < 1 || pion > 8)
+    if (rzad < 1 || rzad > 8 || kolumna < 1 || kolumna > 8)
     {
-        cout << "Niew³aœciwa pozycja pola\n";
+        cout << "Niewłaściwa pozycja pola\n";
         throw -1;
     }
-    this->numer = poziom * 8 + pion - 1;
+    this->numer = rzad * 8 + kolumna - 9;
+    // cout << "Nowe pole ma numer " << (int)numer << endl;
 }
 
 Pole::~Pole()
@@ -39,19 +40,21 @@ Pole& Pole::operator=(const Pole& rhs)
     return *this;
 }*/
 
-Pole* Pole::generuj(unsigned int szerokosc, unsigned int wysokosc)
+/// Przeniesiono do planszy
+/*Pole* Pole::generuj(int szerokosc, int wysokosc)
 {
     Pole* pola[szerokosc * wysokosc];
     unsigned int licznik = 0;
-    for(unsigned int szer = 1; szer <= szerokosc; szer++)
+    for(int szer = 1; szer <= szerokosc; szer++)
     {
-        for(unsigned int wys = 1; wys <= wysokosc; wys++, licznik++)
+        for(int wys = 1; wys <= wysokosc; wys++, licznik++)
         {
+            // cout << "Pole nr " << licznik << endl;
             pola[licznik] = new Pole(szer, wys);
         }
     }
     return *pola;
-}
+}*/
 
 bool Pole::operator==(const Pole& rhs)
 {

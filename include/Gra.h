@@ -6,6 +6,8 @@
 #include "TypPionka.h"
 #include "HistoriaRuchow.h"
 
+char toChar(std::string a);
+
 namespace Szachy
 {
     class Gra
