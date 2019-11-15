@@ -12,7 +12,7 @@ namespace Szachy
             TypPionka(std::string nazwa, std::string opis, char sciezka);
             /** Default destructor */
             virtual ~TypPionka();
-            static TypPionka* generuj();
+            //static TypPionka** generuj();
             std::string jakaLitera() { return litera; };
             std::string jakaNazwa() { return nazwa; };
             std::string info();

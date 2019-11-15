@@ -1,7 +1,6 @@
 #include <iostream>
 #include <windows.h>
 #include "Gra.h"
-#include "TypPionka.h"
 
 using namespace std;
 using namespace Szachy;
@@ -11,7 +10,7 @@ int main()
     SetConsoleOutputCP( 65001 ); // Umożliwia pisanie w konsoli polskich znaków
 
     cout << "Inicjalizacja" << endl;
-    Gra* szachy = new Gra(TypPionka::generuj());
+    Gra* szachy = new Gra();
     cout << "Rozpoczęcie gry" << endl;
     szachy->rozpocznij();
     // cout << "A oto nazwa gracza 1: " << szachy.GetGracz1().jakaNazwa() << endl;

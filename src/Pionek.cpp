@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Array.h"
 #include "Pionek.h"
 #include "TypPionka.h"
 #include "Pole.h"
@@ -12,7 +13,8 @@ Pionek::Pionek(TypPionka* typ, Pole* pozycja)
     // m_gracz = gracz;
     m_typ = typ;
     m_pozycja = pozycja;
-    cout << "Nowy pionek ma pole nr " << (int)pozycja->pobierzNumer() << endl;
+    // cout << "Nowy pionek ma pole nr " << (int)pozycja->pobierzNumer() << endl;
+    cout << "Nowy pionek ma literke " << typ->jakaLitera() << endl;
 }
 
 void Pionek::przenies(Pole* pole)
@@ -21,12 +23,12 @@ void Pionek::przenies(Pole* pole)
     m_bylPierwszyRuch = true;
 }
 
-Pole** Pionek::mozliwosciRuchu()
+Array<Pole> Pionek::mozliwosciRuchu()
 {
     int** przesuniecia = m_typ->mozliwosciRuchu();
     int x = m_pozycja->poziom();
     int y = m_pozycja->pion();
-    Pole* pola[4];
+    Array<Pole> pola();
     int licznik = 0;
     for (int i = 0; i < 4; i++)
     {
@@ -39,7 +41,7 @@ Pole** Pionek::mozliwosciRuchu()
             && py <= 8
         )
         {
-            pola[licznik++] = new Pole(px, py);
+            pola.push(new Pole(px, py));
         }
     }
     return pola;

@@ -12,9 +12,10 @@ namespace Szachy
     class Gracz
     {
         public:
-            Gracz(TypPionka* typyPionkow, Plansza* plansza, bool czarne);
+            Gracz(TypPionka** typyPionkow, Plansza* plansza, bool czarne);
+            Gracz();
             virtual ~Gracz();
-            void generujPionki(TypPionka* typyPionkow, Plansza* plansza);
+            void generujPionki(TypPionka** typyPionkow, Plansza* plansza);
             std::string jakaNazwa() { return m_nazwa; };
             bool czyCzarny() { return m_jestCzarny; };
             bool czySzach();

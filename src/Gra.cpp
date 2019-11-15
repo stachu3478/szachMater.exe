@@ -16,18 +16,33 @@ char toChar(std::string str)
     char c[str.size() + 1];
     str.copy(c, str.size() + 1);
     c[str.size()] = '\0';
+    // cout << "to char" << str << endl;
     return *c;
 }
 
+void Gra::generujTypyPionkow()
+{
+    cout << "Tworzenie typów pionków" << endl;
+    m_TypyPionkow[0] = new TypPionka("Pion", "Najbardziej pospolity pionek", 'O');
+    m_TypyPionkow[1] = new TypPionka("Skoczek", "Pionek potrafiący przeskakikaæ inne pionki", 'S');
+    m_TypyPionkow[2] = new TypPionka("Goniec", "Pionek bij¹cy na ukos", 'G');
+    m_TypyPionkow[3] = new TypPionka("Wie¿a", "Pionek bij¹cy w kolumnach i rzêdach", 'W');
+    m_TypyPionkow[4] = new TypPionka("Hetman", "Wa¿ny pionek, posiada najwiêcej mo¿liwoœci ruchu", 'H');
+    m_TypyPionkow[5] = new TypPionka("Król", "Najwa¿niejszy pionek, nie mo¿e zostaæ zbity", 'K');
+    cout << "Utworzono typy pionków" << endl;
+}
+
 /// Typy pionków muszą być w argumencie aby zainicjalizować gracza z pionkami
-Gra::Gra(TypPionka* typyPionkow):
+Gra::Gra():
     m_Plansza(8),
-    m_Gracz1(typyPionkow, &m_Plansza, true),
-    m_Gracz2(typyPionkow, &m_Plansza, false),
+    //m_Gracz1,
+    //m_Gracz2,
     m_HistoriaRuchow()
 {
     cout << "konstruktor gra" << endl;
-    m_TypyPionkow = typyPionkow;
+    generujTypyPionkow();
+    m_Gracz1 = *(new Gracz(m_TypyPionkow, &m_Plansza, true));
+    m_Gracz2 = *(new Gracz(m_TypyPionkow, &m_Plansza, false));
 }
 
 void Gra::rozpocznij()
@@ -50,10 +65,12 @@ void Gra::rozpocznij()
             if (!pionek->czyZbity())
             {
                 Pole* pole = pionek->jakaPozycja();// m_Gracz1.pobierzPionek(i).jakaPozycja();
-                char numer = pole->pobierzNumer();
+                int numer = (int)pole->pobierzNumer();
 
-                cout << "Wpis do planszy " << (int)numer << endl;
-                dane[numer] = toChar(pionek->jakaLitera());
+                cout << "Wpis do planszy " << numer << endl;
+                string litera = pionek->jakaLitera();
+                cout << "Literka " << litera << endl;
+                dane[numer] = toChar(litera);
                 kolory[numer] += 0;
             }
         }

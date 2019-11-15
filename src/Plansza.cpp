@@ -14,7 +14,7 @@ void Plansza::generujPola(int szerokosc, int wysokosc)
     {
         for(int wys = 1; wys <= wysokosc; wys++, licznik++)
         {
-            cout << "Pole nr " << licznik << endl;
+            // cout << "Pole nr " << licznik << endl;
             m_Pola[licznik] = new Pole(szer, wys);
         }
     }

@@ -20,6 +20,7 @@ namespace Szachy
             /// jako literowa pozycja pola (od 1 do 8)
             /// jest mniej znacząca w wartoœci
             Pole(int poziom, int pion);
+            Pole(){};
             /// Tworzy zdefiniowaną listę pól z odniesieniem pozycji
             //static Pole* generuj(int szerokosc, int wysokosc);
             /// Zwraca czyteln¹ nazwê pola na szachownicy

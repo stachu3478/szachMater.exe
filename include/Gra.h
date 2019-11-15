@@ -13,9 +13,10 @@ namespace Szachy
     class Gra
     {
         public:
-            Gra(TypPionka* a);
+            Gra();
             virtual ~Gra();
 
+            void generujTypyPionkow();
             unsigned int GetStatus() { return m_Status; }
             void SetStatus(unsigned int val) { m_Status = val; }
             unsigned int GetLicznikCzasu() { return m_LicznikCzasu; }
@@ -37,7 +38,7 @@ namespace Szachy
             Szachy::Plansza m_Plansza;
             Szachy::Gracz m_Gracz1;
             Szachy::Gracz m_Gracz2;
-            Szachy::TypPionka* m_TypyPionkow;
+            Szachy::TypPionka* m_TypyPionkow[5];
             Szachy::HistoriaRuchow m_HistoriaRuchow;
     };
 }
