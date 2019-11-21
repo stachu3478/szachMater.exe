@@ -506,16 +506,18 @@
 	"TypPionka.h"
 	"HistoriaRuchow.h"
 
-1573831515 d:\skrypty\szachmater.exe\include\gracz.h
+1574315859 d:\skrypty\szachmater.exe\include\gracz.h
 	<string>
 	"Ruch.h"
 	"Pionek.h"
 	"TypPionka.h"
 	"Plansza.h"
+	"Array.h"
 
-1573805550 d:\skrypty\szachmater.exe\include\pionek.h
+1574315887 d:\skrypty\szachmater.exe\include\pionek.h
 	"TypPionka.h"
 	"Pole.h"
+	"Array.h"
 
 1573831515 d:\skrypty\szachmater.exe\include\typpionka.h
 	<string>
@@ -531,7 +533,7 @@
 	"Ruch.h"
 	<string>
 
-1572349063 d:\skrypty\szachmater.exe\include\ruch.h
+1574315859 d:\skrypty\szachmater.exe\include\ruch.h
 	"Pole.h"
 	"TypPionka.h"
 	"Pionek.h"
@@ -646,4 +648,9 @@
 
 1573805550 d:\skrypty\szachmater.exe\include\pionekjuzzbityexception.h
 	<stdexcept>
+
+1574314967 source:d:\skrypty\szachmater.exe\src\array.cpp
+	"Array.h"
+
+1574314918 d:\skrypty\szachmater.exe\include\array.h
 

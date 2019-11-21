@@ -14,7 +14,7 @@ template <class T> Array<T>::Array()
     max_length = 10;
 }
 
-template <class T> T Array::push(T item)
+template <class T> T Array<T>::push(T item)
 {
     if (length++ > max_length)
     {
@@ -27,13 +27,13 @@ template <class T> T Array::push(T item)
     }
 }
 
-template <class T> T& Array::operator[](unsigned index)
+template <class T> T& Array<T>::operator[](unsigned index)
 {
     if (index >= max_length) return next[index - max_length];
     else return *(items + index);
 }
 
-Array::~Array()
+template <class T> Array<T>::~Array()
 {
     if (length > max_length) delete next;
     delete []items;

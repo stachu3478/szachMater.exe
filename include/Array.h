@@ -10,7 +10,7 @@ template <class T> class Array
 
         int len() { return length; };
         T &operator[](unsigned index);
-        T push();
+        T push(T item);
 
     protected:
 

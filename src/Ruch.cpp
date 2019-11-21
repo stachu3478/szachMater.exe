@@ -8,12 +8,12 @@
 using namespace Szachy;
 using namespace std;
 
-Ruch::Ruch(Pionek* pionek, Pole* od, Pole* na, Pionek* zbityPionek)
+Ruch::Ruch(Pionek* pionek, Pole* od, Pole* na)
 {
     m_Pionek = pionek;
     m_PozycjaStartowa = od;
     m_PozycjaDocelowa = na;
-    m_ZbityPionek = zbityPionek;
+    //m_ZbityPionek = zbityPionek;
     m_Wykonany = false;
 }
 

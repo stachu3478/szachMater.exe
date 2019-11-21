@@ -10,7 +10,7 @@ namespace Szachy
     class Ruch
     {
         public:
-            Ruch(Pionek* pionek, Pole* od, Pole* na, Pionek* zbity);
+            Ruch(Pionek* pionek, Pole* od, Pole* na);
             virtual ~Ruch();
             void renderuj();
             void wykonaj();

@@ -4,6 +4,7 @@
 #include "TypPionka.h"
 #include "Pionek.h"
 #include "Plansza.h"
+#include "Array.h"
 
 using namespace Szachy;
 using namespace std;
@@ -42,14 +43,21 @@ Gracz::Gracz(TypPionka** typyPionkow, Plansza* plansza, bool czarne)
 Gracz::Gracz()
 {}
 
-Array<Array<Pole>> mozliwosciRuchu()
+Array< Array<Ruch> > Gracz::mozliwosciRuchu()
 {
-    Array<Array<Pole>> ruchyPionkow();
+    Array< Array<Pole> > ruchyPionkow();
     for (int i = 0; i < 16; i++)
     {
-        if (!m_pionki.czyZbity())
+        if (!m_pionki[i]->czyZbity())
         {
-            ruchyPionkow.push(m_pionki[i].mozliwosciRuchu())
+            Array<Pole> pola = m_pionki[i]->mozliwosciRuchu();
+            Array<Ruch> ruchy(pola.len());
+            Pole* pozycja = m_pionki[i]->jakaPozycja();
+            for (int j = 0; j < pola.len(); j++)
+            {
+                ruchy.push(new Ruch(m_pionki + i, pozycja, &pola[j]));
+            }
+            ruchyPionkow.push(ruchy);
         }
     }
     return ruchyPionkow;

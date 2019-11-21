@@ -6,6 +6,7 @@
 #include "Pionek.h"
 #include "TypPionka.h"
 #include "Plansza.h"
+#include "Array.h"
 
 namespace Szachy
 {
@@ -21,7 +22,7 @@ namespace Szachy
             bool czySzach();
             bool czyPrzegral();
             Pionek* pobierzPionek(int n) { return m_pionki[n]; };
-            Ruch* mozliwosciRuchu();
+            Array< Array<Ruch> > mozliwosciRuchu();
         protected:
 
         private:

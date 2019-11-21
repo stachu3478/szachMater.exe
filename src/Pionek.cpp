@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Array.h"
 #include "Pionek.h"
 #include "TypPionka.h"
 #include "Pole.h"
+#include "Array.h"
 
 using namespace std;
 using namespace Szachy;
