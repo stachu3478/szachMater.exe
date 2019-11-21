@@ -495,10 +495,11 @@
 	"TypPionka.h"
 	"Pole.h"
 
-1573831515 source:d:\skrypty\szachmater.exe\main.cpp
+1574331609 source:d:\skrypty\szachmater.exe\main.cpp
 	<iostream>
 	<windows.h>
 	"Gra.h"
+	"Array.h"
 
 1573831538 d:\skrypty\szachmater.exe\include\gra.h
 	"Gracz.h"
@@ -506,7 +507,7 @@
 	"TypPionka.h"
 	"HistoriaRuchow.h"
 
-1574315859 d:\skrypty\szachmater.exe\include\gracz.h
+1574326806 d:\skrypty\szachmater.exe\include\gracz.h
 	<string>
 	"Ruch.h"
 	"Pionek.h"
@@ -514,7 +515,7 @@
 	"Plansza.h"
 	"Array.h"
 
-1574315887 d:\skrypty\szachmater.exe\include\pionek.h
+1574327125 d:\skrypty\szachmater.exe\include\pionek.h
 	"TypPionka.h"
 	"Pole.h"
 	"Array.h"
@@ -533,7 +534,7 @@
 	"Ruch.h"
 	<string>
 
-1574315859 d:\skrypty\szachmater.exe\include\ruch.h
+1574327520 d:\skrypty\szachmater.exe\include\ruch.h
 	"Pole.h"
 	"TypPionka.h"
 	"Pionek.h"
@@ -547,12 +548,13 @@
 	"HistoriaRuchow.h"
 	<iostream>
 
-1573831515 source:d:\skrypty\szachmater.exe\src\gracz.cpp
+1574327499 source:d:\skrypty\szachmater.exe\src\gracz.cpp
 	"Gracz.h"
 	<iostream>
 	"TypPionka.h"
 	"Pionek.h"
 	"Plansza.h"
+	"Array.h"
 
 1573805969 source:d:\skrypty\szachmater.exe\src\historiaruchow.cpp
 	"HistoriaRuchow.h"
@@ -560,11 +562,12 @@
 	<iostream>
 	<fstream>
 
-1573830977 source:d:\skrypty\szachmater.exe\src\pionek.cpp
+1574327615 source:d:\skrypty\szachmater.exe\src\pionek.cpp
 	<iostream>
 	"Pionek.h"
 	"TypPionka.h"
 	"Pole.h"
+	"Array.h"
 
 1573829998 source:d:\skrypty\szachmater.exe\src\plansza.cpp
 	"Plansza.h"
@@ -578,7 +581,7 @@
 	<string>
 	<iostream>
 
-1573805550 source:d:\skrypty\szachmater.exe\src\ruch.cpp
+1574327519 source:d:\skrypty\szachmater.exe\src\ruch.cpp
 	"Ruch.h"
 	<iostream>
 	"Pionek.h"
@@ -649,8 +652,9 @@
 1573805550 d:\skrypty\szachmater.exe\include\pionekjuzzbityexception.h
 	<stdexcept>
 
-1574314967 source:d:\skrypty\szachmater.exe\src\array.cpp
+1574328192 source:d:\skrypty\szachmater.exe\src\array.cpp
 	"Array.h"
 
-1574314918 d:\skrypty\szachmater.exe\include\array.h
+1574331798 d:\skrypty\szachmater.exe\include\array.h
+	<iostream>
 

@@ -23,12 +23,12 @@ void Pionek::przenies(Pole* pole)
     m_bylPierwszyRuch = true;
 }
 
-Array<Pole> Pionek::mozliwosciRuchu()
+Array<Pole*> Pionek::mozliwosciRuchu()
 {
     int** przesuniecia = m_typ->mozliwosciRuchu();
     int x = m_pozycja->poziom();
     int y = m_pozycja->pion();
-    Array<Pole> pola();
+    Array<Pole*> pola;
     int licznik = 0;
     for (int i = 0; i < 4; i++)
     {

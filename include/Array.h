@@ -1,24 +1,67 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
+#include <iostream>
+
 template <class T> class Array
 {
     public:
-        Array();
-        Array(int init_length);
-        virtual ~Array();
+        Array()
+        {
+            items = new T[10];
+            length = 0;
+            max_index = 9;
+        };
+        Array(int init_length)
+        {
+            items = new T[init_length];
+            length = 0;
+            max_index = init_length - 1;
+        };
+        ~Array()
+        {
+            if (length > max_index) delete next;
+            delete []items;
+        }
 
         int len() { return length; };
-        T &operator[](unsigned index);
-        T push(T item);
+        T &refer(int index)
+        {
+            if (index >= max_index) return next->refer(index - max_index);
+            else return *(items + index);
+        }
+
+        T &operator[](unsigned index)
+        {
+            if (index >= max_index) return next->refer(index - max_index);
+            else return *(items + index);
+        }
+
+        T push(T item)
+        {
+            //std::cout << "push " << (5 << 1) << std::endl;
+            if (++length > max_index)
+            {
+                if (length == max_index + 1) {
+                    //std::cout << "new array" << std::endl;
+                    next = new Array<T>(length << 1);
+                }
+                //std::cout << "into new array" << length << max_index << std::endl;
+                return next->push(item);
+            }
+            else
+            {
+                return items[length - 1] = item;
+            }
+        }
 
     protected:
 
     private:
         int length;
-        int max_length;
+        int max_index;
         T* items;
-        Array* next;
+        Array<T>* next;
 };
 
 #endif // ARRAY_H

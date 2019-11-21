@@ -1,14 +1,29 @@
 #include <iostream>
 #include <windows.h>
 #include "Gra.h"
+#include "Array.h"
 
 using namespace std;
 using namespace Szachy;
+
+void testArray()
+{
+    Array<int> a(10);
+    for(int i = 0; i < 50; i++)
+    {
+        a.push(i);
+    }
+    for(int i = 0; i < a.len(); i++)
+    {
+        std::cout << a[i] << std::endl;
+    }
+}
 
 int main()
 {
     SetConsoleOutputCP( 65001 ); // Umożliwia pisanie w konsoli polskich znaków
 
+    testArray();
     cout << "Inicjalizacja" << endl;
     Gra* szachy = new Gra();
     cout << "Rozpoczęcie gry" << endl;

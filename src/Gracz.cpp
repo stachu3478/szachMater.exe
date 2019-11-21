@@ -43,19 +43,19 @@ Gracz::Gracz(TypPionka** typyPionkow, Plansza* plansza, bool czarne)
 Gracz::Gracz()
 {}
 
-Array< Array<Ruch> > Gracz::mozliwosciRuchu()
+Array< Array<Ruch*> > Gracz::mozliwosciRuchu()
 {
-    Array< Array<Pole> > ruchyPionkow();
+    Array< Array<Ruch*> > ruchyPionkow;
     for (int i = 0; i < 16; i++)
     {
         if (!m_pionki[i]->czyZbity())
         {
-            Array<Pole> pola = m_pionki[i]->mozliwosciRuchu();
-            Array<Ruch> ruchy(pola.len());
-            Pole* pozycja = m_pionki[i]->jakaPozycja();
+            Array<Pole*> pola = m_pionki[i]->mozliwosciRuchu();
+            Array<Ruch*> ruchy(pola.len());
+            // Pole* pozycja = m_pionki[i]->jakaPozycja();
             for (int j = 0; j < pola.len(); j++)
             {
-                ruchy.push(new Ruch(m_pionki + i, pozycja, &pola[j]));
+                ruchy.push(new Ruch(*&m_pionki[i], m_pionki[i]->jakaPozycja(), pola[j]));
             }
             ruchyPionkow.push(ruchy);
         }

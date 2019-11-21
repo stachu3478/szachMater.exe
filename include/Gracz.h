@@ -22,7 +22,7 @@ namespace Szachy
             bool czySzach();
             bool czyPrzegral();
             Pionek* pobierzPionek(int n) { return m_pionki[n]; };
-            Array< Array<Ruch> > mozliwosciRuchu();
+            Array< Array<Ruch*> > mozliwosciRuchu();
         protected:
 
         private:

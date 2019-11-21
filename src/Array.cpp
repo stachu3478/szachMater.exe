@@ -1,6 +1,6 @@
 #include "Array.h"
 
-template <class T> Array<T>::Array(int init_length)
+/*template <class T> Array<T>::Array(int init_length)
 {
     items = new T[init_length];
     length = 0;
@@ -37,4 +37,4 @@ template <class T> Array<T>::~Array()
 {
     if (length > max_length) delete next;
     delete []items;
-}
+}*/
