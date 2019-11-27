@@ -37,6 +37,16 @@ template <class T> class Array
             else return *(items + index);
         }
 
+        void printItems()
+        {
+            std::cout << "[ ";
+            for (int i = 0; i < length; i++)
+            {
+                std::cout << refer(i) << ", ";
+            }
+            std::cout << " ]\n";
+        }
+
         T push(T item)
         {
             //std::cout << "push " << (5 << 1) << std::endl;

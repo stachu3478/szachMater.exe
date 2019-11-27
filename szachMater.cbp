@@ -38,6 +38,7 @@
 		<Unit filename="include/Gra.h" />
 		<Unit filename="include/Gracz.h" />
 		<Unit filename="include/HistoriaRuchow.h" />
+		<Unit filename="include/Kolor.h" />
 		<Unit filename="include/Pionek.h" />
 		<Unit filename="include/PionekJuzZbityException.h" />
 		<Unit filename="include/Plansza.h" />
@@ -49,6 +50,7 @@
 		<Unit filename="src/Gra.cpp" />
 		<Unit filename="src/Gracz.cpp" />
 		<Unit filename="src/HistoriaRuchow.cpp" />
+		<Unit filename="src/Kolor.cpp" />
 		<Unit filename="src/Pionek.cpp" />
 		<Unit filename="src/PionekJuzZbityException.cpp" />
 		<Unit filename="src/Plansza.cpp" />

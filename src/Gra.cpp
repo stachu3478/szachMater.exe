@@ -1,6 +1,8 @@
 #include "Gra.h"
 
 #include <string>
+
+#include "Kolor.h"
 #include "Plansza.h"
 #include "TypPionka.h"
 #include "Gracz.h"
@@ -41,8 +43,8 @@ Gra::Gra():
 {
     cout << "konstruktor gra" << endl;
     generujTypyPionkow();
-    m_Gracz1 = *(new Gracz(m_TypyPionkow, &m_Plansza, true));
-    m_Gracz2 = *(new Gracz(m_TypyPionkow, &m_Plansza, false));
+    m_Gracz1 = *(new Gracz(m_TypyPionkow, &m_Plansza, 0));
+    m_Gracz2 = *(new Gracz(m_TypyPionkow, &m_Plansza, 7));
 }
 
 void Gra::rozpocznij()
@@ -90,7 +92,7 @@ void Gra::rozpocznij()
         m_Plansza.rysuj(dane, kolory);
         // Rysowanie planszy - end
 
-
+        Array< Array<Ruch*> > mozliweRuchy = m_Gracz1.mozliwosciRuchu();
     //}
 }
 

@@ -2,13 +2,16 @@
 #include <string>
 #include <iostream>
 
+#include "Array.h"
+
 using namespace std;
 using namespace Szachy;
 
-int* utworzPrzesuniecie(int x, int y)
+int*& utworzPrzesuniecie(int x, int y)
 {
-    int xy[2] = { x, y };
-    return xy;
+    int* xy = new int[2]{ x, y };
+    int*& xd = xy;
+    return xd;
 }
 
 TypPionka::TypPionka(std::string c_nazwa, std::string c_opis, char c_litera)
@@ -38,23 +41,27 @@ std::string TypPionka::info()
     return nazwa + "\n" + opis + "\nReprezentowany przez literę " + litera + "\n";
 }
 
-int** TypPionka::mozliwosciRuchu()
+Array<int*>& TypPionka::mozliwosciRuchu()
 {
-    int x = 4, y = 2;
-    int* pola[x];
+    Array<int*> pola(4);
     switch ((int)*litera.c_str())
     {
         case 'O':
             {
-                pola[0] = utworzPrzesuniecie(2, 0);
-                pola[1] = utworzPrzesuniecie(1, 0);
-                pola[2] = utworzPrzesuniecie(1, 1);
-                pola[3] = utworzPrzesuniecie(1, -1);
+                cout << "Dodaje przesuniecie 1" << endl;
+                pola.push(utworzPrzesuniecie(2, 0));
+                cout << "Dodaje przesuniecie 2" << endl;
+                pola.push(utworzPrzesuniecie(1, 0));
+                cout << "Dodaje przesuniecie 3" << endl;
+                pola.push(utworzPrzesuniecie(1, 1));
+                cout << "Dodaje przesuniecie 4" << endl;
+                pola.push(utworzPrzesuniecie(1, -1));
                 //pola[0] = { 2, 0 }
                 //pola[1] = { 1, 0 };
             }; break;
     };
-    return pola;
+    Array<int*>& polaRef = pola;
+    return polaRef;
 }
 
 TypPionka::~TypPionka()

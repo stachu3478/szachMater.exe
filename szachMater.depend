@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1573675269 source:c:\users\stach\desktop\szachmater\main.cpp
+1574718332 source:c:\users\stach\desktop\szachmater\main.cpp
 	<iostream>
 	<windows.h>
 	"Gra.h"
-	"TypPionka.h"
+	"Array.h"
 
-1573676431 c:\users\stach\desktop\szachmater\include\pole.h
+1573936144 c:\users\stach\desktop\szachmater\include\pole.h
 	<string>
 
-1573672909 source:c:\users\stach\desktop\szachmater\src\pole.cpp
+1573936144 source:c:\users\stach\desktop\szachmater\src\pole.cpp
 	"Pole.h"
 	<cmath>
 	<string>
@@ -224,13 +224,15 @@
 
 1570914210 c:\users\stach\downloads\sfml-2.5.1-windows-gcc-5.1.0-tdm-32-bit\sfml-2.5.1\include\sfml\window\windowstyle.hpp
 
-1573677726 source:c:\users\stach\desktop\szachmater\src\typpionka.cpp
+1574885094 source:c:\users\stach\desktop\szachmater\src\typpionka.cpp
 	"TypPionka.h"
 	<string>
 	<iostream>
+	"Array.h"
 
-1573677150 c:\users\stach\desktop\szachmater\include\typpionka.h
+1574885102 c:\users\stach\desktop\szachmater\include\typpionka.h
 	<string>
+	"Array.h"
 
 1570914208 d:\sfml-2.5.1\include\sfml\window.hpp
 	<SFML/System.hpp>
@@ -471,29 +473,36 @@
 1571046592 e:\szachmater.exe\include\gracz.h
 	<string>
 
-1573676431 source:c:\users\stach\desktop\szachmater\src\gracz.cpp
+1574896133 source:c:\users\stach\desktop\szachmater\src\gracz.cpp
 	"Gracz.h"
 	<iostream>
 	"TypPionka.h"
 	"Pionek.h"
 	"Plansza.h"
+	"Array.h"
+	"Kolor.h"
 
-1573675527 c:\users\stach\desktop\szachmater\include\gracz.h
+1574895684 c:\users\stach\desktop\szachmater\include\gracz.h
 	<string>
+	"Kolor.h"
 	"Ruch.h"
 	"Pionek.h"
 	"TypPionka.h"
 	"Plansza.h"
+	"Array.h"
 
-1573678192 source:c:\users\stach\desktop\szachmater\src\pionek.cpp
+1574895158 source:c:\users\stach\desktop\szachmater\src\pionek.cpp
 	<iostream>
 	"Pionek.h"
 	"TypPionka.h"
 	"Pole.h"
+	"Array.h"
 
-1573678205 c:\users\stach\desktop\szachmater\include\pionek.h
+1574895172 c:\users\stach\desktop\szachmater\include\pionek.h
+	"Kolor.h"
 	"TypPionka.h"
 	"Pole.h"
+	"Array.h"
 
 1574331609 source:d:\skrypty\szachmater.exe\main.cpp
 	<iostream>
@@ -599,7 +608,7 @@
 1573672988 c:\users\stach\desktop\szachmater\include\pionekjuzzbityexception.h
 	<stdexcept>
 
-1573669564 source:c:\users\stach\desktop\szachmater\src\historiaruchow.cpp
+1573936144 source:c:\users\stach\desktop\szachmater\src\historiaruchow.cpp
 	"HistoriaRuchow.h"
 	"Ruch.h"
 	<iostream>
@@ -609,38 +618,40 @@
 	"Ruch.h"
 	<string>
 
-1573669564 c:\users\stach\desktop\szachmater\include\ruch.h
+1574870904 c:\users\stach\desktop\szachmater\include\ruch.h
 	"Pole.h"
 	"TypPionka.h"
 	"Pionek.h"
 
-1573669564 source:c:\users\stach\desktop\szachmater\src\ruch.cpp
+1574870906 source:c:\users\stach\desktop\szachmater\src\ruch.cpp
 	"Ruch.h"
 	<iostream>
 	"Pionek.h"
 	"Pole.h"
 	"TypPionka.h"
 
-1573675252 c:\users\stach\desktop\szachmater\include\gra.h
+1573936144 c:\users\stach\desktop\szachmater\include\gra.h
 	"Gracz.h"
 	"Plansza.h"
 	"TypPionka.h"
 	"HistoriaRuchow.h"
 
-1573674132 c:\users\stach\desktop\szachmater\include\plansza.h
+1574893936 c:\users\stach\desktop\szachmater\include\plansza.h
 	"Pole.h"
 	"TypPionka.h"
+	"Pionek.h"
 
-1573676431 source:c:\users\stach\desktop\szachmater\src\gra.cpp
+1574896000 source:c:\users\stach\desktop\szachmater\src\gra.cpp
 	"Gra.h"
 	<string>
+	"Kolor.h"
 	"Plansza.h"
 	"TypPionka.h"
 	"Gracz.h"
 	"HistoriaRuchow.h"
 	<iostream>
 
-1573674616 source:c:\users\stach\desktop\szachmater\src\plansza.cpp
+1574870223 source:c:\users\stach\desktop\szachmater\src\plansza.cpp
 	"Plansza.h"
 	<iostream>
 	<windows.h>
@@ -657,4 +668,17 @@
 
 1574331798 d:\skrypty\szachmater.exe\include\array.h
 	<iostream>
+
+1574871902 c:\users\stach\desktop\szachmater\include\array.h
+	<iostream>
+
+1574718332 source:c:\users\stach\desktop\szachmater\src\array.cpp
+	"Array.h"
+
+1574895779 c:\users\stach\desktop\szachmater\include\kolor.h
+	<string>
+
+1574896166 source:c:\users\stach\desktop\szachmater\src\kolor.cpp
+	"Kolor.h"
+	<string>
 

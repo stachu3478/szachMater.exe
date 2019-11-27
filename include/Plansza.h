@@ -3,6 +3,7 @@
 
 #include "Pole.h"
 #include "TypPionka.h"
+#include "Pionek.h"
 
 namespace Szachy
 {
@@ -17,6 +18,7 @@ namespace Szachy
             void zresetuj(int rozmiar);
             void generujPola(int a, int b);
             Pole* pobierzPole(unsigned int poziom, unsigned int pion);
+            Pionek* operator[](Pole index);
 
         protected:
 

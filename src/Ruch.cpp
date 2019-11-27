@@ -8,6 +8,9 @@
 using namespace Szachy;
 using namespace std;
 
+Ruch::Ruch()
+{}
+
 Ruch::Ruch(Pionek* pionek, Pole* od, Pole* na)
 {
     m_Pionek = pionek;

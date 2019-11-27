@@ -2,6 +2,7 @@
 #define TYPPIONKA_H
 
 #include <string>
+#include "Array.h"
 
 namespace Szachy
 {
@@ -16,7 +17,7 @@ namespace Szachy
             std::string jakaLitera() { return litera; };
             std::string jakaNazwa() { return nazwa; };
             std::string info();
-            int** mozliwosciRuchu();
+            Array<int*>& mozliwosciRuchu();
 
         protected:
 

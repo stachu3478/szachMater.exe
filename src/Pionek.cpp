@@ -7,10 +7,10 @@
 using namespace std;
 using namespace Szachy;
 
-Pionek::Pionek(TypPionka* typ, Pole* pozycja)
+Pionek::Pionek(TypPionka* typ, Pole* pozycja, Kolor* kolor)
 {
     m_zbity = false;
-    // m_gracz = gracz;
+    m_Kolor = kolor;
     m_typ = typ;
     m_pozycja = pozycja;
     // cout << "Nowy pionek ma pole nr " << (int)pozycja->pobierzNumer() << endl;
@@ -23,15 +23,20 @@ void Pionek::przenies(Pole* pole)
     m_bylPierwszyRuch = true;
 }
 
-Array<Pole*> Pionek::mozliwosciRuchu()
+Array<Pole>& Pionek::mozliwosciRuchu()
 {
-    int** przesuniecia = m_typ->mozliwosciRuchu();
+    Array<int*> przesuniecia = m_typ->mozliwosciRuchu();
+    cout << "Przesuniecia koniec " << endl;
     int x = m_pozycja->poziom();
     int y = m_pozycja->pion();
-    Array<Pole*> pola;
+    cout << "x i y pionka " << endl;
+    Array<Pole> pola(4);
+    cout << "Deklaracja pól" << endl;
     int licznik = 0;
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < przesuniecia.len(); i++)
     {
+        przesuniecia.printItems();
+        cout << i << przesuniecia.len() << endl;
         int px = x + przesuniecia[i][0];
         int py = y + przesuniecia[i][1];
         if (
@@ -41,10 +46,14 @@ Array<Pole*> Pionek::mozliwosciRuchu()
             && py <= 8
         )
         {
-            pola.push(new Pole(px, py));
+            cout << "Dodaję pole możliwości ruchu " << px << py << endl;
+            Pole pole(px, py);
+            pola.push(pole);
         }
     }
-    return pola;
+    cout << "pionek mozliwosci koniec" << endl;
+    Array<Pole>& polaRef = pola;
+    return polaRef;
 }
 
 // FIXME
