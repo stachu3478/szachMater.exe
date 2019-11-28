@@ -10,7 +10,7 @@ namespace Szachy
     {
         public:
             /** Default constructor */
-            TypPionka(std::string nazwa, std::string opis, char sciezka);
+            TypPionka(std::string nazwa, std::string opis, char sciezka, Array<char*>* mozliweRuchy);
             /** Default destructor */
             virtual ~TypPionka();
             //static TypPionka** generuj();
@@ -25,6 +25,7 @@ namespace Szachy
             std::string nazwa; //!< Member variable "nazwa"
             std::string opis; //!< Member variable "opis"
             std::string litera;
+            Array<char*>* m_MozliweRuchy;
     };
 }
 

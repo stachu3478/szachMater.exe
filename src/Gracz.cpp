@@ -31,13 +31,17 @@ void Gracz::generujPionki(TypPionka** typyPionkow, Plansza* plansza)
     m_pionki[13] = new Pionek(typyPionkow[2], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // goniec
     m_pionki[14] = new Pionek(typyPionkow[1], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // skoczek
     m_pionki[15] = new Pionek(typyPionkow[3], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // wieza
+
+    for (int i = 0; i < 16; i++)
+    {
+        plansza->przydzielPionek(m_pionki[i]);
+    }
 }
 
 Gracz::Gracz(TypPionka** typyPionkow, Plansza* plansza, unsigned char kolor):
     m_KolorPionkow(kolor == 0 ? "Czarny" : "Biały", kolor)
 {
     cout << "Inicjalizacja gracza" << endl;
-    //m_KolorPionkow = kolor;
     generujPionki(typyPionkow, plansza);
     cout << "Podaj nazwę gracza: ";
     cin >> m_nazwa;

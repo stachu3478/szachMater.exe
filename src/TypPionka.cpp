@@ -14,11 +14,12 @@ int*& utworzPrzesuniecie(int x, int y)
     return xd;
 }
 
-TypPionka::TypPionka(std::string c_nazwa, std::string c_opis, char c_litera)
+TypPionka::TypPionka(std::string c_nazwa, std::string c_opis, char c_litera, Array<char*>* mozliweRuchy)
 {
     nazwa = c_nazwa;
     opis = c_opis;
     litera = c_litera;
+    m_MozliweRuchy = mozliweRuchy;
 }
 
 ///DO gry

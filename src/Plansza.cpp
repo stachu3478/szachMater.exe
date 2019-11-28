@@ -14,13 +14,16 @@ void Plansza::generujPola(int szerokosc, int wysokosc)
     {
         for(int wys = 1; wys <= wysokosc; wys++, licznik++)
         {
-            // cout << "Pole nr " << licznik << endl;
-            m_Pola[licznik] = new Pole(szer, wys);
+            Kolor* kolor = &((licznik % 2) ? m_KolorPolaA : m_KolorPolaB);
+            m_Pola[licznik] = new Pole(licznik, kolor);
+            m_PozycjePionkow[licznik] = 0;
         }
     }
 }
 
-Plansza::Plansza(int rozmiar)
+Plansza::Plansza(int rozmiar):
+    m_KolorPolaA("Oliwkowy", 4),
+    m_KolorPolaB("Brązowy", 6)
 {
     cout << "Przygotowywanie planszy" << endl;
     generujPola(rozmiar, rozmiar);
@@ -66,6 +69,17 @@ Pole* Plansza::pobierzPole(unsigned int poziom, unsigned int pion)
     Pole* pole = m_Pola[indeks];
     cout << "Pobrane pole ma numer " << (int)pole->pobierzNumer() << endl;
     return pole;
+}
+
+void Plansza::przydzielPionek(Pionek* pionek)
+{
+    char id = pionek->jakaPozycja()->pobierzNumer();
+    if (m_PozycjePionkow[id] != 0)
+    {
+        cout << "To pole jest już zajęte!" << endl;
+        throw pionek;
+    }
+    m_PozycjePionkow[id] = pionek;
 }
 
 Plansza::~Plansza()

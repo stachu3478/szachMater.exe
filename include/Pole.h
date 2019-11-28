@@ -2,6 +2,7 @@
 #define POLE_H
 
 #include <string>
+#include "Kolor.h"
 
 namespace Szachy
 {
@@ -19,6 +20,7 @@ namespace Szachy
             /// najmniejsza wartoœæ okreœla pole po lewej
             /// jako literowa pozycja pola (od 1 do 8)
             /// jest mniej znacząca w wartoœci
+            Pole(int num, Kolor* kolor);
             Pole(int poziom, int pion);
             Pole(){};
             /// Tworzy zdefiniowaną listę pól z odniesieniem pozycji
@@ -40,6 +42,7 @@ namespace Szachy
             char pobierzNumer() { return numer; };
             char poziom() { return numer / 8; };
             char pion() { return numer % 8; };
+            Kolor* JakiKolor() { return m_Kolor; };
 
         protected:
 
@@ -48,8 +51,7 @@ namespace Szachy
             /// jest rozumiany jako liczony od prawej do lewej
             /// a nastêpnie od góry do dołu
             unsigned char numer;
-            // FIXME
-            // Szachy::Pionek* m_pionek;
+            Kolor* m_Kolor;
     };
 }
 

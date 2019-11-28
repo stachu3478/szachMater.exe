@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "Array.h"
 #include "Kolor.h"
 #include "Plansza.h"
 #include "TypPionka.h"
@@ -25,12 +26,14 @@ char toChar(std::string str)
 void Gra::generujTypyPionkow()
 {
     cout << "Tworzenie typów pionków" << endl;
-    m_TypyPionkow[0] = new TypPionka("Pion", "Najbardziej pospolity pionek", 'O');
-    m_TypyPionkow[1] = new TypPionka("Skoczek", "Pionek potrafiący przeskakikaæ inne pionki", 'S');
-    m_TypyPionkow[2] = new TypPionka("Goniec", "Pionek bij¹cy na ukos", 'G');
-    m_TypyPionkow[3] = new TypPionka("Wie¿a", "Pionek bij¹cy w kolumnach i rzêdach", 'W');
-    m_TypyPionkow[4] = new TypPionka("Hetman", "Wa¿ny pionek, posiada najwiêcej mo¿liwoœci ruchu", 'H');
-    m_TypyPionkow[5] = new TypPionka("Król", "Najwa¿niejszy pionek, nie mo¿e zostaæ zbity", 'K');
+    Array<char*> ruchyPionu(10);
+    ruchyPionu.push(new char[2]{2, 1});
+    m_TypyPionkow[0] = new TypPionka("Pion", "Najbardziej pospolity pionek", 'O', &ruchyPionu);
+    m_TypyPionkow[1] = new TypPionka("Skoczek", "Pionek potrafiący przeskakikaæ inne pionki", 'S', &ruchyPionu);
+    m_TypyPionkow[2] = new TypPionka("Goniec", "Pionek bij¹cy na ukos", 'G', &ruchyPionu);
+    m_TypyPionkow[3] = new TypPionka("Wie¿a", "Pionek bij¹cy w kolumnach i rzêdach", 'W', &ruchyPionu);
+    m_TypyPionkow[4] = new TypPionka("Hetman", "Wa¿ny pionek, posiada najwiêcej mo¿liwoœci ruchu", 'H', &ruchyPionu);
+    m_TypyPionkow[5] = new TypPionka("Król", "Najwa¿niejszy pionek, nie mo¿e zostaæ zbity", 'K', &ruchyPionu);
     cout << "Utworzono typy pionków" << endl;
 }
 

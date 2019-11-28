@@ -6,8 +6,20 @@
 using namespace Szachy;
 using namespace std;
 
+Pole::Pole(int num, Kolor* kolor)
+{
+    m_Kolor = kolor;
+    if (num < 0 || num > 63)
+    {
+        cout << "Niewłaściwa pozycja pola\n";
+        throw -1;
+    }
+    this->numer = num;
+}
+
 Pole::Pole(int rzad, int kolumna)
 {
+    m_Kolor = 0;
     if (rzad < 1 || rzad > 8 || kolumna < 1 || kolumna > 8)
     {
         cout << "Niewłaściwa pozycja pola\n";
