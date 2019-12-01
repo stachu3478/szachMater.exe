@@ -12,6 +12,8 @@ namespace Szachy
         public:
             Ruch();
             Ruch(Pionek* pionek, Pole* od, Pole* na);
+            Pionek* jakiPionek(){ return m_Pionek; };
+            Pole* jakiCel(){ return m_PozycjaDocelowa; };
             virtual ~Ruch();
             void renderuj();
             void wykonaj();

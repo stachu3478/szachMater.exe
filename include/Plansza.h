@@ -15,12 +15,14 @@ namespace Szachy
             Plansza();
             virtual ~Plansza();
 
-            void rysuj(char* a, char* b);
+            void rysuj();
             void zresetuj(int rozmiar);
             void generujPola(int a, int b);
             Pole* pobierzPole(unsigned int poziom, unsigned int pion);
             Pionek* operator[](Pole index);
+            Pionek* pobierzPionek(Pole* pole) { return m_PozycjePionkow[pole->pobierzNumer()]; }
             void przydzielPionek(Pionek* pionek);
+            void przeniesPionek(Pionek* pionek, Pole* pozycja);
 
         protected:
 

@@ -29,6 +29,11 @@ Pole::Pole(int rzad, int kolumna)
     // cout << "Nowe pole ma numer " << (int)numer << endl;
 }
 
+Pole::Pole(Pole* pole)
+{
+    numer = pole->pobierzNumer();
+}
+
 Pole::~Pole()
 {}
 
@@ -37,6 +42,16 @@ Pole& Pole::operator=(const Pole& rhs)
     if (this == &rhs) return *this; //assignment operator
     this->numer = rhs.numer;
     return *this;
+}
+
+bool Pole::przesun(char x, char y)
+{
+    char noweY = pion() + y;
+    if (noweY > 8 || noweY < 1) return false;
+    char nowyNumer = numer + x * 8 + y;
+    if (nowyNumer < 0 || nowyNumer > 63) return false;
+    numer = nowyNumer;
+    return true;
 }
 
 /// CO TO MA KUŹWA ZNACZYĆ? BRAK PRZECHODNIEJ REKURSJI WSKAŹNIKÓW???!!!
@@ -82,7 +97,7 @@ bool Pole::operator!=(const Pole& rhs)
 string Pole::nazwa()
 {
     string nazwaPola = "";
-    nazwaPola += char(48 + this->numer / 8); //cyferka
+    nazwaPola += char(49 + this->numer / 8); //cyferka
     nazwaPola += char(65 + this->numer % 8); //literka
     return nazwaPola;
 }

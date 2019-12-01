@@ -14,12 +14,13 @@ int*& utworzPrzesuniecie(int x, int y)
     return xd;
 }
 
-TypPionka::TypPionka(std::string c_nazwa, std::string c_opis, char c_litera, Array<char*>* mozliweRuchy)
+TypPionka::TypPionka(std::string c_nazwa, std::string c_opis, char c_litera):
+    m_MozliweRuchy(10)
 {
     nazwa = c_nazwa;
     opis = c_opis;
     litera = c_litera;
-    m_MozliweRuchy = mozliweRuchy;
+    // m_MozliweRuchy = mozliweRuchy;
 }
 
 ///DO gry
@@ -42,7 +43,15 @@ std::string TypPionka::info()
     return nazwa + "\n" + opis + "\nReprezentowany przez literę " + litera + "\n";
 }
 
-Array<int*>& TypPionka::mozliwosciRuchu()
+// Nie wiem co dalej z tym
+void TypPionka::dodajRuch(int x, int y)
+{
+    Array<char> xy(2);
+    xy.push(x);
+    xy.push(y);
+    m_MozliweRuchy.push(xy);
+}
+/*Array<int*>& TypPionka::mozliwosciRuchu()
 {
     Array<int*> pola(4);
     switch ((int)*litera.c_str())
@@ -63,7 +72,7 @@ Array<int*>& TypPionka::mozliwosciRuchu()
     };
     Array<int*>& polaRef = pola;
     return polaRef;
-}
+}*/
 
 TypPionka::~TypPionka()
 {

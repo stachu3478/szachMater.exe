@@ -22,6 +22,7 @@ namespace Szachy
             /// jest mniej znacząca w wartoœci
             Pole(int num, Kolor* kolor);
             Pole(int poziom, int pion);
+            Pole(Szachy::Pole* pole);
             Pole(){};
             /// Tworzy zdefiniowaną listę pól z odniesieniem pozycji
             //static Pole* generuj(int szerokosc, int wysokosc);
@@ -40,8 +41,9 @@ namespace Szachy
             bool operator!=(const Pole& other);
             /// Zwrot identyfikatora
             char pobierzNumer() { return numer; };
-            char poziom() { return numer / 8; };
-            char pion() { return numer % 8; };
+            char poziom() { return numer / 8 + 1; };
+            char pion() { return numer % 8 + 1; };
+            bool przesun(char x, char y);
             Kolor* JakiKolor() { return m_Kolor; };
 
         protected:

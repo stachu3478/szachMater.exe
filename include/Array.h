@@ -1,6 +1,7 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
+#include "RangeError.h"
 #include <iostream>
 
 template <class T> class Array
@@ -20,19 +21,35 @@ template <class T> class Array
         };
         ~Array()
         {
-            if (length > max_index) delete next;
-            delete []items;
+            // if (length > max_index) delete next;
+            // delete []items;
         }
 
+        T &read()
+        {
+            try
+            {
+                int id;
+                std::cin >> id;
+                return refer(id);
+            }
+            catch(RangeError e)
+            {
+                std::cout << "Podano niewłaściwy inkeks!\n";
+                return read();
+            }
+        }
         int len() { return length; };
         T &refer(int index)
         {
+            if (index >= length) throw new RangeError();
             if (index >= max_index) return next->refer(index - max_index);
             else return *(items + index);
         }
 
         T &operator[](unsigned index)
         {
+            if (index >= length) throw new RangeError();
             if (index >= max_index) return next->refer(index - max_index);
             else return *(items + index);
         }
@@ -42,7 +59,7 @@ template <class T> class Array
             std::cout << "[ ";
             for (int i = 0; i < length; i++)
             {
-                std::cout << refer(i) << ", ";
+                // std::cout << refer(i) << ", ";
             }
             std::cout << " ]\n";
         }

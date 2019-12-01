@@ -14,7 +14,7 @@ void Plansza::generujPola(int szerokosc, int wysokosc)
     {
         for(int wys = 1; wys <= wysokosc; wys++, licznik++)
         {
-            Kolor* kolor = &((licznik % 2) ? m_KolorPolaA : m_KolorPolaB);
+            Kolor* kolor = &(((licznik / 8 + licznik % 8) % 2) ? m_KolorPolaA : m_KolorPolaB);
             m_Pola[licznik] = new Pole(licznik, kolor);
             m_PozycjePionkow[licznik] = 0;
         }
@@ -36,7 +36,7 @@ Plansza::Plansza()
     zresetuj(8);
 }
 
-void Plansza::rysuj(char* dane, char* kolory)
+void Plansza::rysuj()
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -46,8 +46,17 @@ void Plansza::rysuj(char* dane, char* kolory)
         cout << i + 1;
         for (int j = 0; j < 8; j++)
         {
-            SetConsoleTextAttribute(hConsole, *(kolory + i * 8 + j));
-            cout << *(dane + i * 8 + j);
+            int index = i * 8 + j;
+
+            Pionek* pionek = m_PozycjePionkow[index];
+            string litera = pionek ? pionek->jakaLitera() : " ";
+            int kolorPionka = pionek ? pionek->JakiKolor()->JakaWartosc() : 0;
+
+            Pole* pole = m_Pola[index];
+            char kolor = pole->JakiKolor()->JakaWartosc() * 16 + kolorPionka;
+
+            SetConsoleTextAttribute(hConsole, kolor);
+            cout << litera;
         }
         SetConsoleTextAttribute(hConsole, 7);
         cout << i + 1 << endl;
@@ -76,10 +85,20 @@ void Plansza::przydzielPionek(Pionek* pionek)
     char id = pionek->jakaPozycja()->pobierzNumer();
     if (m_PozycjePionkow[id] != 0)
     {
-        cout << "To pole jest już zajęte!" << endl;
-        throw pionek;
+        Pionek* zbity = m_PozycjePionkow[id];
+        zbity->zbij();
+        // cout << "To pole jest już zajęte!" << endl;
+        // throw pionek;
     }
     m_PozycjePionkow[id] = pionek;
+}
+
+void Plansza::przeniesPionek(Pionek* pionek, Pole* pozycja)
+{
+    char id = pionek->jakaPozycja()->pobierzNumer();
+    m_PozycjePionkow[id] = 0;
+    pionek->przenies(pozycja);
+    przydzielPionek(pionek);
 }
 
 Plansza::~Plansza()

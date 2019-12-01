@@ -32,6 +32,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-g" />
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Array.h" />
@@ -43,7 +44,9 @@
 		<Unit filename="include/PionekJuzZbityException.h" />
 		<Unit filename="include/Plansza.h" />
 		<Unit filename="include/Pole.h" />
+		<Unit filename="include/RangeError.h" />
 		<Unit filename="include/Ruch.h" />
+		<Unit filename="include/Tester.h" />
 		<Unit filename="include/TypPionka.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Array.cpp" />
@@ -56,6 +59,7 @@
 		<Unit filename="src/Plansza.cpp" />
 		<Unit filename="src/Pole.cpp" />
 		<Unit filename="src/Ruch.cpp" />
+		<Unit filename="src/Tester.cpp" />
 		<Unit filename="src/TypPionka.cpp" />
 		<Extensions>
 			<code_completion />

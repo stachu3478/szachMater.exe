@@ -5,6 +5,7 @@
 #include "TypPionka.h"
 #include "Pionek.h"
 #include "Plansza.h"
+#include "Ruch.h"
 #include "Array.h"
 #include "Kolor.h"
 
@@ -52,14 +53,44 @@ Gracz::Gracz():
     m_KolorPionkow()
 {}
 
-Array< Array<Ruch*> >& Gracz::mozliwosciRuchu()
+Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(Plansza* plansza)
 {
     Array< Array<Ruch*> > ruchyPionkow;
     for (int i = 0; i < 16; i++)
     {
         if (!m_pionki[i]->czyZbity())
         {
-            Array<Pole> pola = m_pionki[i]->mozliwosciRuchu();
+            char k = m_KolorPionkow.JakaWartosc() != 0 ? -1 : 1; // kierunek
+            Array<Pole> pola(10);// = m_pionki[i]->mozliwosciRuchu(kierunek);
+            Pionek* pionek = m_pionki[i];
+            cout << "xffxdxdxd" << pola.len() << endl;
+            string litera = pionek->jakaLitera();
+            switch ((int)*litera.c_str())
+            {
+                case 'O':
+                {
+                    // Prosto
+                    Pole* pole = pionek->jakaPozycja();
+                    Pole potPole1(pole);
+                    if (
+                        !pionek->czyBylPierwszyruch()
+                        && potPole1.przesun(2 * k, 0)
+                        && plansza->pobierzPionek(&potPole1) == 0
+                    )
+                        pola.push(potPole1);
+                    Pole potPole2(pole);
+                    if (potPole2.przesun(1 * k, 0) && plansza->pobierzPionek(&potPole2) == 0)
+                        pola.push(potPole2);
+
+                    // Bicie na ukos
+                    Pole potPole3(pole);
+                    if (potPole3.przesun(1 * k, 1) && plansza->pobierzPionek(&potPole3) != 0)
+                        pola.push(potPole3);
+                    Pole potPole4(pole);
+                    if (potPole4.przesun(1 * k, 1) && plansza->pobierzPionek(&potPole4) != 0)
+                        pola.push(potPole4);
+                }; break;
+            }
             cout << "A teraz inicjalizacja kolejnej arrejki" << endl;
             Array<Ruch*> ruchy(pola.len());
             cout << "Wow udalo nam sie! To teraz dodamy mozliwy ruch do listy" << pola.len() << endl;
@@ -70,7 +101,7 @@ Array< Array<Ruch*> >& Gracz::mozliwosciRuchu()
                 ruchy.push(new Ruch(*&m_pionki[i], m_pionki[i]->jakaPozycja(), &pola[j]));
             }
             cout << "Koniec????" << endl;
-            ruchyPionkow.push(ruchy);
+            if (ruchy.len() > 0) ruchyPionkow.push(ruchy);
         }
     }
     Array< Array<Ruch*> >& ruchyPionkowRef = ruchyPionkow;

@@ -10,6 +10,7 @@
 #include "HistoriaRuchow.h"
 
 #include <iostream>
+#include <iomanip>
 
 using namespace Szachy;
 using namespace std;
@@ -28,12 +29,34 @@ void Gra::generujTypyPionkow()
     cout << "Tworzenie typów pionków" << endl;
     Array<char*> ruchyPionu(10);
     ruchyPionu.push(new char[2]{2, 1});
-    m_TypyPionkow[0] = new TypPionka("Pion", "Najbardziej pospolity pionek", 'O', &ruchyPionu);
-    m_TypyPionkow[1] = new TypPionka("Skoczek", "Pionek potrafiący przeskakikaæ inne pionki", 'S', &ruchyPionu);
-    m_TypyPionkow[2] = new TypPionka("Goniec", "Pionek bij¹cy na ukos", 'G', &ruchyPionu);
-    m_TypyPionkow[3] = new TypPionka("Wie¿a", "Pionek bij¹cy w kolumnach i rzêdach", 'W', &ruchyPionu);
-    m_TypyPionkow[4] = new TypPionka("Hetman", "Wa¿ny pionek, posiada najwiêcej mo¿liwoœci ruchu", 'H', &ruchyPionu);
-    m_TypyPionkow[5] = new TypPionka("Król", "Najwa¿niejszy pionek, nie mo¿e zostaæ zbity", 'K', &ruchyPionu);
+    m_TypyPionkow[0] = new TypPionka("Pion", "Najbardziej pospolity pionek", 'O');
+    m_TypyPionkow[0]->dodajRuch(1, 0);
+    m_TypyPionkow[0]->dodajRuch(2, 0);
+    m_TypyPionkow[0]->dodajRuch(1, 1);
+    m_TypyPionkow[0]->dodajRuch(1, -1);
+    m_TypyPionkow[1] = new TypPionka("Skoczek", "Pionek potrafiący przeskakikaæ inne pionki", 'S');
+    m_TypyPionkow[1]->dodajRuch(2, -1);
+    m_TypyPionkow[1]->dodajRuch(2, 1);
+    m_TypyPionkow[1]->dodajRuch(-2, -1);
+    m_TypyPionkow[1]->dodajRuch(-2, 1);
+    m_TypyPionkow[1]->dodajRuch(1, -2);
+    m_TypyPionkow[1]->dodajRuch(1, 2);
+    m_TypyPionkow[1]->dodajRuch(-1, -2);
+    m_TypyPionkow[1]->dodajRuch(-1, 2);
+    m_TypyPionkow[2] = new TypPionka("Goniec", "Pionek bij¹cy na ukos", 'G');
+    for (int i = -7; i <= 7; i++)
+    {
+        m_TypyPionkow[2]->dodajRuch(i, i);
+        m_TypyPionkow[2]->dodajRuch(i, -i);
+    }
+    m_TypyPionkow[3] = new TypPionka("Wie¿a", "Pionek bij¹cy w kolumnach i rzêdach", 'W');
+    for (int i = -7; i <= 7; i++)
+    {
+        m_TypyPionkow[3]->dodajRuch(i, 0);
+        m_TypyPionkow[3]->dodajRuch(0, i);
+    }
+    m_TypyPionkow[4] = new TypPionka("Hetman", "Wa¿ny pionek, posiada najwiêcej mo¿liwoœci ruchu", 'H');
+    m_TypyPionkow[5] = new TypPionka("Król", "Najwa¿niejszy pionek, nie mo¿e zostaæ zbity", 'K');
     cout << "Utworzono typy pionków" << endl;
 }
 
@@ -52,51 +75,48 @@ Gra::Gra():
 
 void Gra::rozpocznij()
 {
-    //while(1)
-    //{
-        // Rysowanie planszy - start
-        int zhakowanyRozmiar = 64;
-        char dane[zhakowanyRozmiar];
-        char kolory[zhakowanyRozmiar];
-        for (int i = 0; i < 64; i++)
-        {
-            dane[i] = ' ';
-            kolory[i] = 16 * (4 + (((i / 8 + i % 8) % 2) << 1));
-        }
-        cout << "Początkowe dane planszy przygotowane" << endl;
-        for (int i = 0; i < 16; i++)
-        {
-            Pionek* pionek = m_Gracz1.pobierzPionek(i);
-            if (!pionek->czyZbity())
-            {
-                Pole* pole = pionek->jakaPozycja();// m_Gracz1.pobierzPionek(i).jakaPozycja();
-                int numer = (int)pole->pobierzNumer();
+    cout
+        << "Zaczyna gracz "
+        << m_Gracz1.jakaNazwa()
+        << ". Kolor pionków: "
+        << m_Gracz1.JakiKolor().JakaNazwa()
+        << endl;
+    while(1)
+    {
+        kolejka(m_Gracz1);
+        kolejka(m_Gracz2);
+    }
+}
 
-                cout << "Wpis do planszy " << numer << endl;
-                string litera = pionek->jakaLitera();
-                cout << "Literka " << litera << endl;
-                dane[numer] = toChar(litera);
-                kolory[numer] += 0;
-            }
-        }
-        for (int i = 0; i < 16; i++)
-        {
-            Pionek* pionek = m_Gracz2.pobierzPionek(i);
-            if (!pionek->czyZbity())
-            {
-                Pole* pole = pionek->jakaPozycja();// m_Gracz1.pobierzPionek(i).jakaPozycja();
-                char numer = pole->pobierzNumer();
+void Gra::kolejka(Gracz gracz)
+{
+    cout << "Kolej gracza " << gracz.jakaNazwa() << endl;
+    m_Plansza.rysuj();
+    // Wybór ruchu - start
+    unsigned int idRuchu;
+    unsigned int idPola;
+    Array< Array<Ruch*> > mozliweRuchy = gracz.mozliwosciRuchu(&m_Plansza);
+    cout << "Wybierz pionek, aby poruszyć. Dostepne: " << mozliweRuchy.len() << " pionków." << endl;
+    for (int i = 0; i < mozliweRuchy.len(); i++)
+    {
+        Ruch* ruch = mozliweRuchy[i][0];
+        Pionek* pionek = ruch->jakiPionek();
+        cout << (i + 1) << ". " << pionek->jakaPozycja()->nazwa() << setw(8);
+    }
+    cout << endl;
 
-                dane[numer] = toChar(pionek->jakaLitera());
-                kolory[numer] += 7;
-            }
-        }
-        cout << "Dane pionków wpisane do planszy" << endl;
-        m_Plansza.rysuj(dane, kolory);
-        // Rysowanie planszy - end
+    Array<Ruch*> ruchyPionka = mozliweRuchy.read();
+    cout << "Wybierz pole, aby poruszyć pionkiem. Dostepne: " << ruchyPionka.len() << " ruchów." << endl;
+    for (int i = 0; i < ruchyPionka.len(); i++)
+    {
+        Ruch* ruch = ruchyPionka[i];
+        cout << (i + 1) << ". " << ruch->jakiCel()->nazwa() << setw(8);
+    }
+    cout << endl;
 
-        Array< Array<Ruch*> > mozliweRuchy = m_Gracz1.mozliwosciRuchu();
-    //}
+    Ruch* ruch = ruchyPionka.read();
+    m_Plansza.przeniesPionek(ruch->jakiPionek(), ruch->jakiCel());
+    // Wybór ruchu - koniec
 }
 
 void Gra::resetuj()

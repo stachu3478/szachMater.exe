@@ -27,6 +27,7 @@ namespace Szachy
             void SetGracz2(Szachy::Gracz val) { m_Gracz2 = val; }
             Szachy::Plansza GetPlansza() { return m_Plansza; }
             void rozpocznij();
+            void kolejka(Gracz gracz);
             void tura();
             void resetuj();
 
