@@ -1,8 +1,11 @@
 #include "Tester.h"
 
+#include "Kolor.h"
 #include "Array.h"
 #include "TypPionka.h"
 #include "Pole.h"
+#include "Plansza.h"
+#include "Gracz.h"
 
 using namespace Szachy;
 
@@ -49,6 +52,14 @@ void testPole()
 
     if (pole.przesun(0, 2)) throw pole;
     if (pole.pion() != 7) throw pole;
+}
+
+void testGracz()
+{
+    Gracz* gracz = new Gracz();
+    if (gracz->maSzach()) throw gracz;
+    gracz->szachuj();
+    if (!gracz->maSzach()) throw gracz;
 }
 
 Tester::Tester()

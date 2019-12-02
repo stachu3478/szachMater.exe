@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1575238114 source:c:\users\stach\desktop\szachmater\main.cpp
+1575311251 source:c:\users\stach\desktop\szachmater\main.cpp
 	<iostream>
 	<windows.h>
 	"Gra.h"
@@ -474,9 +474,10 @@
 1571046592 e:\szachmater.exe\include\gracz.h
 	<string>
 
-1575243099 source:c:\users\stach\desktop\szachmater\src\gracz.cpp
+1575321783 source:c:\users\stach\desktop\szachmater\src\gracz.cpp
 	"Gracz.h"
 	<iostream>
+	<cmath>
 	"TypPionka.h"
 	"Pionek.h"
 	"Plansza.h"
@@ -484,7 +485,7 @@
 	"Array.h"
 	"Kolor.h"
 
-1575241941 c:\users\stach\desktop\szachmater\include\gracz.h
+1575322647 c:\users\stach\desktop\szachmater\include\gracz.h
 	<string>
 	"Kolor.h"
 	"Ruch.h"
@@ -493,7 +494,7 @@
 	"Plansza.h"
 	"Array.h"
 
-1575242312 source:c:\users\stach\desktop\szachmater\src\pionek.cpp
+1575311251 source:c:\users\stach\desktop\szachmater\src\pionek.cpp
 	<iostream>
 	"Pionek.h"
 	"TypPionka.h"
@@ -645,7 +646,7 @@
 	"Pole.h"
 	"TypPionka.h"
 
-1575233383 c:\users\stach\desktop\szachmater\include\gra.h
+1575311251 c:\users\stach\desktop\szachmater\include\gra.h
 	"Gracz.h"
 	"Plansza.h"
 	"TypPionka.h"
@@ -657,7 +658,7 @@
 	"TypPionka.h"
 	"Pionek.h"
 
-1575243532 source:c:\users\stach\desktop\szachmater\src\gra.cpp
+1575322647 source:c:\users\stach\desktop\szachmater\src\gra.cpp
 	"Gra.h"
 	<string>
 	"Array.h"
@@ -688,7 +689,7 @@
 	"RangeError.h"
 	<iostream>
 
-1575243891 c:\users\stach\desktop\szachmater\include\array.h
+1575322647 c:\users\stach\desktop\szachmater\include\array.h
 	"RangeError.h"
 	<iostream>
 

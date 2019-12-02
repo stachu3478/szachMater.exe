@@ -22,7 +22,8 @@ namespace Szachy
             Kolor JakiKolor() { return m_KolorPionkow; };
             bool czySzach(Pionek* pionek, Plansza* plansza);
             bool czyPrzegral();
-            void szachuj() { m_szach = true; };
+            void szachuj() { m_szach = 1; };
+            bool maSzach() { return m_szach; }
             Pionek* pobierzPionek(int n) { return m_pionki[n]; };
             Array< Array<Ruch*> >& mozliwosciRuchu(Plansza* plansza);
         protected:

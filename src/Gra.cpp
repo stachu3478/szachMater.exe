@@ -119,8 +119,8 @@ bool Gra::kolejka(Gracz gracz, Gracz przeciwnik)
 
     Ruch* ruch = ruchyPionka.read();
     Pionek* pionek = ruch->jakiPionek();
-    m_Plansza.przeniesPionek(pionek, ruch->jakiCel());
     if (gracz.czySzach(pionek, &m_Plansza)) przeciwnik.szachuj();
+    m_Plansza.przeniesPionek(pionek, ruch->jakiCel());
     return false;
 }
 
