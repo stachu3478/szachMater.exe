@@ -506,19 +506,19 @@
 	"Pole.h"
 	"Array.h"
 
-1574331609 source:d:\skrypty\szachmater.exe\main.cpp
+1575276960 source:d:\skrypty\szachmater.exe\main.cpp
 	<iostream>
 	<windows.h>
 	"Gra.h"
-	"Array.h"
+	"Tester.h"
 
-1573831538 d:\skrypty\szachmater.exe\include\gra.h
+1575276960 d:\skrypty\szachmater.exe\include\gra.h
 	"Gracz.h"
 	"Plansza.h"
 	"TypPionka.h"
 	"HistoriaRuchow.h"
 
-1574935157 d:\skrypty\szachmater.exe\include\gracz.h
+1575276960 d:\skrypty\szachmater.exe\include\gracz.h
 	<string>
 	"Kolor.h"
 	"Ruch.h"
@@ -527,21 +527,21 @@
 	"Plansza.h"
 	"Array.h"
 
-1574935157 d:\skrypty\szachmater.exe\include\pionek.h
+1575276960 d:\skrypty\szachmater.exe\include\pionek.h
 	"Kolor.h"
 	"TypPionka.h"
 	"Pole.h"
 	"Array.h"
 
-1574940080 d:\skrypty\szachmater.exe\include\typpionka.h
+1575276960 d:\skrypty\szachmater.exe\include\typpionka.h
 	<string>
 	"Array.h"
 
-1574937580 d:\skrypty\szachmater.exe\include\pole.h
+1575276960 d:\skrypty\szachmater.exe\include\pole.h
 	<string>
 	"Kolor.h"
 
-1574937906 d:\skrypty\szachmater.exe\include\plansza.h
+1575276960 d:\skrypty\szachmater.exe\include\plansza.h
 	"Kolor.h"
 	"Pole.h"
 	"TypPionka.h"
@@ -551,27 +551,31 @@
 	"Ruch.h"
 	<string>
 
-1574935157 d:\skrypty\szachmater.exe\include\ruch.h
+1575276960 d:\skrypty\szachmater.exe\include\ruch.h
 	"Pole.h"
 	"TypPionka.h"
 	"Pionek.h"
 
-1574935157 source:d:\skrypty\szachmater.exe\src\gra.cpp
+1575279323 source:d:\skrypty\szachmater.exe\src\gra.cpp
 	"Gra.h"
 	<string>
+	"Array.h"
 	"Kolor.h"
 	"Plansza.h"
 	"TypPionka.h"
 	"Gracz.h"
 	"HistoriaRuchow.h"
 	<iostream>
+	<iomanip>
 
-1574938230 source:d:\skrypty\szachmater.exe\src\gracz.cpp
+1575279501 source:d:\skrypty\szachmater.exe\src\gracz.cpp
 	"Gracz.h"
 	<iostream>
+	<cmath>
 	"TypPionka.h"
 	"Pionek.h"
 	"Plansza.h"
+	"Ruch.h"
 	"Array.h"
 	"Kolor.h"
 
@@ -581,20 +585,20 @@
 	<iostream>
 	<fstream>
 
-1574935157 source:d:\skrypty\szachmater.exe\src\pionek.cpp
+1575276960 source:d:\skrypty\szachmater.exe\src\pionek.cpp
 	<iostream>
 	"Pionek.h"
 	"TypPionka.h"
 	"Pole.h"
 	"Array.h"
 
-1574939040 source:d:\skrypty\szachmater.exe\src\plansza.cpp
+1575276960 source:d:\skrypty\szachmater.exe\src\plansza.cpp
 	"Plansza.h"
 	<iostream>
 	<windows.h>
 	"Pole.h"
 
-1574937580 source:d:\skrypty\szachmater.exe\src\pole.cpp
+1575276960 source:d:\skrypty\szachmater.exe\src\pole.cpp
 	"Pole.h"
 	<cmath>
 	<string>
@@ -607,7 +611,7 @@
 	"Pole.h"
 	"TypPionka.h"
 
-1574935157 source:d:\skrypty\szachmater.exe\src\typpionka.cpp
+1575276960 source:d:\skrypty\szachmater.exe\src\typpionka.cpp
 	"TypPionka.h"
 	<string>
 	<iostream>
@@ -680,7 +684,8 @@
 1574328192 source:d:\skrypty\szachmater.exe\src\array.cpp
 	"Array.h"
 
-1574935157 d:\skrypty\szachmater.exe\include\array.h
+1575277735 d:\skrypty\szachmater.exe\include\array.h
+	"RangeError.h"
 	<iostream>
 
 1575243891 c:\users\stach\desktop\szachmater\include\array.h
@@ -713,4 +718,14 @@
 	"Pole.h"
 
 1575237695 c:\users\stach\desktop\szachmater\include\tester.h
+
+1575276960 d:\skrypty\szachmater.exe\include\rangeerror.h
+
+1575276960 d:\skrypty\szachmater.exe\include\tester.h
+
+1575276960 source:d:\skrypty\szachmater.exe\src\tester.cpp
+	"Tester.h"
+	"Array.h"
+	"TypPionka.h"
+	"Pole.h"
 

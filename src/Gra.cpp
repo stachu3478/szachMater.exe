@@ -101,7 +101,7 @@ void Gra::kolejka(Gracz gracz)
     {
         Ruch* ruch = mozliweRuchy[i][0];
         Pionek* pionek = ruch->jakiPionek();
-        cout << (i + 1) << ". " << pionek->jakaPozycja()->nazwa() << setw(8);
+        cout << (i + 1) << ". " << pionek->jakaPozycja()->nazwa() << " " << pionek->nazwa() << setw(10);
     }
     cout << endl;
 

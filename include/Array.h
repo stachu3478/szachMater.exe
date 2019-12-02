@@ -31,7 +31,7 @@ template <class T> class Array
             {
                 int id;
                 std::cin >> id;
-                return refer(id);
+                return refer(id - 1);
             }
             catch(RangeError e)
             {
@@ -42,7 +42,7 @@ template <class T> class Array
         int len() { return length; };
         T &refer(int index)
         {
-            if (index >= length) throw new RangeError();
+            if (index >= length) throw RangeError();
             if (index >= max_index) return next->refer(index - max_index);
             else return *(items + index);
         }
