@@ -27,7 +27,8 @@ namespace Szachy
             void SetGracz2(Szachy::Gracz val) { m_Gracz2 = val; }
             Szachy::Plansza GetPlansza() { return m_Plansza; }
             void rozpocznij();
-            void kolejka(Gracz gracz);
+            void zakoncz(Gracz zwyciesca);
+            bool kolejka(Gracz gracz, Gracz przeciwnik);
             void tura();
             void resetuj();
 
@@ -41,6 +42,8 @@ namespace Szachy
             Szachy::Gracz m_Gracz2;
             Szachy::TypPionka* m_TypyPionkow[5];
             Szachy::HistoriaRuchow m_HistoriaRuchow;
+            bool m_szach;
+            bool m_koniec;
     };
 }
 

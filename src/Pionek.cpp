@@ -37,7 +37,7 @@ Array<Pole>& Pionek::mozliwosciRuchu(char kierunek)
     int y = m_pozycja->pion();
     cout << "x i y pionka " << endl;
     Array<Pole> pola(4);
-    cout << "Deklaracja pól" << przesuniecia->len() << endl;
+    cout << "Deklaracja pĂłl" << przesuniecia->len() << endl;
     int licznik = 0;
     for (int i = 0; i < przesuniecia->len(); i++)
     {

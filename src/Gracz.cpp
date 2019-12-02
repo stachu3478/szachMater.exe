@@ -43,9 +43,9 @@ void Gracz::generujPionki(TypPionka** typyPionkow, Plansza* plansza)
 Gracz::Gracz(TypPionka** typyPionkow, Plansza* plansza, unsigned char kolor):
     m_KolorPionkow(kolor == 0 ? "Czarny" : "Biały", kolor)
 {
-    cout << "Inicjalizacja gracza" << endl;
+    m_szach = false;
     generujPionki(typyPionkow, plansza);
-    cout << "Podaj nazwę gracza: ";
+    cout << "Podaj nazwę gracza. Kolor pionków: " << m_KolorPionkow.JakaNazwa() << endl;
     cin >> m_nazwa;
     cout << endl;
 }
@@ -53,6 +53,11 @@ Gracz::Gracz(TypPionka** typyPionkow, Plansza* plansza, unsigned char kolor):
 Gracz::Gracz():
     m_KolorPionkow()
 {}
+
+bool poleBezpieczne(Pole* pole, Kolor* kolor, Plansza* plansza)
+{
+    // TODO pole bezpieczne dla króla
+}
 
 /// Sprawdza czy pionek ma wolną drogę
 bool sprawdzCzyPoleWolne(Pole* pole, int x, int y, Plansza* plansza)
@@ -94,103 +99,136 @@ void przeszukajPola(Pionek* pionek, Array<Pole>* pola, int xd, int yd, Plansza* 
     } while(sprawdzCzyPoleWolne(new Pole(pole), x, y, plansza));
 }
 
+Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
+{
+    char k = pionek->JakiKolor()->JakaWartosc() != 0 ? -1 : 1; // kierunek
+    // char k = m_KolorPionkow.JakaWartosc() != 0 ? -1 : 1; // kierunek
+    Array<Pole> pola(10);
+    string litera = pionek->jakaLitera();
+    Pole* pole = pionek->jakaPozycja();
+    switch ((int)*litera.c_str())
+    {
+        case 'O':
+        {
+            // Prosto
+            Pole potPole1(pole);
+            if (
+                !pionek->czyBylPierwszyruch()
+                && sprawdzCzyPoleWolne(&potPole1, 2 * k, 0, plansza)
+            )
+                pola.push(potPole1);
+            Pole potPole2(pole);
+            if (sprawdzCzyPoleWolne(&potPole2, 1 * k, 0, plansza))
+                pola.push(potPole2);
+
+            // Bicie na ukos
+            Pole potPole3(pole);
+            if (sprawdzCzyMozeBic(pionek, &potPole3, 1 * k, -1, plansza))
+                pola.push(potPole3);
+            Pole potPole4(pole);
+            if (sprawdzCzyMozeBic(pionek, &potPole4, 1 * k, 1, plansza))
+                pola.push(potPole4);
+        }; break;
+        case 'S':
+        {
+            for (int m = -2; m <= 2; m++)
+            {
+                if (m == 0) continue;
+                int j = abs(m) == 1 ? 2 : 1;
+                Pole potPole1(pole);
+                if (sprawdzCzyMozePrzejsc(pionek, &potPole1, m, j, plansza))
+                    pola.push(potPole1);
+                Pole potPole2(pole);
+                if (sprawdzCzyMozePrzejsc(pionek, &potPole2, m, -j, plansza))
+                    pola.push(potPole2);
+            }
+        }; break;
+        case 'G':
+        {
+            przeszukajPola(pionek, &pola, 1, 1, plansza);
+            przeszukajPola(pionek, &pola, 1, -1, plansza);
+            przeszukajPola(pionek, &pola, -1, 1, plansza);
+            przeszukajPola(pionek, &pola, -1, -1, plansza);
+        }; break;
+        case 'W':
+        {
+            przeszukajPola(pionek, &pola, 1, 0, plansza);
+            przeszukajPola(pionek, &pola, -1, 0, plansza);
+            przeszukajPola(pionek, &pola, 0, 1, plansza);
+            przeszukajPola(pionek, &pola, 0, -1, plansza);
+        }; break;
+        case 'H':
+        {
+            przeszukajPola(pionek, &pola, 1, 0, plansza);
+            przeszukajPola(pionek, &pola, -1, 0, plansza);
+            przeszukajPola(pionek, &pola, 0, 1, plansza);
+            przeszukajPola(pionek, &pola, 0, -1, plansza);
+            przeszukajPola(pionek, &pola, 1, 1, plansza);
+            przeszukajPola(pionek, &pola, 1, -1, plansza);
+            przeszukajPola(pionek, &pola, -1, 1, plansza);
+            przeszukajPola(pionek, &pola, -1, -1, plansza);
+        }; break;
+        case 'K':
+        {
+            for (int j = -1; j <= 1;j ++)
+                for (int k = -1; k <= 1; k++)
+            {
+                Pole potPole(pole);
+                if (sprawdzCzyMozePrzejsc(pionek, &potPole, j, k, plansza ))
+                    pola.push(potPole);
+            };
+        }
+    };
+    Array<Pole>& polaRef = pola;
+    return polaRef;
+}
+
+Array<Ruch*>& mozliwosciPionka(Pionek* pionek, Plansza* plansza)
+{
+    Array<Pole> pola = mozliwePolaPionka(pionek, plansza);
+    Array<Ruch*> ruchy(pola.len());
+    for (int j = 0; j < pola.len(); j++)
+    {
+        ruchy.push(new Ruch(*&pionek, pionek->jakaPozycja(), &pola[j]));
+    }
+    Array<Ruch*>& ruchyRef = ruchy;
+    return ruchy;
+}
+
 Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(Plansza* plansza)
 {
     Array< Array<Ruch*> > ruchyPionkow;
     for (int i = 0; i < 16; i++)
     {
-        if (!m_pionki[i]->czyZbity())
+        Pionek* pionek = m_pionki[i];
+        cout << "Sazach" << m_szach << endl;
+        if (m_szach && pionek->jakaLitera() != "K") continue;
+        if (!pionek->czyZbity())
         {
-            char k = m_KolorPionkow.JakaWartosc() != 0 ? -1 : 1; // kierunek
-            Array<Pole> pola(10);// = m_pionki[i]->mozliwosciRuchu(kierunek);
-            Pionek* pionek = m_pionki[i];
-            string litera = pionek->jakaLitera();
-            Pole* pole = pionek->jakaPozycja();
-            switch ((int)*litera.c_str())
-            {
-                case 'O':
-                {
-                    // Prosto
-                    Pole potPole1(pole);
-                    if (
-                        !pionek->czyBylPierwszyruch()
-                        && sprawdzCzyPoleWolne(&potPole1, 2 * k, 0, plansza)
-                    )
-                        pola.push(potPole1);
-                    Pole potPole2(pole);
-                    if (sprawdzCzyPoleWolne(&potPole2, 1 * k, 0, plansza))
-                        pola.push(potPole2);
-
-                    // Bicie na ukos
-                    Pole potPole3(pole);
-                    if (sprawdzCzyMozeBic(pionek, &potPole3, 1 * k, -1, plansza))
-                        pola.push(potPole3);
-                    Pole potPole4(pole);
-                    if (sprawdzCzyMozeBic(pionek, &potPole4, 1 * k, 1, plansza))
-                        pola.push(potPole4);
-                }; break;
-                case 'S': // FIXME duplicate moves
-                {
-                    for (int m = -2; m <= 2; m++)
-                    {
-                        if (m == 0) continue;
-                        int j = abs(m) == 1 ? 2 : 1;
-                        Pole potPole1(pole);
-                        if (sprawdzCzyMozePrzejsc(pionek, &potPole1, m, j, plansza))
-                            pola.push(potPole1);
-                        Pole potPole2(pole);
-                        if (sprawdzCzyMozePrzejsc(pionek, &potPole2, m, -j, plansza))
-                            pola.push(potPole1);
-                    }
-                }; break;
-                case 'G':
-                {
-                    przeszukajPola(pionek, &pola, 1, 1, plansza);
-                    przeszukajPola(pionek, &pola, 1, -1, plansza);
-                    przeszukajPola(pionek, &pola, -1, 1, plansza);
-                    przeszukajPola(pionek, &pola, -1, -1, plansza);
-                }; break;
-                case 'W':
-                {
-                    przeszukajPola(pionek, &pola, 1, 0, plansza);
-                    przeszukajPola(pionek, &pola, -1, 0, plansza);
-                    przeszukajPola(pionek, &pola, 0, 1, plansza);
-                    przeszukajPola(pionek, &pola, 0, -1, plansza);
-                }; break;
-                case 'H':
-                {
-                    przeszukajPola(pionek, &pola, 1, 0, plansza);
-                    przeszukajPola(pionek, &pola, -1, 0, plansza);
-                    przeszukajPola(pionek, &pola, 0, 1, plansza);
-                    przeszukajPola(pionek, &pola, 0, -1, plansza);
-                    przeszukajPola(pionek, &pola, 1, 1, plansza);
-                    przeszukajPola(pionek, &pola, 1, -1, plansza);
-                    przeszukajPola(pionek, &pola, -1, 1, plansza);
-                    przeszukajPola(pionek, &pola, -1, -1, plansza);
-                }
-            }
-            // cout << "A teraz inicjalizacja kolejnej arrejki" << endl;
-            Array<Ruch*> ruchy(pola.len());
-            // cout << "Wow udalo nam sie! To teraz dodamy mozliwy ruch do listy" << pola.len() << endl;
-            // Pole* pozycja = m_pionki[i]->jakaPozycja();
-            for (int j = 0; j < pola.len(); j++)
-            { // TODO sprawdzanie czy pole jest zajęte
-                // cout << "Dodawanie ruchu pionka " << endl;
-                ruchy.push(new Ruch(*&m_pionki[i], m_pionki[i]->jakaPozycja(), &pola[j]));
-            }
-            // cout << "Koniec????" << endl;
+            Array<Ruch*> ruchy = mozliwosciPionka(pionek, plansza);
             if (ruchy.len() > 0) ruchyPionkow.push(ruchy);
         }
     }
     Array< Array<Ruch*> >& ruchyPionkowRef = ruchyPionkow;
-    // cout << "Tera Koniec????" << endl;
     return ruchyPionkowRef;
 }
 
 // TODO
-bool Gracz::czySzach()
+bool Gracz::czySzach(Pionek* pionek, Plansza* plansza)
 {
-    // operuj na m_pionki[12]
+    Array<Pole> pola = mozliwePolaPionka(pionek, plansza);
+    for (int i = 0; i < pola.len(); i++)
+    {
+        Pionek* potKrol = plansza->pobierzPionek(&pola[i]);
+        if (
+            potKrol != 0
+            && potKrol->jakaLitera() == "K"
+        )
+        {
+            cout << m_nazwa << ": Szach!" << endl;
+            return true;
+        }
+    }
     return false;
 }
 

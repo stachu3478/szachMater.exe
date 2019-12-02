@@ -67,6 +67,8 @@ Gra::Gra():
     //m_Gracz2,
     m_HistoriaRuchow()
 {
+    bool szach = false;
+    bool koniec = false;
     cout << "konstruktor gra" << endl;
     generujTypyPionkow();
     m_Gracz1 = *(new Gracz(m_TypyPionkow, &m_Plansza, 0));
@@ -81,14 +83,11 @@ void Gra::rozpocznij()
         << ". Kolor pionków: "
         << m_Gracz1.JakiKolor().JakaNazwa()
         << endl;
-    while(1)
-    {
-        kolejka(m_Gracz1);
-        kolejka(m_Gracz2);
-    }
+    while (!kolejka(m_Gracz1, m_Gracz2))
+        if (kolejka(m_Gracz2, m_Gracz1)) break;
 }
 
-void Gra::kolejka(Gracz gracz)
+bool Gra::kolejka(Gracz gracz, Gracz przeciwnik)
 {
     cout << "Kolej gracza " << gracz.jakaNazwa() << endl;
     m_Plansza.rysuj();
@@ -104,7 +103,11 @@ void Gra::kolejka(Gracz gracz)
         cout << (i + 1) << ". " << pionek->jakaPozycja()->nazwa() << " " << pionek->nazwa() << setw(10);
     }
     cout << endl;
-
+    if (mozliweRuchy.len() == 0)
+    {
+        zakoncz(przeciwnik);
+        return true;
+    }
     Array<Ruch*> ruchyPionka = mozliweRuchy.read();
     cout << "Wybierz pole, aby poruszyć pionkiem. Dostepne: " << ruchyPionka.len() << " ruchów." << endl;
     for (int i = 0; i < ruchyPionka.len(); i++)
@@ -115,8 +118,16 @@ void Gra::kolejka(Gracz gracz)
     cout << endl;
 
     Ruch* ruch = ruchyPionka.read();
-    m_Plansza.przeniesPionek(ruch->jakiPionek(), ruch->jakiCel());
-    // Wybór ruchu - koniec
+    Pionek* pionek = ruch->jakiPionek();
+    m_Plansza.przeniesPionek(pionek, ruch->jakiCel());
+    if (gracz.czySzach(pionek, &m_Plansza)) przeciwnik.szachuj();
+    return false;
+}
+
+void Gra::zakoncz(Gracz zwyciesca)
+{
+    m_koniec = true;
+    cout << "Szach mat! Wygrywa gracz " << zwyciesca.jakaNazwa() << endl;
 }
 
 void Gra::resetuj()

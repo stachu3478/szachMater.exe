@@ -20,8 +20,9 @@ namespace Szachy
             void generujPionki(TypPionka** typyPionkow, Plansza* plansza);
             std::string jakaNazwa() { return m_nazwa; };
             Kolor JakiKolor() { return m_KolorPionkow; };
-            bool czySzach();
+            bool czySzach(Pionek* pionek, Plansza* plansza);
             bool czyPrzegral();
+            void szachuj() { m_szach = true; };
             Pionek* pobierzPionek(int n) { return m_pionki[n]; };
             Array< Array<Ruch*> >& mozliwosciRuchu(Plansza* plansza);
         protected:
@@ -30,6 +31,7 @@ namespace Szachy
             std::string m_nazwa;
             Szachy::Pionek* m_pionki[16];
             Kolor m_KolorPionkow;
+            bool m_szach;
     };
 }
 
