@@ -1,5 +1,7 @@
 #include "Tester.h"
 
+#include <iostream>
+
 #include "Kolor.h"
 #include "Array.h"
 #include "TypPionka.h"
@@ -7,7 +9,19 @@
 #include "Plansza.h"
 #include "Gracz.h"
 
+using namespace std;
 using namespace Szachy;
+
+template <class T>
+void assert(T a, T b)
+{
+    if (a != b)
+    {
+        cout << "AssertionError: " << a << " != " << b << endl;
+        cout << "Addresses: " << &a << " " << &b << endl;
+        throw a;
+    }
+}
 
 void testArray()
 {
@@ -62,11 +76,31 @@ void testGracz()
     if (!gracz->maSzach()) throw gracz;
 }
 
+void testPlansza()
+{
+    Plansza* plansza = new Plansza(8);
+    Pole* pole = plansza->pobierzPole(2, 3);
+    assert(2 * 8 + 3 - 9, (int)pole->pobierzNumer());
+
+    if (pole->pion() != 3) throw plansza;
+    if (pole->poziom() != 2) throw plansza;
+    Pole*& poleRef = pole;
+    if (!plansza->pobierzPolePrzes(poleRef, 1, 2)) throw plansza;
+
+    assert((int)pole->pion(), 5);
+    assert((int)pole->poziom(), 3);
+
+    assert(plansza->pobierzPolePrzes(poleRef, 3, 4), false);
+    assert(plansza->pobierzPolePrzes(poleRef, -3, 3), false);
+}
+
 Tester::Tester()
 {
     testArray();
     testTypPionka();
     testPole();
+    testGracz();
+    testPlansza();
 }
 
 Tester::~Tester()

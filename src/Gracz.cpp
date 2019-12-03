@@ -43,7 +43,7 @@ void Gracz::generujPionki(TypPionka** typyPionkow, Plansza* plansza)
 Gracz::Gracz(TypPionka** typyPionkow, Plansza* plansza, unsigned char kolor):
     m_KolorPionkow(kolor == 0 ? "Czarny" : "Biały", kolor)
 {
-    m_szach = false;
+    m_szach = 0;
     generujPionki(typyPionkow, plansza);
     cout << "Podaj nazwę gracza. Kolor pionków: " << m_KolorPionkow.JakaNazwa() << endl;
     cin >> m_nazwa;
@@ -52,34 +52,44 @@ Gracz::Gracz(TypPionka** typyPionkow, Plansza* plansza, unsigned char kolor):
 
 Gracz::Gracz():
     m_KolorPionkow()
-{}
+{
+    m_szach = 0;
+}
 
 bool poleBezpieczne(Pole* pole, Kolor* kolor, Plansza* plansza)
 {
     // TODO pole bezpieczne dla króla
 }
 
-/// Sprawdza czy pionek ma wolną drogę
-bool sprawdzCzyPoleWolne(Pole* pole, int x, int y, Plansza* plansza)
+Pole*& dup(Pole* pole)
 {
-    return
-        pole->przesun(x, y)
-        && plansza->pobierzPionek(pole) == 0;
+    Pole* poleDup = pole;
+    Pole*& poleDupRef = poleDup;
+    return poleDupRef;
+}
+
+/// Sprawdza czy pionek ma wolną drogę
+bool sprawdzCzyPoleWolne(Pole*& pole, int x, int y, Plansza* plansza)
+{
+    // return
+        cout << plansza->pobierzPolePrzes(pole, x, y) << endl
+        << (plansza->pobierzPionek(pole) == 0) << endl;
+        return false;
 }
 
 /// Sprawdza czy pionek moze przejsc na pole lub zbic przeciwnika
-bool sprawdzCzyMozePrzejsc(Pionek* pionek, Pole* pole, int x, int y, Plansza* plansza)
+bool sprawdzCzyMozePrzejsc(Pionek* pionek, Pole*& pole, int x, int y, Plansza* plansza)
 {
-    if (!pole->przesun(x, y)) return false;
+    if (!plansza->pobierzPolePrzes(pole, x, y)) return false;
     Pionek* pionekCel = plansza->pobierzPionek(pole);
     return
         pionekCel == 0
         || pionekCel->JakiKolor() != pionek->JakiKolor();
 }
 
-bool sprawdzCzyMozeBic(Pionek* pionek, Pole* pole, int x, int y, Plansza* plansza)
+bool sprawdzCzyMozeBic(Pionek* pionek, Pole*& pole, int x, int y, Plansza* plansza)
 {
-    if (!pole->przesun(x, y)) return false;
+    if (!plansza->pobierzPolePrzes(pole, x, y)) return false;
     Pionek* pionekCel = plansza->pobierzPionek(pole);
     return
         pionekCel != 0
@@ -92,11 +102,10 @@ void przeszukajPola(Pionek* pionek, Array<Pole>* pola, int xd, int yd, Plansza* 
     Pole* pole = pionek->jakaPozycja();
     do
     {
-        Pole potPole = new Pole(pole);
-        Pole& pref = potPole;
-        if (sprawdzCzyMozePrzejsc(pionek, &potPole, x += xd, y += yd, plansza))
-            pola->push(pref);
-    } while(sprawdzCzyPoleWolne(new Pole(pole), x, y, plansza));
+        Pole* potPole = dup(pole);
+        if (sprawdzCzyMozePrzejsc(pionek, potPole, x += xd, y += yd, plansza))
+            pola->push(potPole);
+    } while(sprawdzCzyPoleWolne(dup(pole), x, y, plansza));
 }
 
 Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
@@ -111,22 +120,22 @@ Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
         case 'O':
         {
             // Prosto
-            Pole potPole1 = new Pole(pole);
+            Pole* potPole1 = dup(pole);
             if (
                 !pionek->czyBylPierwszyruch()
-                && sprawdzCzyPoleWolne(&potPole1, 2 * k, 0, plansza)
+                && sprawdzCzyPoleWolne(potPole1, 2 * k, 0, plansza)
             )
                 pola->push(potPole1);
-            Pole potPole2 = new Pole(pole);
-            if (sprawdzCzyPoleWolne(&potPole2, 1 * k, 0, plansza))
+            Pole* potPole2 = dup(pole);
+            if (sprawdzCzyPoleWolne(potPole2, 1 * k, 0, plansza))
                 pola->push(potPole2);
 
             // Bicie na ukos
-            Pole potPole3 = new Pole(pole);
-            if (sprawdzCzyMozeBic(pionek, &potPole3, 1 * k, -1, plansza))
+            Pole* potPole3 = dup(pole);
+            if (sprawdzCzyMozeBic(pionek, potPole3, 1 * k, -1, plansza))
                 pola->push(potPole3);
-            Pole potPole4 = new Pole(pole);
-            if (sprawdzCzyMozeBic(pionek, &potPole4, 1 * k, 1, plansza))
+            Pole* potPole4 = dup(pole);
+            if (sprawdzCzyMozeBic(pionek, potPole4, 1 * k, 1, plansza))
                 pola->push(potPole4);
         }; break;
         case 'S':
@@ -135,11 +144,11 @@ Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
             {
                 if (m == 0) continue;
                 int j = abs(m) == 1 ? 2 : 1;
-                Pole potPole1 = new Pole(pole);
-                if (sprawdzCzyMozePrzejsc(pionek, &potPole1, m, j, plansza))
+                Pole* potPole1 = dup(pole);
+                if (sprawdzCzyMozePrzejsc(pionek, potPole1, m, j, plansza))
                     pola->push(potPole1);
-                Pole potPole2 = new Pole(pole);
-                if (sprawdzCzyMozePrzejsc(pionek, &potPole2, m, -j, plansza))
+                Pole* potPole2 = dup(pole);
+                if (sprawdzCzyMozePrzejsc(pionek, potPole2, m, -j, plansza))
                     pola->push(potPole2);
             }
         }; break;
@@ -173,12 +182,13 @@ Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
             for (int j = -1; j <= 1;j ++)
                 for (int k = -1; k <= 1; k++)
             {
-                Pole potPole = new Pole(pole);
-                if (sprawdzCzyMozePrzejsc(pionek, &potPole, j, k, plansza ))
+                Pole* potPole = dup(pole);
+                if (sprawdzCzyMozePrzejsc(pionek, potPole, j, k, plansza ))
                     pola->push(potPole);
             };
         }
     };
+    pola->printItems();
     Array<Pole>& polaRef = *pola;
     return polaRef;
 }
@@ -201,7 +211,7 @@ Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(Plansza* plansza)
     for (int i = 0; i < 16; i++)
     {
         Pionek* pionek = m_pionki[i];
-        if (m_szach && pionek->jakaLitera() != "K") continue;
+        //if (m_szach && pionek->jakaLitera() != "K") continue;
         if (!pionek->czyZbity())
         {
             Array<Ruch*> ruchy = mozliwosciPionka(pionek, plansza);
@@ -209,6 +219,7 @@ Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(Plansza* plansza)
         }
     }
     Array< Array<Ruch*> >& ruchyPionkowRef = ruchyPionkow;
+    m_szach = 0;
     return ruchyPionkowRef;
 }
 

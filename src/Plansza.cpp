@@ -74,10 +74,25 @@ void Plansza::zresetuj(int rozmiar)
 Pole* Plansza::pobierzPole(unsigned int poziom, unsigned int pion)
 {
     int indeks = poziom * 8 + pion - 9;
-    cout << "Pobieram indeks " << indeks << endl;
     Pole* pole = m_Pola[indeks];
-    cout << "Pobrane pole ma numer " << (int)pole->pobierzNumer() << endl;
     return pole;
+}
+
+bool Plansza::pobierzPolePrzes(Pole*& pole, int x, int y)
+{
+    int pion = pole->pion() + y;
+    int poziom = pole->poziom() + x;
+    if (
+        pion > 0
+        && pion < 9
+        && poziom > 0
+        && poziom < 9
+    )
+    {
+        pole = pobierzPole(poziom, pion);
+        return true;
+    }
+    return false;
 }
 
 void Plansza::przydzielPionek(Pionek* pionek)
@@ -87,8 +102,6 @@ void Plansza::przydzielPionek(Pionek* pionek)
     {
         Pionek* zbity = m_PozycjePionkow[id];
         zbity->zbij();
-        // cout << "To pole jest już zajęte!" << endl;
-        // throw pionek;
     }
     m_PozycjePionkow[id] = pionek;
 }

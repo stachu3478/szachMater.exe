@@ -32,7 +32,7 @@ namespace Szachy
             std::string m_nazwa;
             Szachy::Pionek* m_pionki[16];
             Kolor m_KolorPionkow;
-            bool m_szach;
+            int m_szach;
     };
 }
 
