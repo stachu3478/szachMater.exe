@@ -21,18 +21,19 @@ namespace Szachy
             std::string jakaNazwa() { return m_nazwa; };
             Kolor JakiKolor() { return m_KolorPionkow; };
             bool czySzach(Pionek* pionek, Plansza* plansza);
-            bool czyPrzegral();
-            void szachuj() { m_szach = 1; };
-            bool maSzach() { return m_szach; }
             Pionek* pobierzPionek(int n) { return m_pionki[n]; };
-            Array< Array<Ruch*> >& mozliwosciRuchu(Plansza* plansza);
+            Array< Array<Ruch*> >& mozliwosciRuchu(Plansza* plansza, bool szach);
+            int kierunek() { return m_KolorPionkow.JakaWartosc() != 0 ? -1 : 1; }
+
+            // U¿ycie settera w tym przypadku nie dzia³a
+            // zmienna musi byæ publiczna
+            int m_szach;
         protected:
 
         private:
             std::string m_nazwa;
             Szachy::Pionek* m_pionki[16];
             Kolor m_KolorPionkow;
-            int m_szach;
     };
 }
 

@@ -7,9 +7,9 @@
 #include "Plansza.h"
 #include "TypPionka.h"
 #include "Gracz.h"
-#include "HistoriaRuchow.h"
 
 #include <iostream>
+#include <fstream>
 #include <iomanip>
 
 using namespace Szachy;
@@ -20,59 +20,31 @@ char toChar(std::string str)
     char c[str.size() + 1];
     str.copy(c, str.size() + 1);
     c[str.size()] = '\0';
-    // cout << "to char" << str << endl;
     return *c;
 }
 
 void Gra::generujTypyPionkow()
 {
-    cout << "Tworzenie typów pionków" << endl;
-    Array<char*> ruchyPionu(10);
-    ruchyPionu.push(new char[2]{2, 1});
     m_TypyPionkow[0] = new TypPionka("Pion", "Najbardziej pospolity pionek", 'O');
-    m_TypyPionkow[0]->dodajRuch(1, 0);
-    m_TypyPionkow[0]->dodajRuch(2, 0);
-    m_TypyPionkow[0]->dodajRuch(1, 1);
-    m_TypyPionkow[0]->dodajRuch(1, -1);
     m_TypyPionkow[1] = new TypPionka("Skoczek", "Pionek potrafiący przeskakikaæ inne pionki", 'S');
-    m_TypyPionkow[1]->dodajRuch(2, -1);
-    m_TypyPionkow[1]->dodajRuch(2, 1);
-    m_TypyPionkow[1]->dodajRuch(-2, -1);
-    m_TypyPionkow[1]->dodajRuch(-2, 1);
-    m_TypyPionkow[1]->dodajRuch(1, -2);
-    m_TypyPionkow[1]->dodajRuch(1, 2);
-    m_TypyPionkow[1]->dodajRuch(-1, -2);
-    m_TypyPionkow[1]->dodajRuch(-1, 2);
     m_TypyPionkow[2] = new TypPionka("Goniec", "Pionek bij¹cy na ukos", 'G');
-    for (int i = -7; i <= 7; i++)
-    {
-        m_TypyPionkow[2]->dodajRuch(i, i);
-        m_TypyPionkow[2]->dodajRuch(i, -i);
-    }
     m_TypyPionkow[3] = new TypPionka("Wie¿a", "Pionek bij¹cy w kolumnach i rzêdach", 'W');
-    for (int i = -7; i <= 7; i++)
-    {
-        m_TypyPionkow[3]->dodajRuch(i, 0);
-        m_TypyPionkow[3]->dodajRuch(0, i);
-    }
     m_TypyPionkow[4] = new TypPionka("Hetman", "Wa¿ny pionek, posiada najwiêcej mo¿liwoœci ruchu", 'H');
     m_TypyPionkow[5] = new TypPionka("Król", "Najwa¿niejszy pionek, nie mo¿e zostaæ zbity", 'K');
-    cout << "Utworzono typy pionków" << endl;
 }
 
-/// Typy pionków muszą być w argumencie aby zainicjalizować gracza z pionkami
-Gra::Gra():
-    m_Plansza(8),
-    //m_Gracz1,
-    //m_Gracz2,
-    m_HistoriaRuchow()
+Gra::Gra(bool kontynnuj):
+    m_Plansza(8)
 {
-    bool szach = false;
-    bool koniec = false;
-    cout << "konstruktor gra" << endl;
-    generujTypyPionkow();
-    m_Gracz1 = *(new Gracz(m_TypyPionkow, &m_Plansza, 0));
-    m_Gracz2 = *(new Gracz(m_TypyPionkow, &m_Plansza, 7));
+    if (kontynnuj) zaladuj();
+    else
+    {
+        m_szach = false;
+        m_koniec = false;
+        generujTypyPionkow();
+        m_Gracz1 = *(new Gracz(m_TypyPionkow, &m_Plansza, 0));
+        m_Gracz2 = *(new Gracz(m_TypyPionkow, &m_Plansza, 7));
+    }
 }
 
 void Gra::rozpocznij()
@@ -94,7 +66,8 @@ bool Gra::kolejka(Gracz gracz, Gracz przeciwnik)
     // Wybór ruchu - start
     unsigned int idRuchu;
     unsigned int idPola;
-    Array< Array<Ruch*> > mozliweRuchy = gracz.mozliwosciRuchu(&m_Plansza);
+    if (m_szach > 1) m_szach = 0;
+    Array< Array<Ruch*> > mozliweRuchy = gracz.mozliwosciRuchu(&m_Plansza, m_szach);
     cout << "Wybierz pionek, aby poruszyć. Dostepne: " << mozliweRuchy.len() << " pionków." << endl;
     for (int i = 0; i < mozliweRuchy.len(); i++)
     {
@@ -119,8 +92,16 @@ bool Gra::kolejka(Gracz gracz, Gracz przeciwnik)
 
     Ruch* ruch = ruchyPionka.read();
     Pionek* pionek = ruch->jakiPionek();
-    if (gracz.czySzach(pionek, &m_Plansza)) przeciwnik.szachuj();
-    m_Plansza.przeniesPionek(pionek, ruch->jakiCel());
+    Pole* cel = ruch->jakiCel();
+    m_Plansza.przeniesPionek(pionek, cel);
+    if (
+        pionek->jakaLitera() == "O"
+        && cel->poziom() == (gracz.kierunek() == 1 ? 8 : 1)
+    ) pionek->awansuj(m_TypyPionkow[4]); // Damka
+    if (gracz.czySzach(pionek, &m_Plansza)) m_szach = true;
+    else m_szach = false;
+
+    zapisz();
     return false;
 }
 
@@ -130,21 +111,23 @@ void Gra::zakoncz(Gracz zwyciesca)
     cout << "Szach mat! Wygrywa gracz " << zwyciesca.jakaNazwa() << endl;
 }
 
-void Gra::resetuj()
+void Gra::zapisz()
 {
-    // FIXME
-    // delete m_Plansza;
-    string str = m_Gracz1.jakaNazwa() + " vs " + m_Gracz2.jakaNazwa();
-    char c = toChar(str);
-    m_HistoriaRuchow.zapisz(&c);
+    ofstream out("savegame.txt");
+    out << m_szach << m_koniec;
+    // TODO implement children
+    out.close();
+}
+
+void Gra::zaladuj()
+{
+    ifstream in("savegame.txt");
+    in >> m_szach >> m_koniec;
+    // TODO implement children
+    in.close();
 }
 
 Gra::~Gra()
 {
     delete m_TypyPionkow;
-    // FIXME
-    // delete m_Plansza;
-    // delete m_Gracz1;
-    // delete m_Gracz2;
-    // delete m_HistoriaRuchow;
 }

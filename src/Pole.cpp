@@ -54,35 +54,6 @@ bool Pole::przesun(char x, char y)
     return true;
 }
 
-/// CO TO MA KUŹWA ZNACZYĆ? BRAK PRZECHODNIEJ REKURSJI WSKAŹNIKÓW???!!!
-/*Pole& Pole::operator=(const Pionek& rhs)
-{
-    if (m_pionek == &rhs) return *this; //assignment operator
-    if (m_pionek != 0)
-    {
-        m_pionek->zbij();
-    }
-    m_pionek = rhs;
-    m_pionek->przenies(this);
-    return *this;
-}*/
-
-/// Przeniesiono do planszy
-/*Pole* Pole::generuj(int szerokosc, int wysokosc)
-{
-    Pole* pola[szerokosc * wysokosc];
-    unsigned int licznik = 0;
-    for(int szer = 1; szer <= szerokosc; szer++)
-    {
-        for(int wys = 1; wys <= wysokosc; wys++, licznik++)
-        {
-            // cout << "Pole nr " << licznik << endl;
-            pola[licznik] = new Pole(szer, wys);
-        }
-    }
-    return *pola;
-}*/
-
 bool Pole::operator==(const Pole& rhs)
 {
     if (this == &rhs) return true;

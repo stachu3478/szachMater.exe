@@ -43,7 +43,6 @@ void Gracz::generujPionki(TypPionka** typyPionkow, Plansza* plansza)
 Gracz::Gracz(TypPionka** typyPionkow, Plansza* plansza, unsigned char kolor):
     m_KolorPionkow(kolor == 0 ? "Czarny" : "Biały", kolor)
 {
-    m_szach = 0;
     generujPionki(typyPionkow, plansza);
     cout << "Podaj nazwę gracza. Kolor pionków: " << m_KolorPionkow.JakaNazwa() << endl;
     cin >> m_nazwa;
@@ -52,14 +51,8 @@ Gracz::Gracz(TypPionka** typyPionkow, Plansza* plansza, unsigned char kolor):
 
 Gracz::Gracz():
     m_KolorPionkow()
-{
-    m_szach = 0;
-}
+{}
 
-bool poleBezpieczne(Pole* pole, Kolor* kolor, Plansza* plansza)
-{
-    // TODO pole bezpieczne dla króla
-}
 
 Pole*& dup(Pole* pole)
 {
@@ -68,13 +61,99 @@ Pole*& dup(Pole* pole)
     return poleDupRef;
 }
 
+bool sprawdzPole(Pole* pole, Plansza* plansza, char* litery, int l, Kolor* kolor)
+{
+    if (pole == 0) return false;
+    Pionek* pionek;
+    string litera;
+    if (
+        (pionek = plansza->pobierzPionek(pole))
+        && pionek->JakiKolor() != kolor
+    )
+    {
+        litera = pionek->jakaLitera();
+        for (int i = 0; i < l; i++)
+        {
+            string ls = "";
+            ls += litery[i];
+            if (litera == ls) return true;
+        }
+    }
+    return false;
+}
+
+bool sprawdzPrzesuniecie(Pole* pole, int x, int y, Plansza* plansza, char* litery, int l, Kolor* kolor)
+{
+    Pole* dupPole = dup(pole);
+    return
+        plansza->pobierzPolePrzes(dupPole, x, y)
+        && sprawdzPole(dupPole, plansza, litery, l, kolor);
+}
+
 /// Sprawdza czy pionek ma wolną drogę
 bool sprawdzCzyPoleWolne(Pole*& pole, int x, int y, Plansza* plansza)
 {
-    // return
-        cout << plansza->pobierzPolePrzes(pole, x, y) << endl
-        << (plansza->pobierzPionek(pole) == 0) << endl;
-        return false;
+    return
+        plansza->pobierzPolePrzes(pole, x, y)// << endl
+        && (plansza->pobierzPionek(pole) == 0);// << endl;
+}
+
+Pole* znajdzZajetePole(Pole* pole, int xd, int yd, Plansza* plansza)
+{
+    Pole* dupPole = dup(pole);
+    do
+    {} while(sprawdzCzyPoleWolne(dupPole, xd, yd, plansza));
+    if (dupPole == pole) return NULL;
+    cout << "Znalezione " << pole->nazwa() << endl;
+    return dupPole;
+}
+
+int kierunek(Kolor* kolor) { return kolor->JakaWartosc() != 0 ? -1 : 1; }
+
+bool poleBezpieczne(Pole* pole, Kolor* kolor, Plansza* plansza)
+{
+    cout << "spr pole " << pole->nazwa() << endl;
+    Array<Pole>* pola = new Array<Pole>(10);
+    int ptr = 0;
+
+    int k = kierunek(kolor);
+
+    Pionek* pionek;
+    char litera;
+    char wkh[3] = {'W', 'K', 'H'};
+    char gkh[3] = {'G', 'K', 'H'};
+    char pgkh[4] = {'O', 'G', 'K', 'H'};
+    char wh[2] = {'W', 'H'};
+    char gh[2] = {'G', 'H'};
+    char s[1] = {'S'};
+    if (
+        sprawdzPrzesuniecie(pole, 0, 1, plansza, wkh, 3, kolor)
+        || sprawdzPrzesuniecie(pole, 0, -1, plansza, wkh, 3, kolor)
+        || sprawdzPrzesuniecie(pole, 1, 0, plansza, wkh, 3, kolor)
+        || sprawdzPrzesuniecie(pole, -1, 0, plansza, wkh, 3, kolor)
+        || sprawdzPole(znajdzZajetePole(pole, 0, 1, plansza), plansza, wh, 2, kolor)
+        || sprawdzPole(znajdzZajetePole(pole, 0, -1, plansza), plansza, wh, 2, kolor)
+        || sprawdzPole(znajdzZajetePole(pole, 1, 0, plansza), plansza, wh, 2, kolor)
+        || sprawdzPole(znajdzZajetePole(pole, -1, 0, plansza), plansza, wh, 2, kolor)
+        || sprawdzPrzesuniecie(pole, k, 1, plansza, pgkh, 4, kolor)
+        || sprawdzPrzesuniecie(pole, k, -1, plansza, pgkh, 4, kolor)
+        || sprawdzPrzesuniecie(pole, -k, 1, plansza, gkh, 3, kolor)
+        || sprawdzPrzesuniecie(pole, -k, -1, plansza, gkh, 3, kolor)
+        || sprawdzPole(znajdzZajetePole(pole, 1, 1, plansza), plansza, gh, 2, kolor)
+        || sprawdzPole(znajdzZajetePole(pole, 1, -1, plansza), plansza, gh, 2, kolor)
+        || sprawdzPole(znajdzZajetePole(pole, -1, 1, plansza), plansza, gh, 2, kolor)
+        || sprawdzPole(znajdzZajetePole(pole, -1, -1, plansza), plansza, gh, 2, kolor)
+
+        || sprawdzPrzesuniecie(pole, 2, 1, plansza, s, 1, kolor)
+        || sprawdzPrzesuniecie(pole, -2, 1, plansza, s, 1, kolor)
+        || sprawdzPrzesuniecie(pole, 2, -1, plansza, s, 1, kolor)
+        || sprawdzPrzesuniecie(pole, -2, -1, plansza, s, 1, kolor)
+        || sprawdzPrzesuniecie(pole, 1, 2, plansza, s, 1, kolor)
+        || sprawdzPrzesuniecie(pole, -1, 2, plansza, s, 1, kolor)
+        || sprawdzPrzesuniecie(pole, 1, -2, plansza, s, 1, kolor)
+        || sprawdzPrzesuniecie(pole, -1, -2, plansza, s, 1, kolor)
+    ) return false;
+    return true;
 }
 
 /// Sprawdza czy pionek moze przejsc na pole lub zbic przeciwnika
@@ -96,22 +175,24 @@ bool sprawdzCzyMozeBic(Pionek* pionek, Pole*& pole, int x, int y, Plansza* plans
         && pionekCel->JakiKolor() != pionek->JakiKolor();
 }
 
-void przeszukajPola(Pionek* pionek, Array<Pole>* pola, int xd, int yd, Plansza* plansza)
+void przeszukajPolaPionka(Pionek* pionek, Array<Pole>* pola, int xd, int yd, Plansza* plansza)
 {
-    int x = 0, y = 0;
     Pole* pole = pionek->jakaPozycja();
+    int x = 0, y = 0;
+    Pole* dupPole = dup(pole);
     do
     {
         Pole* potPole = dup(pole);
         if (sprawdzCzyMozePrzejsc(pionek, potPole, x += xd, y += yd, plansza))
             pola->push(potPole);
-    } while(sprawdzCzyPoleWolne(dup(pole), x, y, plansza));
+        dupPole = dup(pole);
+    } while(sprawdzCzyPoleWolne(dupPole, x, y, plansza));
 }
 
 Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
 {
-    char k = pionek->JakiKolor()->JakaWartosc() != 0 ? -1 : 1; // kierunek
-    // char k = m_KolorPionkow.JakaWartosc() != 0 ? -1 : 1; // kierunek
+    Kolor* kolor = pionek->JakiKolor();
+    int k = kierunek(kolor); // kierunek
     Array<Pole>* pola = new Array<Pole>(10);
     string litera = pionek->jakaLitera();
     Pole* pole = pionek->jakaPozycja();
@@ -119,7 +200,6 @@ Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
     {
         case 'O':
         {
-            // Prosto
             Pole* potPole1 = dup(pole);
             if (
                 !pionek->czyBylPierwszyruch()
@@ -152,43 +232,41 @@ Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
                     pola->push(potPole2);
             }
         }; break;
-        case 'G':
-        {
-            przeszukajPola(pionek, pola, 1, 1, plansza);
-            przeszukajPola(pionek, pola, 1, -1, plansza);
-            przeszukajPola(pionek, pola, -1, 1, plansza);
-            przeszukajPola(pionek, pola, -1, -1, plansza);
-        }; break;
         case 'W':
         {
-            przeszukajPola(pionek, pola, 1, 0, plansza);
-            przeszukajPola(pionek, pola, -1, 0, plansza);
-            przeszukajPola(pionek, pola, 0, 1, plansza);
-            przeszukajPola(pionek, pola, 0, -1, plansza);
+            przeszukajPolaPionka(pionek, pola, 1, 0, plansza);
+            przeszukajPolaPionka(pionek, pola, -1, 0, plansza);
+            przeszukajPolaPionka(pionek, pola, 0, 1, plansza);
+            przeszukajPolaPionka(pionek, pola, 0, -1, plansza);
         }; break;
         case 'H':
         {
-            przeszukajPola(pionek, pola, 1, 0, plansza);
-            przeszukajPola(pionek, pola, -1, 0, plansza);
-            przeszukajPola(pionek, pola, 0, 1, plansza);
-            przeszukajPola(pionek, pola, 0, -1, plansza);
-            przeszukajPola(pionek, pola, 1, 1, plansza);
-            przeszukajPola(pionek, pola, 1, -1, plansza);
-            przeszukajPola(pionek, pola, -1, 1, plansza);
-            przeszukajPola(pionek, pola, -1, -1, plansza);
+            przeszukajPolaPionka(pionek, pola, 1, 0, plansza);
+            przeszukajPolaPionka(pionek, pola, -1, 0, plansza);
+            przeszukajPolaPionka(pionek, pola, 0, 1, plansza);
+            przeszukajPolaPionka(pionek, pola, 0, -1, plansza);
+        };
+        case 'G':
+        {
+            przeszukajPolaPionka(pionek, pola, 1, 1, plansza);
+            przeszukajPolaPionka(pionek, pola, 1, -1, plansza);
+            przeszukajPolaPionka(pionek, pola, -1, 1, plansza);
+            przeszukajPolaPionka(pionek, pola, -1, -1, plansza);
         }; break;
         case 'K':
         {
             for (int j = -1; j <= 1;j ++)
-                for (int k = -1; k <= 1; k++)
+                for (int l = -1; l <= 1; l++)
             {
+                if (l == 0 && j == 0) continue;
                 Pole* potPole = dup(pole);
-                if (sprawdzCzyMozePrzejsc(pionek, potPole, j, k, plansza ))
-                    pola->push(potPole);
+                if (
+                    sprawdzCzyMozePrzejsc(pionek, potPole, j, l, plansza)
+                    && poleBezpieczne(potPole, kolor, plansza)
+                ) pola->push(potPole);
             };
         }
     };
-    pola->printItems();
     Array<Pole>& polaRef = *pola;
     return polaRef;
 }
@@ -205,13 +283,14 @@ Array<Ruch*>& mozliwosciPionka(Pionek* pionek, Plansza* plansza)
     return ruchyRef;
 }
 
-Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(Plansza* plansza)
+Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(Plansza* plansza, bool szach)
 {
     Array< Array<Ruch*> > ruchyPionkow;
     for (int i = 0; i < 16; i++)
     {
         Pionek* pionek = m_pionki[i];
-        //if (m_szach && pionek->jakaLitera() != "K") continue;
+        // TODO ruchy pionków zbijających dodać
+        if (szach && pionek->jakaLitera() != "K") continue;
         if (!pionek->czyZbity())
         {
             Array<Ruch*> ruchy = mozliwosciPionka(pionek, plansza);
@@ -219,11 +298,9 @@ Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(Plansza* plansza)
         }
     }
     Array< Array<Ruch*> >& ruchyPionkowRef = ruchyPionkow;
-    m_szach = 0;
     return ruchyPionkowRef;
 }
 
-// TODO
 bool Gracz::czySzach(Pionek* pionek, Plansza* plansza)
 {
     Array<Pole> pola = mozliwePolaPionka(pionek, plansza);
@@ -231,21 +308,12 @@ bool Gracz::czySzach(Pionek* pionek, Plansza* plansza)
     {
         Pionek* potKrol = plansza->pobierzPionek(&pola[i]);
         if (
-            potKrol != 0
-            && potKrol->jakaLitera() == "K"
-        )
-        {
-            cout << m_nazwa << ": Szach!" << endl;
-            return true;
-        }
+            potKrol == 0
+            || potKrol->jakaLitera() != "K"
+        ) return false;
+        cout << m_nazwa << ": Szach!" << endl;
+        return true;
     }
-    return false;
-}
-
-// TODO
-bool Gracz::czyPrzegral()
-{
-    // operuj na m_pionki[12]
     return false;
 }
 

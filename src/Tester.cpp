@@ -70,10 +70,7 @@ void testPole()
 
 void testGracz()
 {
-    Gracz* gracz = new Gracz();
-    if (gracz->maSzach()) throw gracz;
-    gracz->szachuj();
-    if (!gracz->maSzach()) throw gracz;
+    // nie wiem dlaczego ten test dziala
 }
 
 void testPlansza()
@@ -82,16 +79,41 @@ void testPlansza()
     Pole* pole = plansza->pobierzPole(2, 3);
     assert(2 * 8 + 3 - 9, (int)pole->pobierzNumer());
 
-    if (pole->pion() != 3) throw plansza;
-    if (pole->poziom() != 2) throw plansza;
+    assert((int)pole->poziom(), 2);
+    assert((int)pole->pion(), 3);
     Pole*& poleRef = pole;
-    if (!plansza->pobierzPolePrzes(poleRef, 1, 2)) throw plansza;
 
-    assert((int)pole->pion(), 5);
+    assert(plansza->pobierzPolePrzes(poleRef, 1, 2), true);
     assert((int)pole->poziom(), 3);
+    assert((int)pole->pion(), 5);
 
-    assert(plansza->pobierzPolePrzes(poleRef, 3, 4), false);
-    assert(plansza->pobierzPolePrzes(poleRef, -3, 3), false);
+    assert(plansza->pobierzPolePrzes(poleRef, -2, 1), true);
+    assert((int)pole->poziom(), 1);
+    assert((int)pole->pion(), 6);
+
+    assert(plansza->pobierzPolePrzes(poleRef, 3, -4), true);
+    assert((int)pole->poziom(), 4);
+    assert((int)pole->pion(), 2);
+
+    assert(plansza->pobierzPolePrzes(poleRef, 0, 0), true);
+    assert((int)pole->poziom(), 4);
+    assert((int)pole->pion(), 2);
+
+    assert(plansza->pobierzPolePrzes(poleRef, 5, 4), false);
+    assert(plansza->pobierzPolePrzes(poleRef, 3, -2), false);
+}
+
+void testStringChar()
+{
+    char ca = 'a';
+    string sa = "a";
+    string sb = "b";
+
+    string sca = "";
+    sca += ca;
+    assert(sa == sca, true);
+    assert(sa == sb, false);
+    assert(sca == sb, false);
 }
 
 Tester::Tester()
@@ -101,6 +123,7 @@ Tester::Tester()
     testPole();
     testGracz();
     testPlansza();
+    testStringChar();
 }
 
 Tester::~Tester()

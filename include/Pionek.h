@@ -24,8 +24,8 @@ namespace Szachy
             Kolor* JakiKolor(){ return m_Kolor; }
             bool czyBylPierwszyruch() { return m_bylPierwszyRuch; }
             bool czyZbity() { return m_zbity; }
-            void zbij() { m_zbity = true; }
-            void info();
+            void awansuj(TypPionka* typ) { m_typ = typ; };
+            void zbij();
 
         protected:
 

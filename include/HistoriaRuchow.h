@@ -2,6 +2,7 @@
 #define HISTORIARUCHOW_H
 
 #include "Ruch.h"
+#include "Array.h"
 
 #include <string>
 
@@ -13,19 +14,16 @@ namespace Szachy
             HistoriaRuchow();
             HistoriaRuchow(const char* plik);
             virtual ~HistoriaRuchow();
-            HistoriaRuchow& operator+=(const Ruch& rhs);
+            Ruch* dodaj(Ruch* ruch) { return m_Lista.push(ruch); }
 
             void renderuj();
             void zapisz(const char* nazwa);
-            static Ruch* zaladuj(const char* nazwa);
-            static Ruch* przygotujListe();
+            // Array<Ruch*> zaladuj(const char* nazwa);
 
         protected:
 
         private:
-            unsigned int m_Licznik;
-            unsigned int m_Pozycja;
-            Szachy::Ruch* m_Lista;
+            Array<Ruch*> m_Lista;
     };
 }
 

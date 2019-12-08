@@ -25,16 +25,11 @@ Plansza::Plansza(int rozmiar):
     m_KolorPolaA("Oliwkowy", 4),
     m_KolorPolaB("Brązowy", 6)
 {
-    cout << "Przygotowywanie planszy" << endl;
     generujPola(rozmiar, rozmiar);
-    cout << "Przygotowywanie planszy koniec" << endl;
-    //zresetuj(rozmiar);
 }
 
 Plansza::Plansza()
-{
-    zresetuj(8);
-}
+{}
 
 void Plansza::rysuj()
 {
@@ -63,12 +58,6 @@ void Plansza::rysuj()
     }
     SetConsoleTextAttribute(hConsole, 7);
     cout << " ABCDEFGH " << endl;
-}
-
-void Plansza::zresetuj(int rozmiar)
-{
-    // delete m_Pola;
-    generujPola(rozmiar, rozmiar);
 }
 
 Pole* Plansza::pobierzPole(unsigned int poziom, unsigned int pion)

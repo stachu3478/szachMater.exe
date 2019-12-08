@@ -14,10 +14,8 @@ namespace Szachy
             Ruch(Pionek* pionek, Pole* od, Pole* na);
             Pionek* jakiPionek(){ return m_Pionek; };
             Pole* jakiCel(){ return m_PozycjaDocelowa; };
+            Pole* jakiStart(){ return m_PozycjaStartowa; };
             virtual ~Ruch();
-            void renderuj();
-            void wykonaj();
-            void cofnij();
 
         protected:
 
@@ -26,7 +24,6 @@ namespace Szachy
             Pole* m_PozycjaStartowa;
             Pole* m_PozycjaDocelowa;
             Pionek* m_ZbityPionek;
-            bool m_Wykonany;
     };
 }
 

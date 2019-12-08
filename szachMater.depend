@@ -9,7 +9,7 @@
 	<string>
 	"Kolor.h"
 
-1575242146 source:c:\users\stach\desktop\szachmater\src\pole.cpp
+1575822086 source:c:\users\stach\desktop\szachmater\src\pole.cpp
 	"Pole.h"
 	<cmath>
 	<string>
@@ -474,7 +474,7 @@
 1571046592 e:\szachmater.exe\include\gracz.h
 	<string>
 
-1575321783 source:c:\users\stach\desktop\szachmater\src\gracz.cpp
+1575822324 source:c:\users\stach\desktop\szachmater\src\gracz.cpp
 	"Gracz.h"
 	<iostream>
 	<cmath>
@@ -485,7 +485,7 @@
 	"Array.h"
 	"Kolor.h"
 
-1575322647 c:\users\stach\desktop\szachmater\include\gracz.h
+1575819237 c:\users\stach\desktop\szachmater\include\gracz.h
 	<string>
 	"Kolor.h"
 	"Ruch.h"
@@ -494,14 +494,14 @@
 	"Plansza.h"
 	"Array.h"
 
-1575311251 source:c:\users\stach\desktop\szachmater\src\pionek.cpp
+1575819502 source:c:\users\stach\desktop\szachmater\src\pionek.cpp
 	<iostream>
 	"Pionek.h"
 	"TypPionka.h"
 	"Pole.h"
 	"Array.h"
 
-1575241973 c:\users\stach\desktop\szachmater\include\pionek.h
+1575819502 c:\users\stach\desktop\szachmater\include\pionek.h
 	"Kolor.h"
 	"TypPionka.h"
 	"Pole.h"
@@ -630,35 +630,35 @@
 	<iostream>
 	<fstream>
 
-1573669564 c:\users\stach\desktop\szachmater\include\historiaruchow.h
+1575822125 c:\users\stach\desktop\szachmater\include\historiaruchow.h
 	"Ruch.h"
+	"Array.h"
 	<string>
 
-1575230402 c:\users\stach\desktop\szachmater\include\ruch.h
+1575822213 c:\users\stach\desktop\szachmater\include\ruch.h
 	"Pole.h"
 	"TypPionka.h"
 	"Pionek.h"
 
-1574870906 source:c:\users\stach\desktop\szachmater\src\ruch.cpp
+1575822214 source:c:\users\stach\desktop\szachmater\src\ruch.cpp
 	"Ruch.h"
 	<iostream>
 	"Pionek.h"
 	"Pole.h"
 	"TypPionka.h"
 
-1575311251 c:\users\stach\desktop\szachmater\include\gra.h
+1575822164 c:\users\stach\desktop\szachmater\include\gra.h
 	"Gracz.h"
 	"Plansza.h"
 	"TypPionka.h"
-	"HistoriaRuchow.h"
 
-1575241949 c:\users\stach\desktop\szachmater\include\plansza.h
+1575820176 c:\users\stach\desktop\szachmater\include\plansza.h
 	"Kolor.h"
 	"Pole.h"
 	"TypPionka.h"
 	"Pionek.h"
 
-1575322647 source:c:\users\stach\desktop\szachmater\src\gra.cpp
+1575822495 source:c:\users\stach\desktop\szachmater\src\gra.cpp
 	"Gra.h"
 	<string>
 	"Array.h"
@@ -666,11 +666,10 @@
 	"Plansza.h"
 	"TypPionka.h"
 	"Gracz.h"
-	"HistoriaRuchow.h"
 	<iostream>
 	<iomanip>
 
-1575243236 source:c:\users\stach\desktop\szachmater\src\plansza.cpp
+1575820174 source:c:\users\stach\desktop\szachmater\src\plansza.cpp
 	"Plansza.h"
 	<iostream>
 	<windows.h>
@@ -712,11 +711,15 @@
 
 1575230113 c:\users\stach\desktop\szachmater\include\rangeerror.h
 
-1575241941 source:c:\users\stach\desktop\szachmater\src\tester.cpp
+1575819237 source:c:\users\stach\desktop\szachmater\src\tester.cpp
 	"Tester.h"
+	<iostream>
+	"Kolor.h"
 	"Array.h"
 	"TypPionka.h"
 	"Pole.h"
+	"Plansza.h"
+	"Gracz.h"
 
 1575237695 c:\users\stach\desktop\szachmater\include\tester.h
 
