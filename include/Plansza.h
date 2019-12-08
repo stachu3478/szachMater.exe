@@ -18,6 +18,7 @@ namespace Szachy
             void rysuj();
             void generujPola(int a, int b);
             Pole* pobierzPole(unsigned int poziom, unsigned int pion);
+            Pole* pobierzPole(int i);
             bool pobierzPolePrzes(Pole*& pole, int x, int y);
             Pionek* pobierzPionek(Pole* pole) { return m_PozycjePionkow[pole->pobierzNumer()]; };
             void przydzielPionek(Pionek* pionek);

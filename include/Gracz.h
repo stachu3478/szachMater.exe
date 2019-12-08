@@ -1,7 +1,12 @@
+/*! \file Gracz.h
+    \brief Plik nag³ówkowy dla klasy Gracz
+*/
+
 #ifndef GRACZ_H
 #define GRACZ_H
 
 #include <string>
+#include <fstream>
 #include "Kolor.h"
 #include "Ruch.h"
 #include "Pionek.h"
@@ -11,13 +16,17 @@
 
 namespace Szachy
 {
+    /*!
+        \brief Najwy¿szy poziom klasy programu
+    */
     class Gracz
     {
         public:
-            Gracz(TypPionka** typyPionkow, Plansza* plansza, unsigned char kolor);
+            Gracz(Array<TypPionka*> typyPionkow, Plansza* plansza, unsigned char kolor, bool kontynnuj);
             Gracz();
             virtual ~Gracz();
-            void generujPionki(TypPionka** typyPionkow, Plansza* plansza);
+            void generujPionki(Array<Szachy::TypPionka*> typyPionkow, Plansza* plansza);
+            void przydzielPionki();
             std::string jakaNazwa() { return m_nazwa; };
             Kolor JakiKolor() { return m_KolorPionkow; };
             bool czySzach(Pionek* pionek, Plansza* plansza);
@@ -25,13 +34,13 @@ namespace Szachy
             Array< Array<Ruch*> >& mozliwosciRuchu(Plansza* plansza, bool szach);
             int kierunek() { return m_KolorPionkow.JakaWartosc() != 0 ? -1 : 1; }
 
-            // UÂ¿ycie settera w tym przypadku nie dziaÂ³a
-            // zmienna musi byÃ¦ publiczna
-            int m_szach;
+            void zapisz(std::ofstream& f);
+            void zaladuj(std::ifstream& f);
         protected:
 
         private:
             std::string m_nazwa;
+            Szachy::Plansza* m_Plansza;
             Szachy::Pionek* m_pionki[16];
             Kolor m_KolorPionkow;
     };

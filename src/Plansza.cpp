@@ -44,10 +44,12 @@ void Plansza::rysuj()
             int index = i * 8 + j;
 
             Pionek* pionek = m_PozycjePionkow[index];
+            // cout << pionek << endl;
             string litera = pionek ? pionek->jakaLitera() : " ";
             int kolorPionka = pionek ? pionek->JakiKolor()->JakaWartosc() : 0;
 
             Pole* pole = m_Pola[index];
+            // if (pole == 0) throw &pole;
             char kolor = pole->JakiKolor()->JakaWartosc() * 16 + kolorPionka;
 
             SetConsoleTextAttribute(hConsole, kolor);
@@ -63,6 +65,12 @@ void Plansza::rysuj()
 Pole* Plansza::pobierzPole(unsigned int poziom, unsigned int pion)
 {
     int indeks = poziom * 8 + pion - 9;
+    Pole* pole = m_Pola[indeks];
+    return pole;
+}
+
+Pole* Plansza::pobierzPole(int indeks)
+{
     Pole* pole = m_Pola[indeks];
     return pole;
 }
@@ -90,7 +98,7 @@ void Plansza::przydzielPionek(Pionek* pionek)
     if (m_PozycjePionkow[id] != 0)
     {
         Pionek* zbity = m_PozycjePionkow[id];
-        zbity->zbij();
+        // zbity->zbij();
     }
     m_PozycjePionkow[id] = pionek;
 }

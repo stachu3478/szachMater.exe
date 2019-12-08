@@ -42,11 +42,11 @@ void testTypPionka()
     if (typ.jakaLitera() != "T") throw typ;
     if (typ.jakaNazwa() != "test") throw typ;
 
-    typ.dodajRuch(3, 4);
-    Array< Array<char> >* xys = typ.mozliwosciRuchu();
-    Array<char> xy = (*xys)[0];
-    if (xy[0] != 3) throw typ;
-    if (xy[1] != 4) throw typ;
+    //typ.dodajRuch(3, 4);
+    //Array< Array<char> >* xys = typ.mozliwosciRuchu();
+    //Array<char> xy = (*xys)[0];
+    //if (xy[0] != 3) throw typ;
+    //if (xy[1] != 4) throw typ;
 }
 
 void testPole()

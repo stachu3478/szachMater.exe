@@ -9,11 +9,12 @@
 #include "Ruch.h"
 #include "Array.h"
 #include "Kolor.h"
+#include "toChar.h"
 
 using namespace Szachy;
 using namespace std;
 
-void Gracz::generujPionki(TypPionka** typyPionkow, Plansza* plansza)
+void Gracz::generujPionki(Array<TypPionka*> typyPionkow, Plansza* plansza)
 {
     bool jestCzarny = m_KolorPionkow.JakaWartosc() == 0;
     int poziom = jestCzarny ? 2 : 7;
@@ -33,20 +34,28 @@ void Gracz::generujPionki(TypPionka** typyPionkow, Plansza* plansza)
     m_pionki[13] = new Pionek(typyPionkow[2], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // goniec
     m_pionki[14] = new Pionek(typyPionkow[1], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // skoczek
     m_pionki[15] = new Pionek(typyPionkow[3], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // wieza
+}
 
+void Gracz::przydzielPionki()
+{
     for (int i = 0; i < 16; i++)
     {
-        plansza->przydzielPionek(m_pionki[i]);
+        m_Plansza->przydzielPionek(m_pionki[i]);
     }
 }
 
-Gracz::Gracz(TypPionka** typyPionkow, Plansza* plansza, unsigned char kolor):
+Gracz::Gracz(Array<TypPionka*> typyPionkow, Plansza* plansza, unsigned char kolor, bool kontynnuj):
     m_KolorPionkow(kolor == 0 ? "Czarny" : "Biały", kolor)
 {
+    m_Plansza = plansza;
     generujPionki(typyPionkow, plansza);
-    cout << "Podaj nazwę gracza. Kolor pionków: " << m_KolorPionkow.JakaNazwa() << endl;
-    cin >> m_nazwa;
-    cout << endl;
+    if (!kontynnuj)
+    {
+        przydzielPionki();
+        cout << "Podaj nazwę gracza. Kolor pionków: " << m_KolorPionkow.JakaNazwa() << endl;
+        cin >> m_nazwa;
+        cout << endl;
+    }
 }
 
 Gracz::Gracz():
@@ -104,7 +113,6 @@ Pole* znajdzZajetePole(Pole* pole, int xd, int yd, Plansza* plansza)
     do
     {} while(sprawdzCzyPoleWolne(dupPole, xd, yd, plansza));
     if (dupPole == pole) return NULL;
-    cout << "Znalezione " << pole->nazwa() << endl;
     return dupPole;
 }
 
@@ -112,7 +120,6 @@ int kierunek(Kolor* kolor) { return kolor->JakaWartosc() != 0 ? -1 : 1; }
 
 bool poleBezpieczne(Pole* pole, Kolor* kolor, Plansza* plansza)
 {
-    cout << "spr pole " << pole->nazwa() << endl;
     Array<Pole>* pola = new Array<Pole>(10);
     int ptr = 0;
 
@@ -310,11 +317,33 @@ bool Gracz::czySzach(Pionek* pionek, Plansza* plansza)
         if (
             potKrol == 0
             || potKrol->jakaLitera() != "K"
-        ) return false;
+        ) continue;
         cout << m_nazwa << ": Szach!" << endl;
         return true;
     }
     return false;
+}
+
+void Gracz::zapisz(ofstream& out)
+{
+    out << m_nazwa << endl;
+    for (int i = 0; i < 16; i++)
+    {
+        out << (int)m_pionki[i]->jakaPozycja()->pobierzNumer() << endl;
+        m_pionki[i]->zapisz(out);
+    };
+}
+
+void Gracz::zaladuj(ifstream& in)
+{
+    in >> m_nazwa;
+    int pozycja;
+    for (int i = 0; i < 16; i++)
+    {
+        in >> pozycja;
+        m_Plansza->przeniesPionek(m_pionki[i], m_Plansza->pobierzPole(pozycja));
+        m_pionki[i]->zaladuj(in);
+    };
 }
 
 Gracz::~Gracz()

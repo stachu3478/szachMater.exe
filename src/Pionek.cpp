@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "Pionek.h"
 #include "TypPionka.h"
 #include "Pole.h"
@@ -21,28 +22,6 @@ void Pionek::przenies(Pole* pole)
     m_bylPierwszyRuch = true;
 }
 
-Pole*& Pionek::mozliwoscRuchu(Array<Pole>* pola, int x, int y)
-{
-    Pole pole(m_pozycja);
-    if (pole.przesun(x, y)) pola->push(pole);
-}
-
-Array<Pole>& Pionek::mozliwosciRuchu(char kierunek)
-{
-    Array< Array<char> >* przesuniecia = m_typ->mozliwosciRuchu();
-    int x = m_pozycja->poziom();
-    int y = m_pozycja->pion();
-    Array<Pole> pola(4);
-    int licznik = 0;
-    for (int i = 0; i < przesuniecia->len(); i++)
-    {
-        przesuniecia->printItems();
-        mozliwoscRuchu(&pola, (*przesuniecia)[i][0] * kierunek, (*przesuniecia)[i][1] * kierunek);
-    }
-    Array<Pole>& polaRef = pola;
-    return polaRef;
-}
-
 void Pionek::zbij()
 {
     if (jakaLitera() == "K")
@@ -51,6 +30,18 @@ void Pionek::zbij()
         throw *this;
     };
     m_zbity = true;
+}
+
+void Pionek::zapisz(ofstream& out)
+{
+    out << (m_bylPierwszyRuch ? 1 : 0) << endl;
+    out << (m_zbity ? 1 : 0) << endl;
+}
+
+void Pionek::zaladuj(ifstream& in)
+{
+    in >> m_bylPierwszyRuch;
+    in >> m_zbity;
 }
 
 Pionek::~Pionek()

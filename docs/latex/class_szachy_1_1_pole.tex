@@ -1,0 +1,95 @@
+\hypertarget{class_szachy_1_1_pole}{}\doxysection{Szachy\+::Pole Class Reference}
+\label{class_szachy_1_1_pole}\index{Szachy::Pole@{Szachy::Pole}}
+
+
+{\ttfamily \#include $<$Pole.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_szachy_1_1_pole_aa81bee04b2e8ba875d9228c2e6aeed1a}{Pole}} (int num, \mbox{\hyperlink{class_kolor}{Kolor}} $\ast$kolor)
+\item 
+\mbox{\Hypertarget{class_szachy_1_1_pole_a20a5dee524ccb85d5350506323e1ae40}\label{class_szachy_1_1_pole_a20a5dee524ccb85d5350506323e1ae40}} 
+{\bfseries Pole} (int poziom, int pion)
+\item 
+\mbox{\Hypertarget{class_szachy_1_1_pole_a9ec71098899f24ff12958042ceabd996}\label{class_szachy_1_1_pole_a9ec71098899f24ff12958042ceabd996}} 
+{\bfseries Pole} (\mbox{\hyperlink{class_szachy_1_1_pole}{Szachy\+::\+Pole}} $\ast$pole)
+\item 
+std\+::string \mbox{\hyperlink{class_szachy_1_1_pole_adaf1052b2eb1c2f1a588b646a814b19a}{nazwa}} ()
+\begin{DoxyCompactList}\small\item\em Tworzy zdefiniowaną listę pól z odniesieniem pozycji. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_szachy_1_1_pole_a8ffc1398fffb2970c624b1dbfa1b6242}\label{class_szachy_1_1_pole_a8ffc1398fffb2970c624b1dbfa1b6242}} 
+virtual \mbox{\hyperlink{class_szachy_1_1_pole_a8ffc1398fffb2970c624b1dbfa1b6242}{$\sim$\+Pole}} ()
+\begin{DoxyCompactList}\small\item\em Destruktor klasy \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_szachy_1_1_pole_a1d93f79e6a0b40f54a778df1932b5891}\label{class_szachy_1_1_pole_a1d93f79e6a0b40f54a778df1932b5891}} 
+\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} \& \mbox{\hyperlink{class_szachy_1_1_pole_a1d93f79e6a0b40f54a778df1932b5891}{operator=}} (const \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} \&other)
+\begin{DoxyCompactList}\small\item\em Implementacja przypisania klas typu \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_szachy_1_1_pole_a49e2757d38366f17e9cd9968c11087a8}{operator==}} (const \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} \&other)
+\begin{DoxyCompactList}\small\item\em Implementacja przenoszenia pionka na dane pole. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_szachy_1_1_pole_a508ca4df362716515b4983fbf1fff14f}\label{class_szachy_1_1_pole_a508ca4df362716515b4983fbf1fff14f}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} \&other)
+\item 
+\mbox{\Hypertarget{class_szachy_1_1_pole_a6f2a9fe46f53bc52b0da8674f9aa0935}\label{class_szachy_1_1_pole_a6f2a9fe46f53bc52b0da8674f9aa0935}} 
+char \mbox{\hyperlink{class_szachy_1_1_pole_a6f2a9fe46f53bc52b0da8674f9aa0935}{pobierz\+Numer}} ()
+\begin{DoxyCompactList}\small\item\em Zwrot identyfikatora. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_szachy_1_1_pole_a9ce3de286a274f71076f4f5fb9ddd563}\label{class_szachy_1_1_pole_a9ce3de286a274f71076f4f5fb9ddd563}} 
+char {\bfseries poziom} ()
+\item 
+\mbox{\Hypertarget{class_szachy_1_1_pole_ac5b93c7f456f016fbfe711dd7a6ad35f}\label{class_szachy_1_1_pole_ac5b93c7f456f016fbfe711dd7a6ad35f}} 
+char {\bfseries pion} ()
+\item 
+\mbox{\Hypertarget{class_szachy_1_1_pole_ac9cff149a07c23c8ee0a0f286968a784}\label{class_szachy_1_1_pole_ac9cff149a07c23c8ee0a0f286968a784}} 
+bool {\bfseries przesun} (char x, char y)
+\item 
+\mbox{\Hypertarget{class_szachy_1_1_pole_a16c744b405c97fdd5cee1590ec6de3ff}\label{class_szachy_1_1_pole_a16c744b405c97fdd5cee1590ec6de3ff}} 
+\mbox{\hyperlink{class_kolor}{Kolor}} $\ast$ {\bfseries Jaki\+Kolor} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Jest odzwierciedleniem pola na szachownicy \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} jest identyfikowane przez pole numer 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_szachy_1_1_pole_aa81bee04b2e8ba875d9228c2e6aeed1a}\label{class_szachy_1_1_pole_aa81bee04b2e8ba875d9228c2e6aeed1a}} 
+\index{Szachy::Pole@{Szachy::Pole}!Pole@{Pole}}
+\index{Pole@{Pole}!Szachy::Pole@{Szachy::Pole}}
+\doxysubsubsection{\texorpdfstring{Pole()}{Pole()}}
+{\footnotesize\ttfamily Szachy\+::\+Pole\+::\+Pole (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{\mbox{\hyperlink{class_kolor}{Kolor}} $\ast$}]{kolor }\end{DoxyParamCaption})}
+
+Tworzy nowe pole 
+\begin{DoxyParams}{Parameters}
+{\em poziom} & -\/ pozycja od góry do do³u najmniejsza wartoœæ okreœla pole na górze jako cyfrowa pozycja pola (od 1 do 8) jest bardziej znacz¹ca w wartoœci \\
+\hline
+{\em pion} & -\/ pozycja od lewej do prawej najmniejsza wartoœæ okreœla pole po lewej jako literowa pozycja pola (od 1 do 8) jest mniej znacząca w wartoœci \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_szachy_1_1_pole_adaf1052b2eb1c2f1a588b646a814b19a}\label{class_szachy_1_1_pole_adaf1052b2eb1c2f1a588b646a814b19a}} 
+\index{Szachy::Pole@{Szachy::Pole}!nazwa@{nazwa}}
+\index{nazwa@{nazwa}!Szachy::Pole@{Szachy::Pole}}
+\doxysubsubsection{\texorpdfstring{nazwa()}{nazwa()}}
+{\footnotesize\ttfamily std\+::string Szachy\+::\+Pole\+::nazwa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Tworzy zdefiniowaną listę pól z odniesieniem pozycji. 
+
+Zwraca czyteln¹ nazwê pola na szachownicy \begin{DoxyReturn}{Returns}
+-\/ Reprezentacja cyfrowej i literowej pozycji np. 5C, 1A, 5F 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_szachy_1_1_pole_a49e2757d38366f17e9cd9968c11087a8}\label{class_szachy_1_1_pole_a49e2757d38366f17e9cd9968c11087a8}} 
+\index{Szachy::Pole@{Szachy::Pole}!operator==@{operator==}}
+\index{operator==@{operator==}!Szachy::Pole@{Szachy::Pole}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Szachy\+::\+Pole\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Implementacja przenoszenia pionka na dane pole. 
+
+Implementacje porównań klas typu \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Pole.\+h\end{DoxyCompactItemize}

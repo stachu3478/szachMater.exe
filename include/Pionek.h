@@ -1,6 +1,7 @@
 #ifndef PIONEK_H
 #define PIONEK_H
 
+#include <fstream>
 #include "Kolor.h"
 #include "TypPionka.h"
 #include "Pole.h"
@@ -16,8 +17,6 @@ namespace Szachy
 
             TypPionka jakiTyp() { return *m_typ; }
             Pole* jakaPozycja() { return m_pozycja; }
-            Pole*& mozliwoscRuchu(Array<Pole>* pola, int x, int y);
-            Array<Pole>& mozliwosciRuchu(char negacja);
             std::string jakaLitera() { return m_typ->jakaLitera(); }
             std::string nazwa() { return m_typ->jakaNazwa(); };
             void przenies(Szachy::Pole* val);
@@ -26,6 +25,9 @@ namespace Szachy
             bool czyZbity() { return m_zbity; }
             void awansuj(TypPionka* typ) { m_typ = typ; };
             void zbij();
+
+            void zapisz(std::ofstream& f);
+            void zaladuj(std::ifstream& f);
 
         protected:
 
