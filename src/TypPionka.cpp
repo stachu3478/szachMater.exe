@@ -21,11 +21,6 @@ TypPionka::TypPionka(std::string c_nazwa, std::string c_opis, char c_litera)
     litera = c_litera;
 }
 
-std::string TypPionka::info()
-{
-    return nazwa + "\n" + opis + "\nReprezentowany przez literę " + litera + "\n";
-}
-
 TypPionka::~TypPionka()
 {
     //dtor

@@ -1,3 +1,7 @@
+/*! \file TypPionka.h
+    \brief Plik klasy TypPionka
+*/
+
 #ifndef TYPPIONKA_H
 #define TYPPIONKA_H
 
@@ -6,17 +10,30 @@
 
 namespace Szachy
 {
+    /*!
+        \brief Klasa TypPionka
+        Abstrakcja
+    */
     class TypPionka
     {
         public:
-            /** Default constructor */
+            /*!
+                \brief Domyœlny konstruktor
+                \param nazwa Nazwa typu
+                \param opi Opis
+                \param sciezka Litera
+            */
             TypPionka(std::string nazwa, std::string opis, char sciezka);
             /** Default destructor */
             virtual ~TypPionka();
+            /*!
+                \brief Zwraca literę która jest przypisana do typu pionka
+            */
             std::string jakaLitera() { return litera; };
+            /*!
+                \brief Zwraca nazwę która jest przypisana do typu pionka
+            */
             std::string jakaNazwa() { return nazwa; };
-            std::string info();
-
         protected:
 
         private:

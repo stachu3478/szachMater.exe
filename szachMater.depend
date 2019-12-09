@@ -539,15 +539,15 @@
 	"Pole.h"
 	"Array.h"
 
-1575877773 d:\skrypty\szachmater.exe\include\typpionka.h
+1575902057 d:\skrypty\szachmater.exe\include\typpionka.h
 	<string>
 	"Array.h"
 
-1575276960 d:\skrypty\szachmater.exe\include\pole.h
+1575900863 d:\skrypty\szachmater.exe\include\pole.h
 	<string>
 	"Kolor.h"
 
-1575880924 d:\skrypty\szachmater.exe\include\plansza.h
+1575900105 d:\skrypty\szachmater.exe\include\plansza.h
 	"Kolor.h"
 	"Pole.h"
 	"TypPionka.h"
@@ -557,12 +557,12 @@
 	"Ruch.h"
 	<string>
 
-1575877773 d:\skrypty\szachmater.exe\include\ruch.h
+1575902182 d:\skrypty\szachmater.exe\include\ruch.h
 	"Pole.h"
 	"TypPionka.h"
 	"Pionek.h"
 
-1575879262 source:d:\skrypty\szachmater.exe\src\gra.cpp
+1575880926 source:d:\skrypty\szachmater.exe\src\gra.cpp
 	"Gra.h"
 	<string>
 	<stdio.h>
@@ -616,7 +616,7 @@
 	<windows.h>
 	"Pole.h"
 
-1575877773 source:d:\skrypty\szachmater.exe\src\pole.cpp
+1575900865 source:d:\skrypty\szachmater.exe\src\pole.cpp
 	"Pole.h"
 	<cmath>
 	<string>
@@ -751,11 +751,11 @@
 
 1575237695 c:\users\stach\desktop\szachmater\include\tester.h
 
-1575276960 d:\skrypty\szachmater.exe\include\rangeerror.h
+1575901006 d:\skrypty\szachmater.exe\include\rangeerror.h
 
-1575276960 d:\skrypty\szachmater.exe\include\tester.h
+1575901083 d:\skrypty\szachmater.exe\include\tester.h
 
-1575877773 source:d:\skrypty\szachmater.exe\src\tester.cpp
+1575900817 source:d:\skrypty\szachmater.exe\src\tester.cpp
 	"Tester.h"
 	<iostream>
 	"Kolor.h"
@@ -776,6 +776,6 @@
 	"toChar.h"
 	<string>
 
-1575877773 d:\skrypty\szachmater.exe\include\tochar.h
+1575901510 d:\skrypty\szachmater.exe\include\tochar.h
 	<string>
 

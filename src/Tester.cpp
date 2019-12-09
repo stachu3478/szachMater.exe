@@ -41,12 +41,6 @@ void testTypPionka()
     TypPionka typ("test", "test1" , 'T');
     if (typ.jakaLitera() != "T") throw typ;
     if (typ.jakaNazwa() != "test") throw typ;
-
-    //typ.dodajRuch(3, 4);
-    //Array< Array<char> >* xys = typ.mozliwosciRuchu();
-    //Array<char> xy = (*xys)[0];
-    //if (xy[0] != 3) throw typ;
-    //if (xy[1] != 4) throw typ;
 }
 
 void testPole()
@@ -56,16 +50,6 @@ void testPole()
     if (pole.poziom() != 3) throw pole;
     if (pole.nazwa() != "3D") throw pole;
     if (pole.pobierzNumer() != 19) throw pole;
-
-    pole.przesun(2, 3);
-    if (pole.pion() != 7) throw pole;
-    if (pole.poziom() != 5) throw pole;
-
-    if (pole.przesun(0, -7)) throw pole;
-    if (pole.pion() != 7) throw pole;
-
-    if (pole.przesun(0, 2)) throw pole;
-    if (pole.pion() != 7) throw pole;
 }
 
 void testGracz()

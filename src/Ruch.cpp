@@ -11,10 +11,10 @@ using namespace std;
 Ruch::Ruch()
 {}
 
-Ruch::Ruch(Pionek* pionek, Pole* od, Pole* na)
+Ruch::Ruch(Pionek* pionek, Pole* na)
 {
     m_Pionek = pionek;
-    m_PozycjaStartowa = od;
+    m_PozycjaStartowa = pionek->jakaPozycja();
     m_PozycjaDocelowa = na;
 }
 

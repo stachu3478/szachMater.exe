@@ -44,16 +44,6 @@ Pole& Pole::operator=(const Pole& rhs)
     return *this;
 }
 
-bool Pole::przesun(char x, char y)
-{
-    char noweY = pion() + y;
-    if (noweY > 8 || noweY < 1) return false;
-    char nowyNumer = numer + x * 8 + y;
-    if (nowyNumer < 0 || nowyNumer > 63) return false;
-    numer = nowyNumer;
-    return true;
-}
-
 bool Pole::operator==(const Pole& rhs)
 {
     if (this == &rhs) return true;

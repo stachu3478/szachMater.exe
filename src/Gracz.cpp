@@ -284,7 +284,7 @@ Array<Ruch*>& Gracz::mozliwosciPionka(Pionek* pionek)
     Array<Ruch*>* ruchy = new Array<Ruch*>(pola.len());
     for (int j = 0; j < pola.len(); j++)
     {
-        ruchy->push(new Ruch(*&pionek, pionek->jakaPozycja(), &pola[j]));
+        ruchy->push(new Ruch(*&pionek, &pola[j]));
     }
     Array<Ruch*>& ruchyRef = *ruchy;
     return ruchyRef;
