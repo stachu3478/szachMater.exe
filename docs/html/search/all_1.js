@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gra_3',['Gra',['../class_szachy_1_1_gra.html',1,'Szachy::Gra'],['../class_szachy_1_1_gra.html#a4258993c0f7d20b7050953cd0a02933d',1,'Szachy::Gra::Gra()']]],
-  ['gra_2eh_4',['Gra.h',['../_gra_8h.html',1,'']]],
-  ['gracz_5',['Gracz',['../class_szachy_1_1_gracz.html',1,'Szachy']]]
+  ['czybylpierwszyruch_5',['czyBylPierwszyruch',['../class_szachy_1_1_pionek.html#aa0cd72a29339dcf33fbc1b37aa1e6c30',1,'Szachy::Pionek']]],
+  ['czyszach_6',['czySzach',['../class_szachy_1_1_gracz.html#ad766d44fa34bd01bc9fe2da3e56af8e3',1,'Szachy::Gracz']]],
+  ['czyzbity_7',['czyZbity',['../class_szachy_1_1_pionek.html#a671c4584965926ce09fb1864a284ddb3',1,'Szachy::Pionek']]]
 ];

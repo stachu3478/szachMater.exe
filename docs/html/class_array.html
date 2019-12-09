@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +53,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_array.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,7 +84,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -71,40 +95,155 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a65387cfd893dee1befb3fd22cdd1eabd"><td class="memItemLeft" align="right" valign="top"><a id="a65387cfd893dee1befb3fd22cdd1eabd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Array</b> (int init_length)</td></tr>
+<tr class="memitem:ae25f6d485704fca18289aa16e10b2fa8"><td class="memItemLeft" align="right" valign="top"><a id="ae25f6d485704fca18289aa16e10b2fa8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array.html#ae25f6d485704fca18289aa16e10b2fa8">Array</a> ()</td></tr>
+<tr class="memdesc:ae25f6d485704fca18289aa16e10b2fa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy array (bez parametr贸w) Przygotowuje list臋 10 element贸w o podanym typie. <br /></td></tr>
+<tr class="separator:ae25f6d485704fca18289aa16e10b2fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65387cfd893dee1befb3fd22cdd1eabd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array.html#a65387cfd893dee1befb3fd22cdd1eabd">Array</a> (int init_length)</td></tr>
+<tr class="memdesc:a65387cfd893dee1befb3fd22cdd1eabd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy array.  <a href="class_array.html#a65387cfd893dee1befb3fd22cdd1eabd">More...</a><br /></td></tr>
 <tr class="separator:a65387cfd893dee1befb3fd22cdd1eabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07da6f1c347b176d921355d275d51143"><td class="memItemLeft" align="right" valign="top"><a id="a07da6f1c347b176d921355d275d51143"></a>
-T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> ()</td></tr>
+T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array.html#a07da6f1c347b176d921355d275d51143">read</a> ()</td></tr>
+<tr class="memdesc:a07da6f1c347b176d921355d275d51143"><td class="mdescLeft">&#160;</td><td class="mdescRight">U偶ywa standardowego wej艣cia do wybrania jednego elementu z listy Przyjmuje liczby od 1 do ilo艣ci element贸w W przypadku podania niew艂a艣ciwego indeksu zwraca wyj膮tek <a class="el" href="class_range_error.html" title="B彻d definiuj筩y przekroczenie zakresu dot阷nych indeks體 na li渃ie.">RangeError</a>. <br /></td></tr>
 <tr class="separator:a07da6f1c347b176d921355d275d51143"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14680cd5f7baf303b097a05ef0802f9a"><td class="memItemLeft" align="right" valign="top"><a id="a14680cd5f7baf303b097a05ef0802f9a"></a>
-T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>random</b> ()</td></tr>
+T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array.html#a14680cd5f7baf303b097a05ef0802f9a">random</a> ()</td></tr>
+<tr class="memdesc:a14680cd5f7baf303b097a05ef0802f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca losowy element z listy. <br /></td></tr>
 <tr class="separator:a14680cd5f7baf303b097a05ef0802f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8696912992430066108fba496598c1df"><td class="memItemLeft" align="right" valign="top"><a id="a8696912992430066108fba496598c1df"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>len</b> ()</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array.html#a8696912992430066108fba496598c1df">len</a> ()</td></tr>
+<tr class="memdesc:a8696912992430066108fba496598c1df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca obecn膮 ilo艣膰 element贸w na li艣cie. <br /></td></tr>
 <tr class="separator:a8696912992430066108fba496598c1df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44a36b8efd25baae6b545b9df8e9e707"><td class="memItemLeft" align="right" valign="top"><a id="a44a36b8efd25baae6b545b9df8e9e707"></a>
-T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>refer</b> (int index)</td></tr>
-<tr class="separator:a44a36b8efd25baae6b545b9df8e9e707"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e1bde32f2fb97cea1309a4537b1503a"><td class="memItemLeft" align="right" valign="top"><a id="a6e1bde32f2fb97cea1309a4537b1503a"></a>
-T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (unsigned index)</td></tr>
+<tr class="memitem:a6e1bde32f2fb97cea1309a4537b1503a"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array.html#a6e1bde32f2fb97cea1309a4537b1503a">operator[]</a> (unsigned index)</td></tr>
+<tr class="memdesc:a6e1bde32f2fb97cea1309a4537b1503a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementuje pobieranie elementu przy u偶yciu operatora nawiasowego.  <a href="class_array.html#a6e1bde32f2fb97cea1309a4537b1503a">More...</a><br /></td></tr>
 <tr class="separator:a6e1bde32f2fb97cea1309a4537b1503a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45fc215ef9bbe9c5191ccf6f479b2310"><td class="memItemLeft" align="right" valign="top"><a id="a45fc215ef9bbe9c5191ccf6f479b2310"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printItems</b> ()</td></tr>
-<tr class="separator:a45fc215ef9bbe9c5191ccf6f479b2310"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3bed4eebf299e4b3b4a2483eca4483c"><td class="memItemLeft" align="right" valign="top"><a id="aa3bed4eebf299e4b3b4a2483eca4483c"></a>
-T&#160;</td><td class="memItemRight" valign="bottom"><b>push</b> (T item)</td></tr>
+<tr class="memitem:aa3bed4eebf299e4b3b4a2483eca4483c"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array.html#aa3bed4eebf299e4b3b4a2483eca4483c">push</a> (T item)</td></tr>
+<tr class="memdesc:aa3bed4eebf299e4b3b4a2483eca4483c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje nowy element do listy.  <a href="class_array.html#aa3bed4eebf299e4b3b4a2483eca4483c">More...</a><br /></td></tr>
 <tr class="separator:aa3bed4eebf299e4b3b4a2483eca4483c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a65387cfd893dee1befb3fd22cdd1eabd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65387cfd893dee1befb3fd22cdd1eabd">&#9670;&nbsp;</a></span>Array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_array.html">Array</a>&lt; T &gt;::<a class="el" href="class_array.html">Array</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>init_length</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konstruktor klasy array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">init_length</td><td>Okre艣la pocz膮tkowy rozmiar listy </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6e1bde32f2fb97cea1309a4537b1503a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e1bde32f2fb97cea1309a4537b1503a">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="class_array.html">Array</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje pobieranie elementu przy u偶yciu operatora nawiasowego. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Indeks pobieranego elementu (pocz膮wszy od 0) W przypadku podania niew艂a艣ciwej warto艣ci zwraca wyj膮tek <a class="el" href="class_range_error.html" title="B彻d definiuj筩y przekroczenie zakresu dot阷nych indeks體 na li渃ie.">RangeError</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa3bed4eebf299e4b3b4a2483eca4483c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3bed4eebf299e4b3b4a2483eca4483c">&#9670;&nbsp;</a></span>push()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="class_array.html">Array</a>&lt; T &gt;::push </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dodaje nowy element do listy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Element, kt贸ry ma by膰 dodany </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="_array_8h_source.html">Array.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_array.html">Array</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

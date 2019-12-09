@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +53,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_gracz_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,71 +84,89 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Gracz.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GRACZ_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GRACZ_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Kolor.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Ruch.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Pionek.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;TypPionka.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Plansza.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;Array.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_szachy.html">Szachy</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_szachy_1_1_gracz.html">   15</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_szachy_1_1_gracz.html">Gracz</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <a class="code" href="class_szachy_1_1_gracz.html">Gracz</a>(<a class="code" href="class_array.html">Array&lt;TypPionka*&gt;</a> typyPionkow, <a class="code" href="class_szachy_1_1_plansza.html">Plansza</a>* plansza, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> kolor, <span class="keywordtype">bool</span> kontynnuj);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <a class="code" href="class_szachy_1_1_gracz.html">Gracz</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keyword">virtual</span> ~<a class="code" href="class_szachy_1_1_gracz.html">Gracz</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordtype">void</span> generujPionki(<a class="code" href="class_array.html">Array&lt;Szachy::TypPionka*&gt;</a> typyPionkow, <a class="code" href="class_szachy_1_1_plansza.html">Plansza</a>* plansza);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordtype">void</span> przydzielPionki();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            std::string jakaNazwa() { <span class="keywordflow">return</span> m_nazwa; };</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="class_kolor.html">Kolor</a> JakiKolor() { <span class="keywordflow">return</span> m_KolorPionkow; };</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordtype">bool</span> czySzach(<a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* pionek, <a class="code" href="class_szachy_1_1_plansza.html">Plansza</a>* plansza);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* pobierzPionek(<span class="keywordtype">int</span> n) { <span class="keywordflow">return</span> m_pionki[n]; };</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <a class="code" href="class_array.html">Array&lt; Array&lt;Ruch*&gt;</a> &gt;&amp; mozliwosciRuchu(<a class="code" href="class_szachy_1_1_plansza.html">Plansza</a>* plansza, <span class="keywordtype">bool</span> szach);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordtype">int</span> kierunek() { <span class="keywordflow">return</span> m_KolorPionkow.<a class="code" href="class_kolor.html#aaab30167aaa2704842b34b08262fd9c4">JakaWartosc</a>() != 0 ? -1 : 1; }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordtype">void</span> zapisz(std::ofstream&amp; f);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordtype">void</span> zaladuj(std::ifstream&amp; f);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            std::string m_nazwa;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <a class="code" href="class_szachy_1_1_plansza.html">Szachy::Plansza</a>* m_Plansza;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <a class="code" href="class_szachy_1_1_pionek.html">Szachy::Pionek</a>* m_pionki[16];</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="class_kolor.html">Kolor</a> m_KolorPionkow;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif // GRACZ_H</span></div>
+<a href="_gracz_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef GRACZ_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define GRACZ_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Kolor.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ruch_8h.html">Ruch.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_pionek_8h.html">Pionek.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_typ_pionka_8h.html">TypPionka.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_plansza_8h.html">Plansza.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_array_8h.html">Array.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_szachy.html">Szachy</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_szachy_1_1_gracz.html">   22</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_szachy_1_1_gracz.html">Gracz</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <a class="code" href="class_szachy_1_1_gracz.html#af1f563e0fa333875248d0de9ae207072">Gracz</a>(<a class="code" href="class_array.html">Array&lt;TypPionka*&gt;</a> typyPionkow, <a class="code" href="class_szachy_1_1_plansza.html">Plansza</a>* plansza, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> kolor, <span class="keywordtype">bool</span> kontynnuj);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <a class="code" href="class_szachy_1_1_gracz.html#af1f563e0fa333875248d0de9ae207072">Gracz</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keyword">virtual</span> ~<a class="code" href="class_szachy_1_1_gracz.html">Gracz</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_szachy_1_1_gracz.html#a3db941e2eb91d0015aab21aeeb04bab6">generujPionki</a>(<a class="code" href="class_array.html">Array&lt;Szachy::TypPionka*&gt;</a> typyPionkow);</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_szachy_1_1_gracz.html#a012249b21f8d7c920e188b48c61e3960">   52</a></span>&#160;            std::string <a class="code" href="class_szachy_1_1_gracz.html#a012249b21f8d7c920e188b48c61e3960">jakaNazwa</a>() { <span class="keywordflow">return</span> m_nazwa; };</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_szachy_1_1_gracz.html#a56bbb074e13c97985d31bb9b48013949">   56</a></span>&#160;            <a class="code" href="class_kolor.html">Kolor</a> <a class="code" href="class_szachy_1_1_gracz.html#a56bbb074e13c97985d31bb9b48013949">JakiKolor</a>() { <span class="keywordflow">return</span> m_KolorPionkow; };</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="class_szachy_1_1_gracz.html#ad766d44fa34bd01bc9fe2da3e56af8e3">czySzach</a>(<a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* pionek);</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_szachy_1_1_gracz.html#affe0a584025b927e478143890150e047">   66</a></span>&#160;            <a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* <a class="code" href="class_szachy_1_1_gracz.html#affe0a584025b927e478143890150e047">pobierzPionek</a>(<span class="keywordtype">int</span> n) { <span class="keywordflow">return</span> m_pionki[n]; };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="class_array.html">Array&lt; Array&lt;Ruch*&gt;</a> &gt;&amp; <a class="code" href="class_szachy_1_1_gracz.html#a232cacc05cb16a2793d0852795475d6e">mozliwosciRuchu</a>(<span class="keywordtype">bool</span> szach);</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_szachy_1_1_gracz.html#a2d5e092aefef608faf7039b569f43ef0">   76</a></span>&#160;            <span class="keywordtype">int</span> <a class="code" href="class_szachy_1_1_gracz.html#a2d5e092aefef608faf7039b569f43ef0">kierunek</a>() { <span class="keywordflow">return</span> m_KolorPionkow.<a class="code" href="class_kolor.html#aaab30167aaa2704842b34b08262fd9c4">JakaWartosc</a>() != 0 ? -1 : 1; }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_szachy_1_1_gracz.html#a831ee73f7932e71aeeff043efb6368ff">zapisz</a>(std::ofstream&amp; f);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_szachy_1_1_gracz.html#a36aae189ecc212e3283f4010e2342d8a">zaladuj</a>(std::ifstream&amp; f);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordtype">void</span> przydzielPionki();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <a class="code" href="class_array.html">Array&lt;Ruch*&gt;</a>&amp; mozliwosciPionka(<a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* pionek);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="class_array.html">Array&lt;Pole&gt;</a>&amp; mozliwePolaPionka(<a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* pionek);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            std::string m_nazwa;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="class_szachy_1_1_plansza.html">Szachy::Plansza</a>* m_Plansza;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <a class="code" href="class_szachy_1_1_pionek.html">Szachy::Pionek</a>* m_pionki[16];</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <a class="code" href="class_kolor.html">Kolor</a> m_KolorPionkow;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    };</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif // GRACZ_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_kolor_html"><div class="ttname"><a href="class_kolor.html">Kolor</a></div><div class="ttdef"><b>Definition:</b> Kolor.h:6</div></div>
-<div class="ttc" id="aclass_kolor_html_aaab30167aaa2704842b34b08262fd9c4"><div class="ttname"><a href="class_kolor.html#aaab30167aaa2704842b34b08262fd9c4">Kolor::JakaWartosc</a></div><div class="ttdeci">unsigned char JakaWartosc()</div><div class="ttdef"><b>Definition:</b> Kolor.h:18</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="a_plansza_8h_html"><div class="ttname"><a href="_plansza_8h.html">Plansza.h</a></div><div class="ttdoc">Plik klasy Plansza.</div></div>
+<div class="ttc" id="a_typ_pionka_8h_html"><div class="ttname"><a href="_typ_pionka_8h.html">TypPionka.h</a></div><div class="ttdoc">Plik klasy TypPionka.</div></div>
+<div class="ttc" id="a_pionek_8h_html"><div class="ttname"><a href="_pionek_8h.html">Pionek.h</a></div><div class="ttdoc">Plik klasy Pionek.</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html_a831ee73f7932e71aeeff043efb6368ff"><div class="ttname"><a href="class_szachy_1_1_gracz.html#a831ee73f7932e71aeeff043efb6368ff">Szachy::Gracz::zapisz</a></div><div class="ttdeci">void zapisz(std::ofstream &amp;f)</div><div class="ttdoc">Zapisuje dane gracza przy użyciu potoku pliku.</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html_af1f563e0fa333875248d0de9ae207072"><div class="ttname"><a href="class_szachy_1_1_gracz.html#af1f563e0fa333875248d0de9ae207072">Szachy::Gracz::Gracz</a></div><div class="ttdeci">Gracz()</div><div class="ttdoc">Pusty konstruktor Nie generuje danych przy inicjalizacji przez referencję</div></div>
+<div class="ttc" id="aclass_kolor_html"><div class="ttname"><a href="class_kolor.html">Kolor</a></div><div class="ttdoc">Reprezentuje kolor znaków i t³¹ w konsoli.</div><div class="ttdef"><b>Definition:</b> Kolor.h:10</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html_a56bbb074e13c97985d31bb9b48013949"><div class="ttname"><a href="class_szachy_1_1_gracz.html#a56bbb074e13c97985d31bb9b48013949">Szachy::Gracz::JakiKolor</a></div><div class="ttdeci">Kolor JakiKolor()</div><div class="ttdoc">Zwraca kolor pionków przypisany do gracza.</div><div class="ttdef"><b>Definition:</b> Gracz.h:56</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html_a232cacc05cb16a2793d0852795475d6e"><div class="ttname"><a href="class_szachy_1_1_gracz.html#a232cacc05cb16a2793d0852795475d6e">Szachy::Gracz::mozliwosciRuchu</a></div><div class="ttdeci">Array&lt; Array&lt; Ruch * &gt; &gt; &amp; mozliwosciRuchu(bool szach)</div><div class="ttdoc">Podaje możliwe ruchy po pionkach gracza które może wykonać</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html_ad766d44fa34bd01bc9fe2da3e56af8e3"><div class="ttname"><a href="class_szachy_1_1_gracz.html#ad766d44fa34bd01bc9fe2da3e56af8e3">Szachy::Gracz::czySzach</a></div><div class="ttdeci">bool czySzach(Pionek *pionek)</div><div class="ttdoc">Sprawdza czy dany pionek szachuje króla przeciwnika.</div></div>
+<div class="ttc" id="aclass_kolor_html_aaab30167aaa2704842b34b08262fd9c4"><div class="ttname"><a href="class_kolor.html#aaab30167aaa2704842b34b08262fd9c4">Kolor::JakaWartosc</a></div><div class="ttdeci">unsigned char JakaWartosc()</div><div class="ttdef"><b>Definition:</b> Kolor.h:31</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html_a2d5e092aefef608faf7039b569f43ef0"><div class="ttname"><a href="class_szachy_1_1_gracz.html#a2d5e092aefef608faf7039b569f43ef0">Szachy::Gracz::kierunek</a></div><div class="ttdeci">int kierunek()</div><div class="ttdoc">Zwraca kierunek w którym wędrują piony tego gracza pomiędzy 1 a -1.</div><div class="ttdef"><b>Definition:</b> Gracz.h:76</div></div>
 <div class="ttc" id="anamespace_szachy_html"><div class="ttname"><a href="namespace_szachy.html">Szachy</a></div><div class="ttdoc">Cała przestrzeń dotycząca mechaniki gry.</div><div class="ttdef"><b>Definition:</b> Gra.h:15</div></div>
-<div class="ttc" id="aclass_szachy_1_1_plansza_html"><div class="ttname"><a href="class_szachy_1_1_plansza.html">Szachy::Plansza</a></div><div class="ttdef"><b>Definition:</b> Plansza.h:11</div></div>
-<div class="ttc" id="aclass_szachy_1_1_gracz_html"><div class="ttname"><a href="class_szachy_1_1_gracz.html">Szachy::Gracz</a></div><div class="ttdef"><b>Definition:</b> Gracz.h:15</div></div>
-<div class="ttc" id="aclass_szachy_1_1_pionek_html"><div class="ttname"><a href="class_szachy_1_1_pionek.html">Szachy::Pionek</a></div><div class="ttdef"><b>Definition:</b> Pionek.h:12</div></div>
-<div class="ttc" id="aclass_array_html"><div class="ttname"><a href="class_array.html">Array</a></div><div class="ttdef"><b>Definition:</b> Array.h:8</div></div>
+<div class="ttc" id="aclass_szachy_1_1_plansza_html"><div class="ttname"><a href="class_szachy_1_1_plansza.html">Szachy::Plansza</a></div><div class="ttdoc">Abstrakcja planszy.</div><div class="ttdef"><b>Definition:</b> Plansza.h:18</div></div>
+<div class="ttc" id="a_ruch_8h_html"><div class="ttname"><a href="_ruch_8h.html">Ruch.h</a></div><div class="ttdoc">Zwraca poziom pola na kt�rym zosta� utworzony.</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html"><div class="ttname"><a href="class_szachy_1_1_gracz.html">Szachy::Gracz</a></div><div class="ttdoc">Abstrakcja użytkownika aplikacji.</div><div class="ttdef"><b>Definition:</b> Gracz.h:22</div></div>
+<div class="ttc" id="aclass_szachy_1_1_pionek_html"><div class="ttname"><a href="class_szachy_1_1_pionek.html">Szachy::Pionek</a></div><div class="ttdoc">Abstrakcja pionka.</div><div class="ttdef"><b>Definition:</b> Pionek.h:19</div></div>
+<div class="ttc" id="a_array_8h_html"><div class="ttname"><a href="_array_8h.html">Array.h</a></div><div class="ttdoc">Plik nagłówkowy dla klasy Array.</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html_affe0a584025b927e478143890150e047"><div class="ttname"><a href="class_szachy_1_1_gracz.html#affe0a584025b927e478143890150e047">Szachy::Gracz::pobierzPionek</a></div><div class="ttdeci">Pionek * pobierzPionek(int n)</div><div class="ttdoc">Zwraca pionek danego gracza po indeksie.</div><div class="ttdef"><b>Definition:</b> Gracz.h:66</div></div>
+<div class="ttc" id="aclass_array_html"><div class="ttname"><a href="class_array.html">Array</a></div><div class="ttdef"><b>Definition:</b> Array.h:12</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html_a36aae189ecc212e3283f4010e2342d8a"><div class="ttname"><a href="class_szachy_1_1_gracz.html#a36aae189ecc212e3283f4010e2342d8a">Szachy::Gracz::zaladuj</a></div><div class="ttdeci">void zaladuj(std::ifstream &amp;f)</div><div class="ttdoc">Ładuje dane gracza przy użyciu potoku pliku.</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html_a3db941e2eb91d0015aab21aeeb04bab6"><div class="ttname"><a href="class_szachy_1_1_gracz.html#a3db941e2eb91d0015aab21aeeb04bab6">Szachy::Gracz::generujPionki</a></div><div class="ttdeci">void generujPionki(Array&lt; Szachy::TypPionka * &gt; typyPionkow)</div><div class="ttdoc">Buduje zestaw pionków dla gracza i przypisuje je do planszy.</div></div>
+<div class="ttc" id="aclass_szachy_1_1_gracz_html_a012249b21f8d7c920e188b48c61e3960"><div class="ttname"><a href="class_szachy_1_1_gracz.html#a012249b21f8d7c920e188b48c61e3960">Szachy::Gracz::jakaNazwa</a></div><div class="ttdeci">std::string jakaNazwa()</div><div class="ttdoc">Zwraca podaną nazwę gracza.</div><div class="ttdef"><b>Definition:</b> Gracz.h:52</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="_gracz_8h.html">Gracz.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

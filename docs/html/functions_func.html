@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_func.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,46 +85,213 @@ $(function() {
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a id="index_a"></a>- a -</h3><ul>
+<li>Array()
+: <a class="el" href="class_array.html#ae25f6d485704fca18289aa16e10b2fa8">Array&lt; T &gt;</a>
+</li>
+<li>awansuj()
+: <a class="el" href="class_szachy_1_1_pionek.html#a44a99cd71ad490bb0acbb9f6e14b869a">Szachy::Pionek</a>
+</li>
+</ul>
+
+
+<h3><a id="index_c"></a>- c -</h3><ul>
+<li>czyBylPierwszyruch()
+: <a class="el" href="class_szachy_1_1_pionek.html#aa0cd72a29339dcf33fbc1b37aa1e6c30">Szachy::Pionek</a>
+</li>
+<li>czySzach()
+: <a class="el" href="class_szachy_1_1_gracz.html#ad766d44fa34bd01bc9fe2da3e56af8e3">Szachy::Gracz</a>
+</li>
+<li>czyZbity()
+: <a class="el" href="class_szachy_1_1_pionek.html#a671c4584965926ce09fb1864a284ddb3">Szachy::Pionek</a>
+</li>
+</ul>
+
+
+<h3><a id="index_g"></a>- g -</h3><ul>
+<li>generujPionki()
+: <a class="el" href="class_szachy_1_1_gracz.html#a3db941e2eb91d0015aab21aeeb04bab6">Szachy::Gracz</a>
+</li>
 <li>Gra()
 : <a class="el" href="class_szachy_1_1_gra.html#a4258993c0f7d20b7050953cd0a02933d">Szachy::Gra</a>
+</li>
+<li>Gracz()
+: <a class="el" href="class_szachy_1_1_gracz.html#a874b581932e6e644c46d1ae223b75c3f">Szachy::Gracz</a>
+</li>
+</ul>
+
+
+<h3><a id="index_j"></a>- j -</h3><ul>
+<li>jakaLitera()
+: <a class="el" href="class_szachy_1_1_pionek.html#aa7b590aa1ec30926f6e92f34225fb6cd">Szachy::Pionek</a>
+, <a class="el" href="class_szachy_1_1_typ_pionka.html#afee0349fa7755066636e9d673f074aba">Szachy::TypPionka</a>
 </li>
 <li>JakaNazwa()
 : <a class="el" href="class_kolor.html#aa40288069e02f27b13e1c0200760741a">Kolor</a>
 </li>
+<li>jakaNazwa()
+: <a class="el" href="class_szachy_1_1_gracz.html#a012249b21f8d7c920e188b48c61e3960">Szachy::Gracz</a>
+, <a class="el" href="class_szachy_1_1_typ_pionka.html#a5966e81a83575de740897689ef9c9ac9">Szachy::TypPionka</a>
+</li>
+<li>jakaPozycja()
+: <a class="el" href="class_szachy_1_1_pionek.html#a6b0330aa0335d6e39cdf0c05dd96cf8d">Szachy::Pionek</a>
+</li>
 <li>JakaWartosc()
 : <a class="el" href="class_kolor.html#aaab30167aaa2704842b34b08262fd9c4">Kolor</a>
+</li>
+<li>jakiCel()
+: <a class="el" href="class_szachy_1_1_ruch.html#aa297270d67da6d742905afbc5908e019">Szachy::Ruch</a>
+</li>
+<li>JakiKolor()
+: <a class="el" href="class_szachy_1_1_gracz.html#a56bbb074e13c97985d31bb9b48013949">Szachy::Gracz</a>
+, <a class="el" href="class_szachy_1_1_pionek.html#a638dd7ab61d16faeb8f199da776778d5">Szachy::Pionek</a>
+, <a class="el" href="class_szachy_1_1_pole.html#a16c744b405c97fdd5cee1590ec6de3ff">Szachy::Pole</a>
+</li>
+<li>jakiPionek()
+: <a class="el" href="class_szachy_1_1_ruch.html#aa0a2c2d5a0a9115e9856271fd0f80d33">Szachy::Ruch</a>
+</li>
+<li>jakiStart()
+: <a class="el" href="class_szachy_1_1_ruch.html#ad63306db82f6598f089fb83806f9e0a1">Szachy::Ruch</a>
+</li>
+<li>jakiTyp()
+: <a class="el" href="class_szachy_1_1_pionek.html#a64d8c48dc1de965a064e1085060a13b2">Szachy::Pionek</a>
+</li>
+</ul>
+
+
+<h3><a id="index_k"></a>- k -</h3><ul>
+<li>kierunek()
+: <a class="el" href="class_szachy_1_1_gracz.html#a2d5e092aefef608faf7039b569f43ef0">Szachy::Gracz</a>
 </li>
 <li>Kolor()
 : <a class="el" href="class_kolor.html#a42c56fd8d1813c46463b9090743b0230">Kolor</a>
 </li>
+</ul>
+
+
+<h3><a id="index_l"></a>- l -</h3><ul>
+<li>len()
+: <a class="el" href="class_array.html#a8696912992430066108fba496598c1df">Array&lt; T &gt;</a>
+</li>
+</ul>
+
+
+<h3><a id="index_m"></a>- m -</h3><ul>
+<li>mozliwosciRuchu()
+: <a class="el" href="class_szachy_1_1_gracz.html#a232cacc05cb16a2793d0852795475d6e">Szachy::Gracz</a>
+</li>
+</ul>
+
+
+<h3><a id="index_n"></a>- n -</h3><ul>
 <li>nazwa()
-: <a class="el" href="class_szachy_1_1_pole.html#adaf1052b2eb1c2f1a588b646a814b19a">Szachy::Pole</a>
+: <a class="el" href="class_szachy_1_1_pionek.html#ae23ccc53b18b52703938e72a9a52ac39">Szachy::Pionek</a>
+, <a class="el" href="class_szachy_1_1_pole.html#adaf1052b2eb1c2f1a588b646a814b19a">Szachy::Pole</a>
 </li>
-<li>operator=()
-: <a class="el" href="class_szachy_1_1_pole.html#a1d93f79e6a0b40f54a778df1932b5891">Szachy::Pole</a>
+</ul>
+
+
+<h3><a id="index_o"></a>- o -</h3><ul>
+<li>operator[]()
+: <a class="el" href="class_array.html#a6e1bde32f2fb97cea1309a4537b1503a">Array&lt; T &gt;</a>
 </li>
-<li>operator==()
-: <a class="el" href="class_szachy_1_1_pole.html#a49e2757d38366f17e9cd9968c11087a8">Szachy::Pole</a>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
+<li>pion()
+: <a class="el" href="class_szachy_1_1_pole.html#ac5b93c7f456f016fbfe711dd7a6ad35f">Szachy::Pole</a>
+</li>
+<li>Pionek()
+: <a class="el" href="class_szachy_1_1_pionek.html#aa63c00eba7563510089722e22205d24f">Szachy::Pionek</a>
+</li>
+<li>Plansza()
+: <a class="el" href="class_szachy_1_1_plansza.html#ab215a21b704cab446bdb13ae66ed4bd5">Szachy::Plansza</a>
 </li>
 <li>pobierzNumer()
 : <a class="el" href="class_szachy_1_1_pole.html#a6f2a9fe46f53bc52b0da8674f9aa0935">Szachy::Pole</a>
 </li>
+<li>pobierzPionek()
+: <a class="el" href="class_szachy_1_1_gracz.html#affe0a584025b927e478143890150e047">Szachy::Gracz</a>
+, <a class="el" href="class_szachy_1_1_plansza.html#aef659ecaa112a751a14d49f091dba533">Szachy::Plansza</a>
+</li>
+<li>pobierzPole()
+: <a class="el" href="class_szachy_1_1_plansza.html#a95a1486fdd6905e3e05b341738eca13c">Szachy::Plansza</a>
+</li>
+<li>pobierzPolePrzes()
+: <a class="el" href="class_szachy_1_1_plansza.html#ab43e1476ef98ad582750c592e14c6562">Szachy::Plansza</a>
+</li>
 <li>Pole()
 : <a class="el" href="class_szachy_1_1_pole.html#aa81bee04b2e8ba875d9228c2e6aeed1a">Szachy::Pole</a>
+</li>
+<li>poziom()
+: <a class="el" href="class_szachy_1_1_pole.html#a9ce3de286a274f71076f4f5fb9ddd563">Szachy::Pole</a>
+</li>
+<li>przenies()
+: <a class="el" href="class_szachy_1_1_pionek.html#a9caed54b107d0546600b5144862b60ac">Szachy::Pionek</a>
+</li>
+<li>przeniesPionek()
+: <a class="el" href="class_szachy_1_1_plansza.html#a685dc140c5022f70bd79eb85a8887eba">Szachy::Plansza</a>
+</li>
+<li>przydzielPionek()
+: <a class="el" href="class_szachy_1_1_plansza.html#a31b2ab01eb632a302e8cb2ead6b8b564">Szachy::Plansza</a>
+</li>
+<li>push()
+: <a class="el" href="class_array.html#aa3bed4eebf299e4b3b4a2483eca4483c">Array&lt; T &gt;</a>
+</li>
+</ul>
+
+
+<h3><a id="index_r"></a>- r -</h3><ul>
+<li>random()
+: <a class="el" href="class_array.html#a14680cd5f7baf303b097a05ef0802f9a">Array&lt; T &gt;</a>
 </li>
 <li>RangeError()
 : <a class="el" href="class_range_error.html#a652560f44556f05d3f739997821afb47">RangeError</a>
 </li>
+<li>read()
+: <a class="el" href="class_array.html#a07da6f1c347b176d921355d275d51143">Array&lt; T &gt;</a>
+</li>
 <li>rozpocznij()
 : <a class="el" href="class_szachy_1_1_gra.html#a49b1a411aed73d220f07c283140af46e">Szachy::Gra</a>
 </li>
+<li>Ruch()
+: <a class="el" href="class_szachy_1_1_ruch.html#a3192e1722bc67d067012e597572e567d">Szachy::Ruch</a>
+</li>
+<li>rysuj()
+: <a class="el" href="class_szachy_1_1_plansza.html#a6c80bfbb97702638d15a4440c1f84c29">Szachy::Plansza</a>
+</li>
+</ul>
+
+
+<h3><a id="index_t"></a>- t -</h3><ul>
 <li>Tester()
 : <a class="el" href="class_tester.html#ad70b2b2bbf6c564e710680ec1e0ae2d6">Tester</a>
 </li>
 <li>TypPionka()
 : <a class="el" href="class_szachy_1_1_typ_pionka.html#a995bd0fc9963c2b3a587c1f5f17c0c3a">Szachy::TypPionka</a>
 </li>
+</ul>
+
+
+<h3><a id="index_z"></a>- z -</h3><ul>
+<li>zaladuj()
+: <a class="el" href="class_szachy_1_1_gracz.html#a36aae189ecc212e3283f4010e2342d8a">Szachy::Gracz</a>
+, <a class="el" href="class_szachy_1_1_pionek.html#a074b56ca01fbedf70ae257eaaa493891">Szachy::Pionek</a>
+</li>
+<li>zapisz()
+: <a class="el" href="class_szachy_1_1_gracz.html#a831ee73f7932e71aeeff043efb6368ff">Szachy::Gracz</a>
+, <a class="el" href="class_szachy_1_1_pionek.html#a87b2e9e12dfbd0664b540acce1f406f1">Szachy::Pionek</a>
+</li>
+<li>zbij()
+: <a class="el" href="class_szachy_1_1_pionek.html#ada4857cc938afea0d49499127130ab3a">Szachy::Pionek</a>
+</li>
+</ul>
+
+
+<h3><a id="index__7E"></a>- ~ -</h3><ul>
 <li>~Kolor()
 : <a class="el" href="class_kolor.html#aa395601e62f22f60f31849fd2670f693">Kolor</a>
 </li>
@@ -118,11 +309,14 @@ $(function() {
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

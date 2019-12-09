@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['jakanazwa_45',['JakaNazwa',['../class_kolor.html#aa40288069e02f27b13e1c0200760741a',1,'Kolor']]],
-  ['jakawartosc_46',['JakaWartosc',['../class_kolor.html#aaab30167aaa2704842b34b08262fd9c4',1,'Kolor']]]
+  ['czybylpierwszyruch_94',['czyBylPierwszyruch',['../class_szachy_1_1_pionek.html#aa0cd72a29339dcf33fbc1b37aa1e6c30',1,'Szachy::Pionek']]],
+  ['czyszach_95',['czySzach',['../class_szachy_1_1_gracz.html#ad766d44fa34bd01bc9fe2da3e56af8e3',1,'Szachy::Gracz']]],
+  ['czyzbity_96',['czyZbity',['../class_szachy_1_1_pionek.html#a671c4584965926ce09fb1864a284ddb3',1,'Szachy::Pionek']]]
 ];

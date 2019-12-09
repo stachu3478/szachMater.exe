@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['jakanazwa_7',['JakaNazwa',['../class_kolor.html#aa40288069e02f27b13e1c0200760741a',1,'Kolor']]],
-  ['jakawartosc_8',['JakaWartosc',['../class_kolor.html#aaab30167aaa2704842b34b08262fd9c4',1,'Kolor']]]
+  ['historiaruchow_13',['HistoriaRuchow',['../class_szachy_1_1_historia_ruchow.html',1,'Szachy']]]
 ];

@@ -1,13 +1,22 @@
 \hypertarget{class_kolor}{}\doxysection{Kolor Class Reference}
 \label{class_kolor}\index{Kolor@{Kolor}}
+
+
+Reprezentuje kolor znaków i t³¹ w konsoli.  
+
+
+
+
+{\ttfamily \#include $<$Kolor.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_kolor_a42c56fd8d1813c46463b9090743b0230}\label{class_kolor_a42c56fd8d1813c46463b9090743b0230}} 
 \mbox{\hyperlink{class_kolor_a42c56fd8d1813c46463b9090743b0230}{Kolor}} ()
-\item 
-\mbox{\Hypertarget{class_kolor_a7d24fd78a15b5ddc9639c38243df4823}\label{class_kolor_a7d24fd78a15b5ddc9639c38243df4823}} 
-{\bfseries Kolor} (std\+::string nazwa, unsigned char wartosc)
-\item 
+\begin{DoxyCompactList}\small\item\em Konstruktor domyœlny Nie generuje ¿adnych danych, dla pustej referencji. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_kolor_a7d24fd78a15b5ddc9639c38243df4823}{Kolor}} (std\+::string nazwa, unsigned char wartosc)
+\begin{DoxyCompactList}\small\item\em Tworzy kolor i przypisuje mu wartoœæ oraz nazwê \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{class_kolor_aa395601e62f22f60f31849fd2670f693}{$\sim$\+Kolor}} ()
 \item 
 unsigned char \mbox{\hyperlink{class_kolor_aaab30167aaa2704842b34b08262fd9c4}{Jaka\+Wartosc}} ()
@@ -16,14 +25,28 @@ std\+::string \mbox{\hyperlink{class_kolor_aa40288069e02f27b13e1c0200760741a}{Ja
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Reprezentuje kolor znaków i t³¹ w konsoli. 
+
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_kolor_a42c56fd8d1813c46463b9090743b0230}\label{class_kolor_a42c56fd8d1813c46463b9090743b0230}} 
+\mbox{\Hypertarget{class_kolor_a7d24fd78a15b5ddc9639c38243df4823}\label{class_kolor_a7d24fd78a15b5ddc9639c38243df4823}} 
 \index{Kolor@{Kolor}!Kolor@{Kolor}}
 \index{Kolor@{Kolor}!Kolor@{Kolor}}
 \doxysubsubsection{\texorpdfstring{Kolor()}{Kolor()}}
-{\footnotesize\ttfamily Kolor\+::\+Kolor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Kolor\+::\+Kolor (\begin{DoxyParamCaption}\item[{std\+::string}]{nazwa,  }\item[{unsigned char}]{wartosc }\end{DoxyParamCaption})}
 
-Default constructor \mbox{\Hypertarget{class_kolor_aa395601e62f22f60f31849fd2670f693}\label{class_kolor_aa395601e62f22f60f31849fd2670f693}} 
+
+
+Tworzy kolor i przypisuje mu wartoœæ oraz nazwê 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nazwa} & Nazwa danego koloru \\
+\hline
+{\em wartosc} & Liczba okreœlaj¹ca kolorstykê w konsoli \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kolor_aa395601e62f22f60f31849fd2670f693}\label{class_kolor_aa395601e62f22f60f31849fd2670f693}} 
 \index{Kolor@{Kolor}!````~Kolor@{$\sim$Kolor}}
 \index{````~Kolor@{$\sim$Kolor}!Kolor@{Kolor}}
 \doxysubsubsection{\texorpdfstring{$\sim$Kolor()}{~Kolor()}}

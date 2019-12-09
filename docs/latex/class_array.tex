@@ -3,32 +3,80 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_array_a65387cfd893dee1befb3fd22cdd1eabd}\label{class_array_a65387cfd893dee1befb3fd22cdd1eabd}} 
-{\bfseries Array} (int init\+\_\+length)
-\item 
+\mbox{\Hypertarget{class_array_ae25f6d485704fca18289aa16e10b2fa8}\label{class_array_ae25f6d485704fca18289aa16e10b2fa8}} 
+\mbox{\hyperlink{class_array_ae25f6d485704fca18289aa16e10b2fa8}{Array}} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy array (bez parametrów) Przygotowuje listę 10 elementów o podanym typie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array_a65387cfd893dee1befb3fd22cdd1eabd}{Array}} (int init\+\_\+length)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy array. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_array_a07da6f1c347b176d921355d275d51143}\label{class_array_a07da6f1c347b176d921355d275d51143}} 
-T \& {\bfseries read} ()
-\item 
+T \& \mbox{\hyperlink{class_array_a07da6f1c347b176d921355d275d51143}{read}} ()
+\begin{DoxyCompactList}\small\item\em Używa standardowego wejścia do wybrania jednego elementu z listy Przyjmuje liczby od 1 do ilości elementów W przypadku podania niewłaściwego indeksu zwraca wyjątek \mbox{\hyperlink{class_range_error}{Range\+Error}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_array_a14680cd5f7baf303b097a05ef0802f9a}\label{class_array_a14680cd5f7baf303b097a05ef0802f9a}} 
-T \& {\bfseries random} ()
-\item 
+T \& \mbox{\hyperlink{class_array_a14680cd5f7baf303b097a05ef0802f9a}{random}} ()
+\begin{DoxyCompactList}\small\item\em Zwraca losowy element z listy. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_array_a8696912992430066108fba496598c1df}\label{class_array_a8696912992430066108fba496598c1df}} 
-int {\bfseries len} ()
-\item 
-\mbox{\Hypertarget{class_array_a44a36b8efd25baae6b545b9df8e9e707}\label{class_array_a44a36b8efd25baae6b545b9df8e9e707}} 
-T \& {\bfseries refer} (int index)
-\item 
+int \mbox{\hyperlink{class_array_a8696912992430066108fba496598c1df}{len}} ()
+\begin{DoxyCompactList}\small\item\em Zwraca obecną ilość elementów na liście. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_array_a6e1bde32f2fb97cea1309a4537b1503a}{operator\mbox{[}$\,$\mbox{]}}} (unsigned index)
+\begin{DoxyCompactList}\small\item\em Implementuje pobieranie elementu przy użyciu operatora nawiasowego. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_array_aa3bed4eebf299e4b3b4a2483eca4483c}{push}} (T item)
+\begin{DoxyCompactList}\small\item\em Dodaje nowy element do listy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_array_a65387cfd893dee1befb3fd22cdd1eabd}\label{class_array_a65387cfd893dee1befb3fd22cdd1eabd}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+\mbox{\hyperlink{class_array}{Array}}$<$ T $>$\+::\mbox{\hyperlink{class_array}{Array}} (\begin{DoxyParamCaption}\item[{int}]{init\+\_\+length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Konstruktor klasy array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init\+\_\+length} & Określa początkowy rozmiar listy \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_array_a6e1bde32f2fb97cea1309a4537b1503a}\label{class_array_a6e1bde32f2fb97cea1309a4537b1503a}} 
-T \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (unsigned index)
-\item 
-\mbox{\Hypertarget{class_array_a45fc215ef9bbe9c5191ccf6f479b2310}\label{class_array_a45fc215ef9bbe9c5191ccf6f479b2310}} 
-void {\bfseries print\+Items} ()
-\item 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+T\& \mbox{\hyperlink{class_array}{Array}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{unsigned}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementuje pobieranie elementu przy użyciu operatora nawiasowego. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Indeks pobieranego elementu (począwszy od 0) W przypadku podania niewłaściwej wartości zwraca wyjątek \mbox{\hyperlink{class_range_error}{Range\+Error}} \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_array_aa3bed4eebf299e4b3b4a2483eca4483c}\label{class_array_aa3bed4eebf299e4b3b4a2483eca4483c}} 
-T {\bfseries push} (T item)
-\end{DoxyCompactItemize}
+\index{Array$<$ T $>$@{Array$<$ T $>$}!push@{push}}
+\index{push@{push}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+T \mbox{\hyperlink{class_array}{Array}}$<$ T $>$\+::push (\begin{DoxyParamCaption}\item[{T}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Dodaje nowy element do listy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Element, który ma być dodany \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/Array.\+h\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{_array_8h}{Array.\+h}}\end{DoxyCompactItemize}

@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['_7ekolor_57',['~Kolor',['../class_kolor.html#aa395601e62f22f60f31849fd2670f693',1,'Kolor']]],
-  ['_7epole_58',['~Pole',['../class_szachy_1_1_pole.html#a8ffc1398fffb2970c624b1dbfa1b6242',1,'Szachy::Pole']]],
-  ['_7erangeerror_59',['~RangeError',['../class_range_error.html#aa4b5dff5cada53959b180735e2e9493c',1,'RangeError']]],
-  ['_7etester_60',['~Tester',['../class_tester.html#ad89c81ada6e54c7d747d7e528f81f323',1,'Tester']]],
-  ['_7etyppionka_61',['~TypPionka',['../class_szachy_1_1_typ_pionka.html#a6d6476d4f51ab29f84b9819bc3c74b21',1,'Szachy::TypPionka']]]
+  ['operator_5b_5d_114',['operator[]',['../class_array.html#a6e1bde32f2fb97cea1309a4537b1503a',1,'Array']]]
 ];

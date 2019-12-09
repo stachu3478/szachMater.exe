@@ -1,37 +1,161 @@
 \hypertarget{class_szachy_1_1_plansza}{}\doxysection{Szachy\+::Plansza Class Reference}
 \label{class_szachy_1_1_plansza}\index{Szachy::Plansza@{Szachy::Plansza}}
+
+
+Abstrakcja planszy.  
+
+
+
+
+{\ttfamily \#include $<$Plansza.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_szachy_1_1_plansza_ab215a21b704cab446bdb13ae66ed4bd5}\label{class_szachy_1_1_plansza_ab215a21b704cab446bdb13ae66ed4bd5}} 
-{\bfseries Plansza} (int rozmiar)
-\item 
+\mbox{\hyperlink{class_szachy_1_1_plansza_ab215a21b704cab446bdb13ae66ed4bd5}{Plansza}} (int rozmiar)
+\begin{DoxyCompactList}\small\item\em Definiuje planszê jako kwadrat o podanym rozmiarze. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_szachy_1_1_plansza_ad324bcf8dd19985f65cc2651046c9817}\label{class_szachy_1_1_plansza_ad324bcf8dd19985f65cc2651046c9817}} 
+\mbox{\hyperlink{class_szachy_1_1_plansza_ad324bcf8dd19985f65cc2651046c9817}{Plansza}} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor domyœlny dla pustej referencji. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_szachy_1_1_plansza_a6c80bfbb97702638d15a4440c1f84c29}\label{class_szachy_1_1_plansza_a6c80bfbb97702638d15a4440c1f84c29}} 
-void {\bfseries rysuj} ()
-\item 
-\mbox{\Hypertarget{class_szachy_1_1_plansza_ae5e9896c246ff33181b4545243d1b1f6}\label{class_szachy_1_1_plansza_ae5e9896c246ff33181b4545243d1b1f6}} 
-void {\bfseries generuj\+Pola} (int a, int b)
-\item 
-\mbox{\Hypertarget{class_szachy_1_1_plansza_a95a1486fdd6905e3e05b341738eca13c}\label{class_szachy_1_1_plansza_a95a1486fdd6905e3e05b341738eca13c}} 
-\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$ {\bfseries pobierz\+Pole} (unsigned int poziom, unsigned int pion)
-\item 
-\mbox{\Hypertarget{class_szachy_1_1_plansza_a5c8146136893e84ee2cf0922edc2ef41}\label{class_szachy_1_1_plansza_a5c8146136893e84ee2cf0922edc2ef41}} 
-\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$ {\bfseries pobierz\+Pole} (int i)
-\item 
-\mbox{\Hypertarget{class_szachy_1_1_plansza_ab43e1476ef98ad582750c592e14c6562}\label{class_szachy_1_1_plansza_ab43e1476ef98ad582750c592e14c6562}} 
-bool {\bfseries pobierz\+Pole\+Przes} (\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$\&pole, int x, int y)
-\item 
+void \mbox{\hyperlink{class_szachy_1_1_plansza_a6c80bfbb97702638d15a4440c1f84c29}{rysuj}} ()
+\begin{DoxyCompactList}\small\item\em Wyprowadza w konsoli planszê z polami i pionkami w ustawionych kolorach. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$ \mbox{\hyperlink{class_szachy_1_1_plansza_a95a1486fdd6905e3e05b341738eca13c}{pobierz\+Pole}} (unsigned int poziom, unsigned int pion)
+\begin{DoxyCompactList}\small\item\em Pobiera klasê Pola z planszy. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$ \mbox{\hyperlink{class_szachy_1_1_plansza_a5c8146136893e84ee2cf0922edc2ef41}{pobierz\+Pole}} (int i)
+\begin{DoxyCompactList}\small\item\em Pobiera klasê Pola z planszy. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_szachy_1_1_plansza_ab43e1476ef98ad582750c592e14c6562}{pobierz\+Pole\+Przes}} (\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$\&pole, int x, int y)
+\begin{DoxyCompactList}\small\item\em Pobiera pole z przesunięciem. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$ \mbox{\hyperlink{class_szachy_1_1_plansza_aef659ecaa112a751a14d49f091dba533}{pobierz\+Pionek}} (\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$pole)
+\begin{DoxyCompactList}\small\item\em Pobiera pionek na podstawie podanego pola. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_szachy_1_1_plansza_a31b2ab01eb632a302e8cb2ead6b8b564}{przydziel\+Pionek}} (\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$pionek)
+\begin{DoxyCompactList}\small\item\em Przydziela pozycję pionka do planszy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_szachy_1_1_plansza_a685dc140c5022f70bd79eb85a8887eba}{przenies\+Pionek}} (\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$pionek, \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$pozycja)
+\begin{DoxyCompactList}\small\item\em Zmienia pozycję pionka. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstrakcja planszy. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_szachy_1_1_plansza_ab215a21b704cab446bdb13ae66ed4bd5}\label{class_szachy_1_1_plansza_ab215a21b704cab446bdb13ae66ed4bd5}} 
+\index{Szachy::Plansza@{Szachy::Plansza}!Plansza@{Plansza}}
+\index{Plansza@{Plansza}!Szachy::Plansza@{Szachy::Plansza}}
+\doxysubsubsection{\texorpdfstring{Plansza()}{Plansza()}}
+{\footnotesize\ttfamily Szachy\+::\+Plansza\+::\+Plansza (\begin{DoxyParamCaption}\item[{int}]{rozmiar }\end{DoxyParamCaption})}
+
+
+
+Definiuje planszê jako kwadrat o podanym rozmiarze. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rozmiar} & D³ugoœæ boku w polach \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_szachy_1_1_plansza_aef659ecaa112a751a14d49f091dba533}\label{class_szachy_1_1_plansza_aef659ecaa112a751a14d49f091dba533}} 
-\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$ {\bfseries pobierz\+Pionek} (\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$pole)
-\item 
-\mbox{\Hypertarget{class_szachy_1_1_plansza_a31b2ab01eb632a302e8cb2ead6b8b564}\label{class_szachy_1_1_plansza_a31b2ab01eb632a302e8cb2ead6b8b564}} 
-void {\bfseries przydziel\+Pionek} (\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$pionek)
-\item 
+\index{Szachy::Plansza@{Szachy::Plansza}!pobierzPionek@{pobierzPionek}}
+\index{pobierzPionek@{pobierzPionek}!Szachy::Plansza@{Szachy::Plansza}}
+\doxysubsubsection{\texorpdfstring{pobierzPionek()}{pobierzPionek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}}$\ast$ Szachy\+::\+Plansza\+::pobierz\+Pionek (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$}]{pole }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pobiera pionek na podstawie podanego pola. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pole} & \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} na którym stoi pionek \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_szachy_1_1_plansza_a5c8146136893e84ee2cf0922edc2ef41}\label{class_szachy_1_1_plansza_a5c8146136893e84ee2cf0922edc2ef41}} 
+\index{Szachy::Plansza@{Szachy::Plansza}!pobierzPole@{pobierzPole}}
+\index{pobierzPole@{pobierzPole}!Szachy::Plansza@{Szachy::Plansza}}
+\doxysubsubsection{\texorpdfstring{pobierzPole()}{pobierzPole()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}}$\ast$ Szachy\+::\+Plansza\+::pobierz\+Pole (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Pobiera klasê Pola z planszy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Indeks pola na planszy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_szachy_1_1_plansza_a95a1486fdd6905e3e05b341738eca13c}\label{class_szachy_1_1_plansza_a95a1486fdd6905e3e05b341738eca13c}} 
+\index{Szachy::Plansza@{Szachy::Plansza}!pobierzPole@{pobierzPole}}
+\index{pobierzPole@{pobierzPole}!Szachy::Plansza@{Szachy::Plansza}}
+\doxysubsubsection{\texorpdfstring{pobierzPole()}{pobierzPole()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}}$\ast$ Szachy\+::\+Plansza\+::pobierz\+Pole (\begin{DoxyParamCaption}\item[{unsigned int}]{poziom,  }\item[{unsigned int}]{pion }\end{DoxyParamCaption})}
+
+
+
+Pobiera klasê Pola z planszy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poziom} & Poziom planszy \\
+\hline
+{\em pion} & Pion planszy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_szachy_1_1_plansza_ab43e1476ef98ad582750c592e14c6562}\label{class_szachy_1_1_plansza_ab43e1476ef98ad582750c592e14c6562}} 
+\index{Szachy::Plansza@{Szachy::Plansza}!pobierzPolePrzes@{pobierzPolePrzes}}
+\index{pobierzPolePrzes@{pobierzPolePrzes}!Szachy::Plansza@{Szachy::Plansza}}
+\doxysubsubsection{\texorpdfstring{pobierzPolePrzes()}{pobierzPolePrzes()}}
+{\footnotesize\ttfamily bool Szachy\+::\+Plansza\+::pobierz\+Pole\+Przes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$\&}]{pole,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Pobiera pole z przesunięciem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pole} & \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} które ma być przeunięte \\
+\hline
+{\em x} & Przesunięcie poziomu \\
+\hline
+{\em y} & Przesunięcie pionu \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_szachy_1_1_plansza_a685dc140c5022f70bd79eb85a8887eba}\label{class_szachy_1_1_plansza_a685dc140c5022f70bd79eb85a8887eba}} 
-void {\bfseries przenies\+Pionek} (\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$pionek, \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$pozycja)
-\end{DoxyCompactItemize}
+\index{Szachy::Plansza@{Szachy::Plansza}!przeniesPionek@{przeniesPionek}}
+\index{przeniesPionek@{przeniesPionek}!Szachy::Plansza@{Szachy::Plansza}}
+\doxysubsubsection{\texorpdfstring{przeniesPionek()}{przeniesPionek()}}
+{\footnotesize\ttfamily void Szachy\+::\+Plansza\+::przenies\+Pionek (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$}]{pionek,  }\item[{\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$}]{pozycja }\end{DoxyParamCaption})}
+
+
+
+Zmienia pozycję pionka. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pionek} & \mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}}, którego pozycja ma być zaktualizowana \\
+\hline
+{\em pozycja} & \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} określające nową pozycję pionka \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_szachy_1_1_plansza_a31b2ab01eb632a302e8cb2ead6b8b564}\label{class_szachy_1_1_plansza_a31b2ab01eb632a302e8cb2ead6b8b564}} 
+\index{Szachy::Plansza@{Szachy::Plansza}!przydzielPionek@{przydzielPionek}}
+\index{przydzielPionek@{przydzielPionek}!Szachy::Plansza@{Szachy::Plansza}}
+\doxysubsubsection{\texorpdfstring{przydzielPionek()}{przydzielPionek()}}
+{\footnotesize\ttfamily void Szachy\+::\+Plansza\+::przydziel\+Pionek (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$}]{pionek }\end{DoxyParamCaption})}
+
+
+
+Przydziela pozycję pionka do planszy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pionek} & \mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} którego pozycja ma być odnotowana na planszy \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/Plansza.\+h\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{_plansza_8h}{Plansza.\+h}}\end{DoxyCompactItemize}

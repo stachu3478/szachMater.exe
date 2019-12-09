@@ -1,43 +1,109 @@
 \hypertarget{class_szachy_1_1_gracz}{}\doxysection{Szachy\+::Gracz Class Reference}
 \label{class_szachy_1_1_gracz}\index{Szachy::Gracz@{Szachy::Gracz}}
+
+
+Abstrakcja użytkownika aplikacji.  
+
+
+
+
+{\ttfamily \#include $<$Gracz.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_szachy_1_1_gracz_a874b581932e6e644c46d1ae223b75c3f}\label{class_szachy_1_1_gracz_a874b581932e6e644c46d1ae223b75c3f}} 
-{\bfseries Gracz} (\mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_szachy_1_1_typ_pionka}{Typ\+Pionka}} $\ast$ $>$ typy\+Pionkow, \mbox{\hyperlink{class_szachy_1_1_plansza}{Plansza}} $\ast$plansza, unsigned char kolor, bool kontynnuj)
-\item 
-\mbox{\Hypertarget{class_szachy_1_1_gracz_a05c2cd80a4296849ba729085a7ca3d88}\label{class_szachy_1_1_gracz_a05c2cd80a4296849ba729085a7ca3d88}} 
-void {\bfseries generuj\+Pionki} (\mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_szachy_1_1_typ_pionka}{Szachy\+::\+Typ\+Pionka}} $\ast$ $>$ typy\+Pionkow, \mbox{\hyperlink{class_szachy_1_1_plansza}{Plansza}} $\ast$plansza)
-\item 
-\mbox{\Hypertarget{class_szachy_1_1_gracz_a52ff496f6b862e4ddcfe9d01b8ed6703}\label{class_szachy_1_1_gracz_a52ff496f6b862e4ddcfe9d01b8ed6703}} 
-void {\bfseries przydziel\+Pionki} ()
-\item 
+\mbox{\hyperlink{class_szachy_1_1_gracz_a874b581932e6e644c46d1ae223b75c3f}{Gracz}} (\mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_szachy_1_1_typ_pionka}{Typ\+Pionka}} $\ast$ $>$ typy\+Pionkow, \mbox{\hyperlink{class_szachy_1_1_plansza}{Plansza}} $\ast$plansza, unsigned char kolor, bool kontynnuj)
+\begin{DoxyCompactList}\small\item\em Tworzy nową instancję gracza i pyta o nazwę użytkownika. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_szachy_1_1_gracz_af1f563e0fa333875248d0de9ae207072}\label{class_szachy_1_1_gracz_af1f563e0fa333875248d0de9ae207072}} 
+\mbox{\hyperlink{class_szachy_1_1_gracz_af1f563e0fa333875248d0de9ae207072}{Gracz}} ()
+\begin{DoxyCompactList}\small\item\em Pusty konstruktor Nie generuje danych przy inicjalizacji przez referencję \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_szachy_1_1_gracz_a3db941e2eb91d0015aab21aeeb04bab6}{generuj\+Pionki}} (\mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_szachy_1_1_typ_pionka}{Szachy\+::\+Typ\+Pionka}} $\ast$ $>$ typy\+Pionkow)
+\begin{DoxyCompactList}\small\item\em Buduje zestaw pionków dla gracza i przypisuje je do planszy. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_szachy_1_1_gracz_a012249b21f8d7c920e188b48c61e3960}\label{class_szachy_1_1_gracz_a012249b21f8d7c920e188b48c61e3960}} 
-std\+::string {\bfseries jaka\+Nazwa} ()
-\item 
+std\+::string \mbox{\hyperlink{class_szachy_1_1_gracz_a012249b21f8d7c920e188b48c61e3960}{jaka\+Nazwa}} ()
+\begin{DoxyCompactList}\small\item\em Zwraca podaną nazwę gracza. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_szachy_1_1_gracz_a56bbb074e13c97985d31bb9b48013949}\label{class_szachy_1_1_gracz_a56bbb074e13c97985d31bb9b48013949}} 
-\mbox{\hyperlink{class_kolor}{Kolor}} {\bfseries Jaki\+Kolor} ()
-\item 
-\mbox{\Hypertarget{class_szachy_1_1_gracz_af37230d2fc93bc1bb43133d0f1026110}\label{class_szachy_1_1_gracz_af37230d2fc93bc1bb43133d0f1026110}} 
-bool {\bfseries czy\+Szach} (\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$pionek, \mbox{\hyperlink{class_szachy_1_1_plansza}{Plansza}} $\ast$plansza)
-\item 
-\mbox{\Hypertarget{class_szachy_1_1_gracz_affe0a584025b927e478143890150e047}\label{class_szachy_1_1_gracz_affe0a584025b927e478143890150e047}} 
-\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$ {\bfseries pobierz\+Pionek} (int n)
-\item 
-\mbox{\Hypertarget{class_szachy_1_1_gracz_a668ec1f263c07aa24ad69b8e89b56149}\label{class_szachy_1_1_gracz_a668ec1f263c07aa24ad69b8e89b56149}} 
-\mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_szachy_1_1_ruch}{Ruch}} $\ast$ $>$ $>$ \& {\bfseries mozliwosci\+Ruchu} (\mbox{\hyperlink{class_szachy_1_1_plansza}{Plansza}} $\ast$plansza, bool szach)
-\item 
+\mbox{\hyperlink{class_kolor}{Kolor}} \mbox{\hyperlink{class_szachy_1_1_gracz_a56bbb074e13c97985d31bb9b48013949}{Jaki\+Kolor}} ()
+\begin{DoxyCompactList}\small\item\em Zwraca kolor pionków przypisany do gracza. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_szachy_1_1_gracz_ad766d44fa34bd01bc9fe2da3e56af8e3}\label{class_szachy_1_1_gracz_ad766d44fa34bd01bc9fe2da3e56af8e3}} 
+bool \mbox{\hyperlink{class_szachy_1_1_gracz_ad766d44fa34bd01bc9fe2da3e56af8e3}{czy\+Szach}} (\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$pionek)
+\begin{DoxyCompactList}\small\item\em Sprawdza czy dany pionek szachuje króla przeciwnika. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$ \mbox{\hyperlink{class_szachy_1_1_gracz_affe0a584025b927e478143890150e047}{pobierz\+Pionek}} (int n)
+\begin{DoxyCompactList}\small\item\em Zwraca pionek danego gracza po indeksie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_szachy_1_1_gracz_a232cacc05cb16a2793d0852795475d6e}\label{class_szachy_1_1_gracz_a232cacc05cb16a2793d0852795475d6e}} 
+\mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_szachy_1_1_ruch}{Ruch}} $\ast$ $>$ $>$ \& \mbox{\hyperlink{class_szachy_1_1_gracz_a232cacc05cb16a2793d0852795475d6e}{mozliwosci\+Ruchu}} (bool szach)
+\begin{DoxyCompactList}\small\item\em Podaje możliwe ruchy po pionkach gracza które może wykonać \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_szachy_1_1_gracz_a2d5e092aefef608faf7039b569f43ef0}\label{class_szachy_1_1_gracz_a2d5e092aefef608faf7039b569f43ef0}} 
-int {\bfseries kierunek} ()
-\item 
+int \mbox{\hyperlink{class_szachy_1_1_gracz_a2d5e092aefef608faf7039b569f43ef0}{kierunek}} ()
+\begin{DoxyCompactList}\small\item\em Zwraca kierunek w którym wędrują piony tego gracza pomiędzy 1 a -\/1. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_szachy_1_1_gracz_a831ee73f7932e71aeeff043efb6368ff}\label{class_szachy_1_1_gracz_a831ee73f7932e71aeeff043efb6368ff}} 
-void {\bfseries zapisz} (std\+::ofstream \&f)
-\item 
+void \mbox{\hyperlink{class_szachy_1_1_gracz_a831ee73f7932e71aeeff043efb6368ff}{zapisz}} (std\+::ofstream \&f)
+\begin{DoxyCompactList}\small\item\em Zapisuje dane gracza przy użyciu potoku pliku. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_szachy_1_1_gracz_a36aae189ecc212e3283f4010e2342d8a}\label{class_szachy_1_1_gracz_a36aae189ecc212e3283f4010e2342d8a}} 
-void {\bfseries zaladuj} (std\+::ifstream \&f)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_szachy_1_1_gracz_a36aae189ecc212e3283f4010e2342d8a}{zaladuj}} (std\+::ifstream \&f)
+\begin{DoxyCompactList}\small\item\em Ładuje dane gracza przy użyciu potoku pliku. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstrakcja użytkownika aplikacji. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_szachy_1_1_gracz_a874b581932e6e644c46d1ae223b75c3f}\label{class_szachy_1_1_gracz_a874b581932e6e644c46d1ae223b75c3f}} 
+\index{Szachy::Gracz@{Szachy::Gracz}!Gracz@{Gracz}}
+\index{Gracz@{Gracz}!Szachy::Gracz@{Szachy::Gracz}}
+\doxysubsubsection{\texorpdfstring{Gracz()}{Gracz()}}
+{\footnotesize\ttfamily Szachy\+::\+Gracz\+::\+Gracz (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_szachy_1_1_typ_pionka}{Typ\+Pionka}} $\ast$ $>$}]{typy\+Pionkow,  }\item[{\mbox{\hyperlink{class_szachy_1_1_plansza}{Plansza}} $\ast$}]{plansza,  }\item[{unsigned char}]{kolor,  }\item[{bool}]{kontynnuj }\end{DoxyParamCaption})}
+
+
+
+Tworzy nową instancję gracza i pyta o nazwę użytkownika. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em typy\+Pionkow} & Typy pionków zdefiniowane w grze potrzebne do generowania pionków \\
+\hline
+{\em plansza} & \mbox{\hyperlink{class_szachy_1_1_plansza}{Plansza}} przypisana do gry potrzebna do przypisania pionków do planszy \\
+\hline
+{\em kolor} & Identyfikator koloru pionków przypisany do gracza \\
+\hline
+{\em kontynnuj} & Określa czy dane gracza mają być załadowane ze wejścia plików \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_szachy_1_1_gracz_a3db941e2eb91d0015aab21aeeb04bab6}\label{class_szachy_1_1_gracz_a3db941e2eb91d0015aab21aeeb04bab6}} 
+\index{Szachy::Gracz@{Szachy::Gracz}!generujPionki@{generujPionki}}
+\index{generujPionki@{generujPionki}!Szachy::Gracz@{Szachy::Gracz}}
+\doxysubsubsection{\texorpdfstring{generujPionki()}{generujPionki()}}
+{\footnotesize\ttfamily void Szachy\+::\+Gracz\+::generuj\+Pionki (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_szachy_1_1_typ_pionka}{Szachy\+::\+Typ\+Pionka}} $\ast$ $>$}]{typy\+Pionkow }\end{DoxyParamCaption})}
+
+
+
+Buduje zestaw pionków dla gracza i przypisuje je do planszy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em typy\+Pionkow} & Zestaw typów pionków z których mają być wygenerowane pionki \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_szachy_1_1_gracz_affe0a584025b927e478143890150e047}\label{class_szachy_1_1_gracz_affe0a584025b927e478143890150e047}} 
+\index{Szachy::Gracz@{Szachy::Gracz}!pobierzPionek@{pobierzPionek}}
+\index{pobierzPionek@{pobierzPionek}!Szachy::Gracz@{Szachy::Gracz}}
+\doxysubsubsection{\texorpdfstring{pobierzPionek()}{pobierzPionek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}}$\ast$ Szachy\+::\+Gracz\+::pobierz\+Pionek (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca pionek danego gracza po indeksie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Indeks pionka w tablicy \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/Gracz.\+h\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{_gracz_8h}{Gracz.\+h}}\end{DoxyCompactItemize}

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operator_3d_49',['operator=',['../class_szachy_1_1_pole.html#a1d93f79e6a0b40f54a778df1932b5891',1,'Szachy::Pole']]],
-  ['operator_3d_3d_50',['operator==',['../class_szachy_1_1_pole.html#a49e2757d38366f17e9cd9968c11087a8',1,'Szachy::Pole']]]
+  ['kierunek_109',['kierunek',['../class_szachy_1_1_gracz.html#a2d5e092aefef608faf7039b569f43ef0',1,'Szachy::Gracz']]],
+  ['kolor_110',['Kolor',['../class_kolor.html#a42c56fd8d1813c46463b9090743b0230',1,'Kolor::Kolor()'],['../class_kolor.html#a7d24fd78a15b5ddc9639c38243df4823',1,'Kolor::Kolor(std::string nazwa, unsigned char wartosc)']]]
 ];

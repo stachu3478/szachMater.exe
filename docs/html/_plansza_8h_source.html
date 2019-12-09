@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +53,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_plansza_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,65 +84,75 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Plansza.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PLANSZA_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PLANSZA_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Kolor.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Pole.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;TypPionka.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Pionek.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_szachy.html">Szachy</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_szachy_1_1_plansza.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_szachy_1_1_plansza.html">Plansza</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <a class="code" href="class_szachy_1_1_plansza.html">Plansza</a>(<span class="keywordtype">int</span> rozmiar);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <a class="code" href="class_szachy_1_1_plansza.html">Plansza</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keyword">virtual</span> ~<a class="code" href="class_szachy_1_1_plansza.html">Plansza</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordtype">void</span> rysuj();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordtype">void</span> generujPola(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="class_szachy_1_1_pole.html">Pole</a>* pobierzPole(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> poziom, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pion);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <a class="code" href="class_szachy_1_1_pole.html">Pole</a>* pobierzPole(<span class="keywordtype">int</span> i);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordtype">bool</span> pobierzPolePrzes(<a class="code" href="class_szachy_1_1_pole.html">Pole</a>*&amp; pole, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* pobierzPionek(<a class="code" href="class_szachy_1_1_pole.html">Pole</a>* pole) { <span class="keywordflow">return</span> m_PozycjePionkow[pole-&gt;<a class="code" href="class_szachy_1_1_pole.html#a6f2a9fe46f53bc52b0da8674f9aa0935">pobierzNumer</a>()]; };</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordtype">void</span> przydzielPionek(<a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* pionek);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordtype">void</span> przeniesPionek(<a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* pionek, <a class="code" href="class_szachy_1_1_pole.html">Pole</a>* pozycja);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="class_szachy_1_1_pole.html">Szachy::Pole</a>* m_Pola[64];</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="class_szachy_1_1_pionek.html">Szachy::Pionek</a>* m_PozycjePionkow[64];</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="class_kolor.html">Kolor</a> m_KolorPolaA;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <a class="code" href="class_kolor.html">Kolor</a> m_KolorPolaB;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    };</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif // PLANSZA_H</span></div>
+<a href="_plansza_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef PLANSZA_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define PLANSZA_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Kolor.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Pole.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_typ_pionka_8h.html">TypPionka.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_pionek_8h.html">Pionek.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_szachy.html">Szachy</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_szachy_1_1_plansza.html">   18</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_szachy_1_1_plansza.html">Plansza</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <a class="code" href="class_szachy_1_1_plansza.html#ad324bcf8dd19985f65cc2651046c9817">Plansza</a>(<span class="keywordtype">int</span> rozmiar);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="class_szachy_1_1_plansza.html#ad324bcf8dd19985f65cc2651046c9817">Plansza</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keyword">virtual</span> ~<a class="code" href="class_szachy_1_1_plansza.html">Plansza</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_szachy_1_1_plansza.html#a6c80bfbb97702638d15a4440c1f84c29">rysuj</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <a class="code" href="class_szachy_1_1_pole.html">Pole</a>* <a class="code" href="class_szachy_1_1_plansza.html#a95a1486fdd6905e3e05b341738eca13c">pobierzPole</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> poziom, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pion);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <a class="code" href="class_szachy_1_1_pole.html">Pole</a>* <a class="code" href="class_szachy_1_1_plansza.html#a95a1486fdd6905e3e05b341738eca13c">pobierzPole</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="class_szachy_1_1_plansza.html#ab43e1476ef98ad582750c592e14c6562">pobierzPolePrzes</a>(<a class="code" href="class_szachy_1_1_pole.html">Pole</a>*&amp; pole, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_szachy_1_1_plansza.html#aef659ecaa112a751a14d49f091dba533">   60</a></span>&#160;            <a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* <a class="code" href="class_szachy_1_1_plansza.html#aef659ecaa112a751a14d49f091dba533">pobierzPionek</a>(<a class="code" href="class_szachy_1_1_pole.html">Pole</a>* pole) { <span class="keywordflow">return</span> m_PozycjePionkow[(int)pole-&gt;<a class="code" href="class_szachy_1_1_pole.html#a6f2a9fe46f53bc52b0da8674f9aa0935">pobierzNumer</a>()]; };</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_szachy_1_1_plansza.html#a31b2ab01eb632a302e8cb2ead6b8b564">przydzielPionek</a>(<a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* pionek);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_szachy_1_1_plansza.html#a685dc140c5022f70bd79eb85a8887eba">przeniesPionek</a>(<a class="code" href="class_szachy_1_1_pionek.html">Pionek</a>* pionek, <a class="code" href="class_szachy_1_1_pole.html">Pole</a>* pozycja);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordtype">void</span> generujPola(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <a class="code" href="class_szachy_1_1_pole.html">Szachy::Pole</a>* m_Pola[64];</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <a class="code" href="class_szachy_1_1_pionek.html">Szachy::Pionek</a>* m_PozycjePionkow[64];</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <a class="code" href="class_kolor.html">Kolor</a> m_KolorPolaA;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <a class="code" href="class_kolor.html">Kolor</a> m_KolorPolaB;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    };</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif // PLANSZA_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_kolor_html"><div class="ttname"><a href="class_kolor.html">Kolor</a></div><div class="ttdef"><b>Definition:</b> Kolor.h:6</div></div>
-<div class="ttc" id="aclass_szachy_1_1_pole_html"><div class="ttname"><a href="class_szachy_1_1_pole.html">Szachy::Pole</a></div><div class="ttdef"><b>Definition:</b> Pole.h:11</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclass_szachy_1_1_plansza_html_a31b2ab01eb632a302e8cb2ead6b8b564"><div class="ttname"><a href="class_szachy_1_1_plansza.html#a31b2ab01eb632a302e8cb2ead6b8b564">Szachy::Plansza::przydzielPionek</a></div><div class="ttdeci">void przydzielPionek(Pionek *pionek)</div><div class="ttdoc">Przydziela pozycję pionka do planszy.</div></div>
+<div class="ttc" id="a_typ_pionka_8h_html"><div class="ttname"><a href="_typ_pionka_8h.html">TypPionka.h</a></div><div class="ttdoc">Plik klasy TypPionka.</div></div>
+<div class="ttc" id="a_pionek_8h_html"><div class="ttname"><a href="_pionek_8h.html">Pionek.h</a></div><div class="ttdoc">Plik klasy Pionek.</div></div>
+<div class="ttc" id="aclass_szachy_1_1_plansza_html_a685dc140c5022f70bd79eb85a8887eba"><div class="ttname"><a href="class_szachy_1_1_plansza.html#a685dc140c5022f70bd79eb85a8887eba">Szachy::Plansza::przeniesPionek</a></div><div class="ttdeci">void przeniesPionek(Pionek *pionek, Pole *pozycja)</div><div class="ttdoc">Zmienia pozycję pionka.</div></div>
+<div class="ttc" id="aclass_szachy_1_1_plansza_html_ad324bcf8dd19985f65cc2651046c9817"><div class="ttname"><a href="class_szachy_1_1_plansza.html#ad324bcf8dd19985f65cc2651046c9817">Szachy::Plansza::Plansza</a></div><div class="ttdeci">Plansza()</div><div class="ttdoc">Konstruktor domyœlny dla pustej referencji.</div></div>
+<div class="ttc" id="aclass_kolor_html"><div class="ttname"><a href="class_kolor.html">Kolor</a></div><div class="ttdoc">Reprezentuje kolor znaków i t³¹ w konsoli.</div><div class="ttdef"><b>Definition:</b> Kolor.h:10</div></div>
+<div class="ttc" id="aclass_szachy_1_1_pole_html"><div class="ttname"><a href="class_szachy_1_1_pole.html">Szachy::Pole</a></div><div class="ttdef"><b>Definition:</b> Pole.h:17</div></div>
 <div class="ttc" id="anamespace_szachy_html"><div class="ttname"><a href="namespace_szachy.html">Szachy</a></div><div class="ttdoc">Cała przestrzeń dotycząca mechaniki gry.</div><div class="ttdef"><b>Definition:</b> Gra.h:15</div></div>
-<div class="ttc" id="aclass_szachy_1_1_plansza_html"><div class="ttname"><a href="class_szachy_1_1_plansza.html">Szachy::Plansza</a></div><div class="ttdef"><b>Definition:</b> Plansza.h:11</div></div>
-<div class="ttc" id="aclass_szachy_1_1_pionek_html"><div class="ttname"><a href="class_szachy_1_1_pionek.html">Szachy::Pionek</a></div><div class="ttdef"><b>Definition:</b> Pionek.h:12</div></div>
-<div class="ttc" id="aclass_szachy_1_1_pole_html_a6f2a9fe46f53bc52b0da8674f9aa0935"><div class="ttname"><a href="class_szachy_1_1_pole.html#a6f2a9fe46f53bc52b0da8674f9aa0935">Szachy::Pole::pobierzNumer</a></div><div class="ttdeci">char pobierzNumer()</div><div class="ttdoc">Zwrot identyfikatora.</div><div class="ttdef"><b>Definition:</b> Pole.h:43</div></div>
+<div class="ttc" id="aclass_szachy_1_1_plansza_html"><div class="ttname"><a href="class_szachy_1_1_plansza.html">Szachy::Plansza</a></div><div class="ttdoc">Abstrakcja planszy.</div><div class="ttdef"><b>Definition:</b> Plansza.h:18</div></div>
+<div class="ttc" id="aclass_szachy_1_1_plansza_html_a95a1486fdd6905e3e05b341738eca13c"><div class="ttname"><a href="class_szachy_1_1_plansza.html#a95a1486fdd6905e3e05b341738eca13c">Szachy::Plansza::pobierzPole</a></div><div class="ttdeci">Pole * pobierzPole(unsigned int poziom, unsigned int pion)</div><div class="ttdoc">Pobiera klasê Pola z planszy.</div></div>
+<div class="ttc" id="aclass_szachy_1_1_pionek_html"><div class="ttname"><a href="class_szachy_1_1_pionek.html">Szachy::Pionek</a></div><div class="ttdoc">Abstrakcja pionka.</div><div class="ttdef"><b>Definition:</b> Pionek.h:19</div></div>
+<div class="ttc" id="aclass_szachy_1_1_pole_html_a6f2a9fe46f53bc52b0da8674f9aa0935"><div class="ttname"><a href="class_szachy_1_1_pole.html#a6f2a9fe46f53bc52b0da8674f9aa0935">Szachy::Pole::pobierzNumer</a></div><div class="ttdeci">char pobierzNumer()</div><div class="ttdoc">Zwrot identyfikatora.</div><div class="ttdef"><b>Definition:</b> Pole.h:50</div></div>
+<div class="ttc" id="aclass_szachy_1_1_plansza_html_aef659ecaa112a751a14d49f091dba533"><div class="ttname"><a href="class_szachy_1_1_plansza.html#aef659ecaa112a751a14d49f091dba533">Szachy::Plansza::pobierzPionek</a></div><div class="ttdeci">Pionek * pobierzPionek(Pole *pole)</div><div class="ttdoc">Pobiera pionek na podstawie podanego pola.</div><div class="ttdef"><b>Definition:</b> Plansza.h:60</div></div>
+<div class="ttc" id="aclass_szachy_1_1_plansza_html_a6c80bfbb97702638d15a4440c1f84c29"><div class="ttname"><a href="class_szachy_1_1_plansza.html#a6c80bfbb97702638d15a4440c1f84c29">Szachy::Plansza::rysuj</a></div><div class="ttdeci">void rysuj()</div><div class="ttdoc">Wyprowadza w konsoli planszê z polami i pionkami w ustawionych kolorach.</div></div>
+<div class="ttc" id="aclass_szachy_1_1_plansza_html_ab43e1476ef98ad582750c592e14c6562"><div class="ttname"><a href="class_szachy_1_1_plansza.html#ab43e1476ef98ad582750c592e14c6562">Szachy::Plansza::pobierzPolePrzes</a></div><div class="ttdeci">bool pobierzPolePrzes(Pole *&amp;pole, int x, int y)</div><div class="ttdoc">Pobiera pole z przesunięciem.</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="_plansza_8h.html">Plansza.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['rangeerror_17',['RangeError',['../class_range_error.html',1,'RangeError'],['../class_range_error.html#a652560f44556f05d3f739997821afb47',1,'RangeError::RangeError()']]],
-  ['rozpocznij_18',['rozpocznij',['../class_szachy_1_1_gra.html#a49b1a411aed73d220f07c283140af46e',1,'Szachy::Gra']]],
-  ['ruch_19',['Ruch',['../class_szachy_1_1_ruch.html',1,'Szachy']]]
+  ['nazwa_27',['nazwa',['../class_szachy_1_1_pionek.html#ae23ccc53b18b52703938e72a9a52ac39',1,'Szachy::Pionek::nazwa()'],['../class_szachy_1_1_pole.html#adaf1052b2eb1c2f1a588b646a814b19a',1,'Szachy::Pole::nazwa()']]]
 ];

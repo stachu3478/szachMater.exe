@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['szachy_20',['Szachy',['../namespace_szachy.html',1,'']]]
+  ['operator_5b_5d_28',['operator[]',['../class_array.html#a6e1bde32f2fb97cea1309a4537b1503a',1,'Array']]]
 ];

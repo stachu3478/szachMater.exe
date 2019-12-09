@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +53,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_szachy_1_1_gracz.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +84,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_szachy.html">Szachy</a></li><li class="navelem"><a class="el" href="class_szachy_1_1_gracz.html">Gracz</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -72,52 +92,184 @@ $(function() {
 <div class="title">Szachy::Gracz Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstrakcja użytkownika aplikacji.  
+ <a href="class_szachy_1_1_gracz.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_gracz_8h_source.html">Gracz.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a874b581932e6e644c46d1ae223b75c3f"><td class="memItemLeft" align="right" valign="top"><a id="a874b581932e6e644c46d1ae223b75c3f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Gracz</b> (<a class="el" href="class_array.html">Array</a>&lt; <a class="el" href="class_szachy_1_1_typ_pionka.html">TypPionka</a> * &gt; typyPionkow, <a class="el" href="class_szachy_1_1_plansza.html">Plansza</a> *plansza, unsigned char kolor, bool kontynnuj)</td></tr>
+<tr class="memitem:a874b581932e6e644c46d1ae223b75c3f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#a874b581932e6e644c46d1ae223b75c3f">Gracz</a> (<a class="el" href="class_array.html">Array</a>&lt; <a class="el" href="class_szachy_1_1_typ_pionka.html">TypPionka</a> * &gt; typyPionkow, <a class="el" href="class_szachy_1_1_plansza.html">Plansza</a> *plansza, unsigned char kolor, bool kontynnuj)</td></tr>
+<tr class="memdesc:a874b581932e6e644c46d1ae223b75c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy nową instancję gracza i pyta o nazwę użytkownika.  <a href="class_szachy_1_1_gracz.html#a874b581932e6e644c46d1ae223b75c3f">More...</a><br /></td></tr>
 <tr class="separator:a874b581932e6e644c46d1ae223b75c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05c2cd80a4296849ba729085a7ca3d88"><td class="memItemLeft" align="right" valign="top"><a id="a05c2cd80a4296849ba729085a7ca3d88"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>generujPionki</b> (<a class="el" href="class_array.html">Array</a>&lt; <a class="el" href="class_szachy_1_1_typ_pionka.html">Szachy::TypPionka</a> * &gt; typyPionkow, <a class="el" href="class_szachy_1_1_plansza.html">Plansza</a> *plansza)</td></tr>
-<tr class="separator:a05c2cd80a4296849ba729085a7ca3d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52ff496f6b862e4ddcfe9d01b8ed6703"><td class="memItemLeft" align="right" valign="top"><a id="a52ff496f6b862e4ddcfe9d01b8ed6703"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>przydzielPionki</b> ()</td></tr>
-<tr class="separator:a52ff496f6b862e4ddcfe9d01b8ed6703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1f563e0fa333875248d0de9ae207072"><td class="memItemLeft" align="right" valign="top"><a id="af1f563e0fa333875248d0de9ae207072"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#af1f563e0fa333875248d0de9ae207072">Gracz</a> ()</td></tr>
+<tr class="memdesc:af1f563e0fa333875248d0de9ae207072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pusty konstruktor Nie generuje danych przy inicjalizacji przez referencję <br /></td></tr>
+<tr class="separator:af1f563e0fa333875248d0de9ae207072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db941e2eb91d0015aab21aeeb04bab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#a3db941e2eb91d0015aab21aeeb04bab6">generujPionki</a> (<a class="el" href="class_array.html">Array</a>&lt; <a class="el" href="class_szachy_1_1_typ_pionka.html">Szachy::TypPionka</a> * &gt; typyPionkow)</td></tr>
+<tr class="memdesc:a3db941e2eb91d0015aab21aeeb04bab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buduje zestaw pionków dla gracza i przypisuje je do planszy.  <a href="class_szachy_1_1_gracz.html#a3db941e2eb91d0015aab21aeeb04bab6">More...</a><br /></td></tr>
+<tr class="separator:a3db941e2eb91d0015aab21aeeb04bab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a012249b21f8d7c920e188b48c61e3960"><td class="memItemLeft" align="right" valign="top"><a id="a012249b21f8d7c920e188b48c61e3960"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>jakaNazwa</b> ()</td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#a012249b21f8d7c920e188b48c61e3960">jakaNazwa</a> ()</td></tr>
+<tr class="memdesc:a012249b21f8d7c920e188b48c61e3960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca podaną nazwę gracza. <br /></td></tr>
 <tr class="separator:a012249b21f8d7c920e188b48c61e3960"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56bbb074e13c97985d31bb9b48013949"><td class="memItemLeft" align="right" valign="top"><a id="a56bbb074e13c97985d31bb9b48013949"></a>
-<a class="el" href="class_kolor.html">Kolor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>JakiKolor</b> ()</td></tr>
+<a class="el" href="class_kolor.html">Kolor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#a56bbb074e13c97985d31bb9b48013949">JakiKolor</a> ()</td></tr>
+<tr class="memdesc:a56bbb074e13c97985d31bb9b48013949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca kolor pionków przypisany do gracza. <br /></td></tr>
 <tr class="separator:a56bbb074e13c97985d31bb9b48013949"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af37230d2fc93bc1bb43133d0f1026110"><td class="memItemLeft" align="right" valign="top"><a id="af37230d2fc93bc1bb43133d0f1026110"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>czySzach</b> (<a class="el" href="class_szachy_1_1_pionek.html">Pionek</a> *pionek, <a class="el" href="class_szachy_1_1_plansza.html">Plansza</a> *plansza)</td></tr>
-<tr class="separator:af37230d2fc93bc1bb43133d0f1026110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affe0a584025b927e478143890150e047"><td class="memItemLeft" align="right" valign="top"><a id="affe0a584025b927e478143890150e047"></a>
-<a class="el" href="class_szachy_1_1_pionek.html">Pionek</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pobierzPionek</b> (int n)</td></tr>
+<tr class="memitem:ad766d44fa34bd01bc9fe2da3e56af8e3"><td class="memItemLeft" align="right" valign="top"><a id="ad766d44fa34bd01bc9fe2da3e56af8e3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#ad766d44fa34bd01bc9fe2da3e56af8e3">czySzach</a> (<a class="el" href="class_szachy_1_1_pionek.html">Pionek</a> *pionek)</td></tr>
+<tr class="memdesc:ad766d44fa34bd01bc9fe2da3e56af8e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza czy dany pionek szachuje króla przeciwnika. <br /></td></tr>
+<tr class="separator:ad766d44fa34bd01bc9fe2da3e56af8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affe0a584025b927e478143890150e047"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_szachy_1_1_pionek.html">Pionek</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#affe0a584025b927e478143890150e047">pobierzPionek</a> (int n)</td></tr>
+<tr class="memdesc:affe0a584025b927e478143890150e047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca pionek danego gracza po indeksie.  <a href="class_szachy_1_1_gracz.html#affe0a584025b927e478143890150e047">More...</a><br /></td></tr>
 <tr class="separator:affe0a584025b927e478143890150e047"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a668ec1f263c07aa24ad69b8e89b56149"><td class="memItemLeft" align="right" valign="top"><a id="a668ec1f263c07aa24ad69b8e89b56149"></a>
-<a class="el" href="class_array.html">Array</a>&lt; <a class="el" href="class_array.html">Array</a>&lt; <a class="el" href="class_szachy_1_1_ruch.html">Ruch</a> * &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>mozliwosciRuchu</b> (<a class="el" href="class_szachy_1_1_plansza.html">Plansza</a> *plansza, bool szach)</td></tr>
-<tr class="separator:a668ec1f263c07aa24ad69b8e89b56149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a232cacc05cb16a2793d0852795475d6e"><td class="memItemLeft" align="right" valign="top"><a id="a232cacc05cb16a2793d0852795475d6e"></a>
+<a class="el" href="class_array.html">Array</a>&lt; <a class="el" href="class_array.html">Array</a>&lt; <a class="el" href="class_szachy_1_1_ruch.html">Ruch</a> * &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#a232cacc05cb16a2793d0852795475d6e">mozliwosciRuchu</a> (bool szach)</td></tr>
+<tr class="memdesc:a232cacc05cb16a2793d0852795475d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Podaje możliwe ruchy po pionkach gracza które może wykonać <br /></td></tr>
+<tr class="separator:a232cacc05cb16a2793d0852795475d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d5e092aefef608faf7039b569f43ef0"><td class="memItemLeft" align="right" valign="top"><a id="a2d5e092aefef608faf7039b569f43ef0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>kierunek</b> ()</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#a2d5e092aefef608faf7039b569f43ef0">kierunek</a> ()</td></tr>
+<tr class="memdesc:a2d5e092aefef608faf7039b569f43ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca kierunek w którym wędrują piony tego gracza pomiędzy 1 a -1. <br /></td></tr>
 <tr class="separator:a2d5e092aefef608faf7039b569f43ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a831ee73f7932e71aeeff043efb6368ff"><td class="memItemLeft" align="right" valign="top"><a id="a831ee73f7932e71aeeff043efb6368ff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>zapisz</b> (std::ofstream &amp;f)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#a831ee73f7932e71aeeff043efb6368ff">zapisz</a> (std::ofstream &amp;f)</td></tr>
+<tr class="memdesc:a831ee73f7932e71aeeff043efb6368ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zapisuje dane gracza przy użyciu potoku pliku. <br /></td></tr>
 <tr class="separator:a831ee73f7932e71aeeff043efb6368ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36aae189ecc212e3283f4010e2342d8a"><td class="memItemLeft" align="right" valign="top"><a id="a36aae189ecc212e3283f4010e2342d8a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>zaladuj</b> (std::ifstream &amp;f)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_gracz.html#a36aae189ecc212e3283f4010e2342d8a">zaladuj</a> (std::ifstream &amp;f)</td></tr>
+<tr class="memdesc:a36aae189ecc212e3283f4010e2342d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ładuje dane gracza przy użyciu potoku pliku. <br /></td></tr>
 <tr class="separator:a36aae189ecc212e3283f4010e2342d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstrakcja użytkownika aplikacji. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a874b581932e6e644c46d1ae223b75c3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a874b581932e6e644c46d1ae223b75c3f">&#9670;&nbsp;</a></span>Gracz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Szachy::Gracz::Gracz </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_array.html">Array</a>&lt; <a class="el" href="class_szachy_1_1_typ_pionka.html">TypPionka</a> * &gt;&#160;</td>
+          <td class="paramname"><em>typyPionkow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_szachy_1_1_plansza.html">Plansza</a> *&#160;</td>
+          <td class="paramname"><em>plansza</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>kolor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>kontynnuj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tworzy nową instancję gracza i pyta o nazwę użytkownika. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typyPionkow</td><td>Typy pionków zdefiniowane w grze potrzebne do generowania pionków </td></tr>
+    <tr><td class="paramname">plansza</td><td><a class="el" href="class_szachy_1_1_plansza.html" title="Abstrakcja planszy.">Plansza</a> przypisana do gry potrzebna do przypisania pionków do planszy </td></tr>
+    <tr><td class="paramname">kolor</td><td>Identyfikator koloru pionków przypisany do gracza </td></tr>
+    <tr><td class="paramname">kontynnuj</td><td>Określa czy dane gracza mają być załadowane ze wejścia plików </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3db941e2eb91d0015aab21aeeb04bab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3db941e2eb91d0015aab21aeeb04bab6">&#9670;&nbsp;</a></span>generujPionki()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Szachy::Gracz::generujPionki </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_array.html">Array</a>&lt; <a class="el" href="class_szachy_1_1_typ_pionka.html">Szachy::TypPionka</a> * &gt;&#160;</td>
+          <td class="paramname"><em>typyPionkow</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Buduje zestaw pionków dla gracza i przypisuje je do planszy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typyPionkow</td><td>Zestaw typów pionków z których mają być wygenerowane pionki </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="affe0a584025b927e478143890150e047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affe0a584025b927e478143890150e047">&#9670;&nbsp;</a></span>pobierzPionek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_szachy_1_1_pionek.html">Pionek</a>* Szachy::Gracz::pobierzPionek </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zwraca pionek danego gracza po indeksie. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Indeks pionka w tablicy </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="_gracz_8h_source.html">Gracz.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_szachy.html">Szachy</a></li><li class="navelem"><a class="el" href="class_szachy_1_1_gracz.html">Gracz</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

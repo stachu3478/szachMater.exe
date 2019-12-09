@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['operator_3d_11',['operator=',['../class_szachy_1_1_pole.html#a1d93f79e6a0b40f54a778df1932b5891',1,'Szachy::Pole']]],
-  ['operator_3d_3d_12',['operator==',['../class_szachy_1_1_pole.html#a49e2757d38366f17e9cd9968c11087a8',1,'Szachy::Pole']]]
+  ['len_25',['len',['../class_array.html#a8696912992430066108fba496598c1df',1,'Array']]]
 ];

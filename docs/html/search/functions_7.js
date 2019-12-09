@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tester_55',['Tester',['../class_tester.html#ad70b2b2bbf6c564e710680ec1e0ae2d6',1,'Tester']]],
-  ['typpionka_56',['TypPionka',['../class_szachy_1_1_typ_pionka.html#a995bd0fc9963c2b3a587c1f5f17c0c3a',1,'Szachy::TypPionka']]]
+  ['nazwa_113',['nazwa',['../class_szachy_1_1_pionek.html#ae23ccc53b18b52703938e72a9a52ac39',1,'Szachy::Pionek::nazwa()'],['../class_szachy_1_1_pole.html#adaf1052b2eb1c2f1a588b646a814b19a',1,'Szachy::Pole::nazwa()']]]
 ];

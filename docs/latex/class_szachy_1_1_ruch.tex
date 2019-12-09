@@ -1,22 +1,58 @@
 \hypertarget{class_szachy_1_1_ruch}{}\doxysection{Szachy\+::Ruch Class Reference}
 \label{class_szachy_1_1_ruch}\index{Szachy::Ruch@{Szachy::Ruch}}
+
+
+Abstrakcja ruchu.  
+
+
+
+
+{\ttfamily \#include $<$Ruch.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_szachy_1_1_ruch_aea0b3b5c4d935c0805e59552565621aa}\label{class_szachy_1_1_ruch_aea0b3b5c4d935c0805e59552565621aa}} 
-{\bfseries Ruch} (\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$pionek, \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$od, \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$na)
-\item 
+\mbox{\Hypertarget{class_szachy_1_1_ruch_a3192e1722bc67d067012e597572e567d}\label{class_szachy_1_1_ruch_a3192e1722bc67d067012e597572e567d}} 
+\mbox{\hyperlink{class_szachy_1_1_ruch_a3192e1722bc67d067012e597572e567d}{Ruch}} ()
+\begin{DoxyCompactList}\small\item\em Domyœlny konstruktor ruchu dla pustej referencji Nie inicjuje ¿adnych danych. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_szachy_1_1_ruch_a384cb627139400c65d2fb6857bdb5906}{Ruch}} (\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$pionek, \mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$na)
+\begin{DoxyCompactList}\small\item\em Tworzy nowy \mbox{\hyperlink{class_szachy_1_1_ruch}{Ruch}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_szachy_1_1_ruch_aa0a2c2d5a0a9115e9856271fd0f80d33}\label{class_szachy_1_1_ruch_aa0a2c2d5a0a9115e9856271fd0f80d33}} 
-\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$ {\bfseries jaki\+Pionek} ()
-\item 
+\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$ \mbox{\hyperlink{class_szachy_1_1_ruch_aa0a2c2d5a0a9115e9856271fd0f80d33}{jaki\+Pionek}} ()
+\begin{DoxyCompactList}\small\item\em Mówi, który pionek wykonuje ten ruch. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_szachy_1_1_ruch_aa297270d67da6d742905afbc5908e019}\label{class_szachy_1_1_ruch_aa297270d67da6d742905afbc5908e019}} 
-\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$ {\bfseries jaki\+Cel} ()
-\item 
+\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$ \mbox{\hyperlink{class_szachy_1_1_ruch_aa297270d67da6d742905afbc5908e019}{jaki\+Cel}} ()
+\begin{DoxyCompactList}\small\item\em Zwraca pozcyjê docelow¹ pionka. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_szachy_1_1_ruch_ad63306db82f6598f089fb83806f9e0a1}\label{class_szachy_1_1_ruch_ad63306db82f6598f089fb83806f9e0a1}} 
-\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$ {\bfseries jaki\+Start} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$ \mbox{\hyperlink{class_szachy_1_1_ruch_ad63306db82f6598f089fb83806f9e0a1}{jaki\+Start}} ()
+\begin{DoxyCompactList}\small\item\em Zwraca pozycjê startow¹ pionka. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstrakcja ruchu. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_szachy_1_1_ruch_a384cb627139400c65d2fb6857bdb5906}\label{class_szachy_1_1_ruch_a384cb627139400c65d2fb6857bdb5906}} 
+\index{Szachy::Ruch@{Szachy::Ruch}!Ruch@{Ruch}}
+\index{Ruch@{Ruch}!Szachy::Ruch@{Szachy::Ruch}}
+\doxysubsubsection{\texorpdfstring{Ruch()}{Ruch()}}
+{\footnotesize\ttfamily Szachy\+::\+Ruch\+::\+Ruch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}} $\ast$}]{pionek,  }\item[{\mbox{\hyperlink{class_szachy_1_1_pole}{Pole}} $\ast$}]{na }\end{DoxyParamCaption})}
+
+
+
+Tworzy nowy \mbox{\hyperlink{class_szachy_1_1_ruch}{Ruch}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pionek} & \mbox{\hyperlink{class_szachy_1_1_pionek}{Pionek}}, który ma byæ przeniesiony \\
+\hline
+{\em od} & Pozycja od której startuje pionek \\
+\hline
+{\em na} & Pozycja gdzie koñczy pionek \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/Ruch.\+h\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{_ruch_8h}{Ruch.\+h}}\end{DoxyCompactItemize}

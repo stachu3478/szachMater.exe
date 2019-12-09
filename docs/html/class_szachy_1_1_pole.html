@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +53,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_szachy_1_1_pole.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +84,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_szachy.html">Szachy</a></li><li class="navelem"><a class="el" href="class_szachy_1_1_pole.html">Pole</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -78,52 +98,43 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa81bee04b2e8ba875d9228c2e6aeed1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#aa81bee04b2e8ba875d9228c2e6aeed1a">Pole</a> (int num, <a class="el" href="class_kolor.html">Kolor</a> *kolor)</td></tr>
+<tr class="memdesc:aa81bee04b2e8ba875d9228c2e6aeed1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy nowe pole na podstawie numeru z innej klasy <a class="el" href="class_szachy_1_1_pole.html">Pole</a>.  <a href="class_szachy_1_1_pole.html#aa81bee04b2e8ba875d9228c2e6aeed1a">More...</a><br /></td></tr>
 <tr class="separator:aa81bee04b2e8ba875d9228c2e6aeed1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20a5dee524ccb85d5350506323e1ae40"><td class="memItemLeft" align="right" valign="top"><a id="a20a5dee524ccb85d5350506323e1ae40"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Pole</b> (int poziom, int pion)</td></tr>
+<tr class="memitem:a20a5dee524ccb85d5350506323e1ae40"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#a20a5dee524ccb85d5350506323e1ae40">Pole</a> (int <a class="el" href="class_szachy_1_1_pole.html#a9ce3de286a274f71076f4f5fb9ddd563">poziom</a>, int <a class="el" href="class_szachy_1_1_pole.html#ac5b93c7f456f016fbfe711dd7a6ad35f">pion</a>)</td></tr>
+<tr class="memdesc:a20a5dee524ccb85d5350506323e1ae40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy nowe pole.  <a href="class_szachy_1_1_pole.html#a20a5dee524ccb85d5350506323e1ae40">More...</a><br /></td></tr>
 <tr class="separator:a20a5dee524ccb85d5350506323e1ae40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ec71098899f24ff12958042ceabd996"><td class="memItemLeft" align="right" valign="top"><a id="a9ec71098899f24ff12958042ceabd996"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Pole</b> (<a class="el" href="class_szachy_1_1_pole.html">Szachy::Pole</a> *pole)</td></tr>
+<tr class="memitem:a9ec71098899f24ff12958042ceabd996"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#a9ec71098899f24ff12958042ceabd996">Pole</a> (<a class="el" href="class_szachy_1_1_pole.html">Szachy::Pole</a> *pole)</td></tr>
+<tr class="memdesc:a9ec71098899f24ff12958042ceabd996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy nowe pole z innej klasy <a class="el" href="class_szachy_1_1_pole.html">Pole</a>.  <a href="class_szachy_1_1_pole.html#a9ec71098899f24ff12958042ceabd996">More...</a><br /></td></tr>
 <tr class="separator:a9ec71098899f24ff12958042ceabd996"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adaf1052b2eb1c2f1a588b646a814b19a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#adaf1052b2eb1c2f1a588b646a814b19a">nazwa</a> ()</td></tr>
-<tr class="memdesc:adaf1052b2eb1c2f1a588b646a814b19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy zdefiniowaną listę pól z odniesieniem pozycji.  <a href="class_szachy_1_1_pole.html#adaf1052b2eb1c2f1a588b646a814b19a">More...</a><br /></td></tr>
+<tr class="memdesc:adaf1052b2eb1c2f1a588b646a814b19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca czytelną nazwę pola na szachownicy.  <a href="class_szachy_1_1_pole.html#adaf1052b2eb1c2f1a588b646a814b19a">More...</a><br /></td></tr>
 <tr class="separator:adaf1052b2eb1c2f1a588b646a814b19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ffc1398fffb2970c624b1dbfa1b6242"><td class="memItemLeft" align="right" valign="top"><a id="a8ffc1398fffb2970c624b1dbfa1b6242"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#a8ffc1398fffb2970c624b1dbfa1b6242">~Pole</a> ()</td></tr>
 <tr class="memdesc:a8ffc1398fffb2970c624b1dbfa1b6242"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruktor klasy <a class="el" href="class_szachy_1_1_pole.html">Pole</a>. <br /></td></tr>
 <tr class="separator:a8ffc1398fffb2970c624b1dbfa1b6242"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d93f79e6a0b40f54a778df1932b5891"><td class="memItemLeft" align="right" valign="top"><a id="a1d93f79e6a0b40f54a778df1932b5891"></a>
-<a class="el" href="class_szachy_1_1_pole.html">Pole</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#a1d93f79e6a0b40f54a778df1932b5891">operator=</a> (const <a class="el" href="class_szachy_1_1_pole.html">Pole</a> &amp;other)</td></tr>
-<tr class="memdesc:a1d93f79e6a0b40f54a778df1932b5891"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementacja przypisania klas typu <a class="el" href="class_szachy_1_1_pole.html">Pole</a>. <br /></td></tr>
-<tr class="separator:a1d93f79e6a0b40f54a778df1932b5891"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49e2757d38366f17e9cd9968c11087a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#a49e2757d38366f17e9cd9968c11087a8">operator==</a> (const <a class="el" href="class_szachy_1_1_pole.html">Pole</a> &amp;other)</td></tr>
-<tr class="memdesc:a49e2757d38366f17e9cd9968c11087a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementacja przenoszenia pionka na dane pole.  <a href="class_szachy_1_1_pole.html#a49e2757d38366f17e9cd9968c11087a8">More...</a><br /></td></tr>
-<tr class="separator:a49e2757d38366f17e9cd9968c11087a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a508ca4df362716515b4983fbf1fff14f"><td class="memItemLeft" align="right" valign="top"><a id="a508ca4df362716515b4983fbf1fff14f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_szachy_1_1_pole.html">Pole</a> &amp;other)</td></tr>
-<tr class="separator:a508ca4df362716515b4983fbf1fff14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f2a9fe46f53bc52b0da8674f9aa0935"><td class="memItemLeft" align="right" valign="top"><a id="a6f2a9fe46f53bc52b0da8674f9aa0935"></a>
 char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#a6f2a9fe46f53bc52b0da8674f9aa0935">pobierzNumer</a> ()</td></tr>
 <tr class="memdesc:a6f2a9fe46f53bc52b0da8674f9aa0935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwrot identyfikatora. <br /></td></tr>
 <tr class="separator:a6f2a9fe46f53bc52b0da8674f9aa0935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ce3de286a274f71076f4f5fb9ddd563"><td class="memItemLeft" align="right" valign="top"><a id="a9ce3de286a274f71076f4f5fb9ddd563"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>poziom</b> ()</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#a9ce3de286a274f71076f4f5fb9ddd563">poziom</a> ()</td></tr>
+<tr class="memdesc:a9ce3de286a274f71076f4f5fb9ddd563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca poziom pola na którym został utworzony. <br /></td></tr>
 <tr class="separator:a9ce3de286a274f71076f4f5fb9ddd563"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5b93c7f456f016fbfe711dd7a6ad35f"><td class="memItemLeft" align="right" valign="top"><a id="ac5b93c7f456f016fbfe711dd7a6ad35f"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>pion</b> ()</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#ac5b93c7f456f016fbfe711dd7a6ad35f">pion</a> ()</td></tr>
+<tr class="memdesc:ac5b93c7f456f016fbfe711dd7a6ad35f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca pion pola na którym został utworzony. <br /></td></tr>
 <tr class="separator:ac5b93c7f456f016fbfe711dd7a6ad35f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9cff149a07c23c8ee0a0f286968a784"><td class="memItemLeft" align="right" valign="top"><a id="ac9cff149a07c23c8ee0a0f286968a784"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>przesun</b> (char x, char y)</td></tr>
-<tr class="separator:ac9cff149a07c23c8ee0a0f286968a784"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16c744b405c97fdd5cee1590ec6de3ff"><td class="memItemLeft" align="right" valign="top"><a id="a16c744b405c97fdd5cee1590ec6de3ff"></a>
-<a class="el" href="class_kolor.html">Kolor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>JakiKolor</b> ()</td></tr>
+<a class="el" href="class_kolor.html">Kolor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_pole.html#a16c744b405c97fdd5cee1590ec6de3ff">JakiKolor</a> ()</td></tr>
+<tr class="memdesc:a16c744b405c97fdd5cee1590ec6de3ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca kolor przydzielon do pola. <br /></td></tr>
 <tr class="separator:a16c744b405c97fdd5cee1590ec6de3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Jest odzwierciedleniem pola na szachownicy <a class="el" href="class_szachy_1_1_pole.html">Pole</a> jest identyfikowane przez pole numer </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa81bee04b2e8ba875d9228c2e6aeed1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa81bee04b2e8ba875d9228c2e6aeed1a">&#9670;&nbsp;</a></span>Pole()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa81bee04b2e8ba875d9228c2e6aeed1a">&#9670;&nbsp;</a></span>Pole() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,10 +158,75 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>przesun</b> (char x, 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Tworzy nowe pole </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Tworzy nowe pole na podstawie numeru z innej klasy <a class="el" href="class_szachy_1_1_pole.html">Pole</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>Numer zwrócony przez klasę </td></tr>
+    <tr><td class="paramname">kolor</td><td><a class="el" href="class_kolor.html" title="Reprezentuje kolor znaków i t³¹ w konsoli.">Kolor</a> pola </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a20a5dee524ccb85d5350506323e1ae40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a5dee524ccb85d5350506323e1ae40">&#9670;&nbsp;</a></span>Pole() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Szachy::Pole::Pole </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>poziom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tworzy nowe pole. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">poziom</td><td>- pozycja od góry do do³u najmniejsza wartoœæ okreœla pole na górze jako cyfrowa pozycja pola (od 1 do 8) jest bardziej znacz¹ca w wartoœci </td></tr>
     <tr><td class="paramname">pion</td><td>- pozycja od lewej do prawej najmniejsza wartoœæ okreœla pole po lewej jako literowa pozycja pola (od 1 do 8) jest mniej znacząca w wartoœci </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9ec71098899f24ff12958042ceabd996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ec71098899f24ff12958042ceabd996">&#9670;&nbsp;</a></span>Pole() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Szachy::Pole::Pole </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_szachy_1_1_pole.html">Szachy::Pole</a> *&#160;</td>
+          <td class="paramname"><em>pole</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tworzy nowe pole z innej klasy <a class="el" href="class_szachy_1_1_pole.html">Pole</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pole</td><td>Klasa <a class="el" href="class_szachy_1_1_pole.html">Pole</a>, z której ma być utworzone </td></tr>
   </table>
   </dd>
 </dl>
@@ -173,29 +249,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>przesun</b> (char x, 
       </table>
 </div><div class="memdoc">
 
-<p>Tworzy zdefiniowaną listę pól z odniesieniem pozycji. </p>
-<p>Zwraca czyteln¹ nazwê pola na szachownicy </p><dl class="section return"><dt>Returns</dt><dd>- Reprezentacja cyfrowej i literowej pozycji np. 5C, 1A, 5F </dd></dl>
-
-</div>
-</div>
-<a id="a49e2757d38366f17e9cd9968c11087a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49e2757d38366f17e9cd9968c11087a8">&#9670;&nbsp;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Szachy::Pole::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_szachy_1_1_pole.html">Pole</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Implementacja przenoszenia pionka na dane pole. </p>
-<p>Implementacje porównań klas typu <a class="el" href="class_szachy_1_1_pole.html">Pole</a> </p>
+<p>Zwraca czytelną nazwę pola na szachownicy. </p>
+<dl class="section return"><dt>Returns</dt><dd>- Reprezentacja cyfrowej i literowej pozycji np. 5C, 1A, 5F </dd></dl>
 
 </div>
 </div>
@@ -203,11 +258,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>przesun</b> (char x, 
 <li>include/<a class="el" href="_pole_8h_source.html">Pole.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_szachy.html">Szachy</a></li><li class="navelem"><a class="el" href="class_szachy_1_1_pole.html">Pole</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>
