@@ -46,11 +46,6 @@ namespace Szachy
             std::string nazwa();
             /// Destruktor klasy Pole
             virtual ~Pole();
-            /// \brief Implementacja przypisania klas typu Pole
-            Pole& operator=(const Pole& other);
-            /// \brief Implementacje porównań klas typu Pole
-            bool operator==(const Pole& other);
-            bool operator!=(const Pole& other);
             /// \brief Zwrot identyfikatora
             char pobierzNumer() { return numer; };
             /*!

@@ -5,21 +5,21 @@
 
 /*!
     \brief Reprezentuje kolor
-    znaków i t³¹ w konsoli
+    znakÃ³w i tÂ³Â¹ w konsoli
 */
 class Kolor
 {
     public:
         /*!
-            \brief Konstruktor domyœlny
-            Nie generuje ¿adnych danych, dla pustej referencji
+            \brief Konstruktor domyÅ“lny
+            Nie generuje Â¿adnych danych, dla pustej referencji
         */
         Kolor();
         /*!
             \brief Tworzy kolor i przypisuje mu
-            wartoœæ oraz nazwê
+            wartoÅ“Ã¦ oraz nazwÃª
             \param nazwa Nazwa danego koloru
-            \param wartosc Liczba okreœlaj¹ca kolorstykê w konsoli
+            \param wartosc Liczba okreÅ“lajÂ¹ca kolorstykÃª w konsoli
         */
         Kolor(std::string nazwa, unsigned char wartosc);
         /** Default destructor */

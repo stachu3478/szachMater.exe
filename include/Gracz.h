@@ -61,6 +61,7 @@ namespace Szachy
             bool czySzach(Pionek* pionek);
             /*!
                 \brief Zwraca pionek danego gracza po indeksie
+                \param n Indeks pionka w tablicy
             */
             Pionek* pobierzPionek(int n) { return m_pionki[n]; };
             /*!

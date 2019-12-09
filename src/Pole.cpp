@@ -37,24 +37,6 @@ Pole::Pole(Pole* pole)
 Pole::~Pole()
 {}
 
-Pole& Pole::operator=(const Pole& rhs)
-{
-    if (this == &rhs) return *this; //assignment operator
-    this->numer = rhs.numer;
-    return *this;
-}
-
-bool Pole::operator==(const Pole& rhs)
-{
-    if (this == &rhs) return true;
-    return this->numer == rhs.numer;
-}
-
-bool Pole::operator!=(const Pole& rhs)
-{
-    return !(*this == rhs);
-}
-
 string Pole::nazwa()
 {
     string nazwaPola = "";

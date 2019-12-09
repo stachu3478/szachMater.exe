@@ -21,10 +21,10 @@ namespace Szachy
         public:
             /*!
                 \brief Tworzy nowy pionek
-                z okreœlonym typem, pozycj¹ i kolorem
+                z okreÅ“lonym typem, pozycjÂ¹ i kolorem
                 \param typ Typ pionka
                 \param pozycja Startowa pozycja pionka
-                \param kolor Kolor który ma byæ przypisany do pionka
+                \param kolor Kolor ktÃ³ry ma byÃ¦ przypisany do pionka
             */
             Pionek(TypPionka* typ, Pole* pozycja, Kolor* kolor);
             virtual ~Pionek();
@@ -34,20 +34,20 @@ namespace Szachy
             */
             TypPionka jakiTyp() { return *m_typ; };
             /*!
-                \brief Zwraca pozycjê pionka
+                \brief Zwraca pozycjÃª pionka
             */
             Pole* jakaPozycja() { return m_pozycja; }
             /*!
-                \brief Zwraca literê typu pionka
+                \brief Zwraca literÃª typu pionka
             */
             std::string jakaLitera() { return m_typ->jakaLitera(); }
             /*!
-                \brief Zwraca podan¹ nazwê typu pionka
+                \brief Zwraca podanÂ¹ nazwÃª typu pionka
             */
             std::string nazwa() { return m_typ->jakaNazwa(); };
             /*!
                 \brief Przenosi pionek na podane pole
-                \param val Pole na które ma byæ przeniesiony pionek
+                \param val Pole na ktÃ³re ma byÃ¦ przeniesiony pionek
             */
             void przenies(Szachy::Pole* val);
             /*!
@@ -55,11 +55,11 @@ namespace Szachy
             */
             Kolor* JakiKolor(){ return m_Kolor; }
             /*!
-                \brief Mówi czy jakikolwiek ruch tym pionkiem zosta³ wykonany
+                \brief MÃ³wi czy jakikolwiek ruch tym pionkiem zostaÂ³ wykonany
             */
             bool czyBylPierwszyruch() { return m_bylPierwszyRuch; }
             /*!
-                \brief Mówi czy pionek zosta³ ju¿ zbity
+                \brief MÃ³wi czy pionek zostaÂ³ juÂ¿ zbity
             */
             bool czyZbity() { return m_zbity; }
             /*!
@@ -78,7 +78,7 @@ namespace Szachy
             */
             void zapisz(std::ofstream& f);
             /*!
-                \brief £aduje dane pinoka
+                \brief Â£aduje dane pinoka
                 \param Referencja potoku plikowego
             */
             void zaladuj(std::ifstream& f);

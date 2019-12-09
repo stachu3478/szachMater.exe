@@ -87,14 +87,11 @@ template <class T> class Array
         */
         T push(T item)
         {
-            //std::cout << "push " << (5 << 1) << std::endl;
             if (++length > max_index)
             {
                 if (length == max_index + 1) {
-                    //std::cout << "new array" << std::endl;
                     next = new Array<T>(length << 1);
                 }
-                //std::cout << "into new array" << length << max_index << std::endl;
                 return next->push(item);
             }
             else
