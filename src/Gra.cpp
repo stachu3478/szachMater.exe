@@ -10,12 +10,15 @@
 #include "Gracz.h"
 #include "toChar.h"
 
-#include<iostream>
-#include<conio.h>
-#include<windows.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<time.h>
+// sleep_for
+#include <conio.h>
+#include <windows.h>
+#include <cstdlib>
+#include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
+#include <thread>
+#include <chrono>
 
 #include <iostream>
 #include <fstream>
@@ -27,7 +30,7 @@ using namespace std;
 void Gra::generujTypyPionkow()
 {
     m_TypyPionkow.push(new TypPionka("Pion", "Najbardziej pospolity pionek", 'O'));
-    m_TypyPionkow.push(new TypPionka("Skoczek", "Pionek potrafiący przeskakikaæ inne pionki", 'S'));
+    m_TypyPionkow.push(new TypPionka("Skoczek", "Pionek potrafiący feskakikaæ inne pionki", 'S'));
     m_TypyPionkow.push(new TypPionka("Goniec", "Pionek bij¹cy na ukos", 'G'));
     m_TypyPionkow.push(new TypPionka("Wie¿a", "Pionek bij¹cy w kolumnach i rzêdach", 'W'));
     m_TypyPionkow.push(new TypPionka("Hetman", "Wa¿ny pionek, posiada najwiêcej mo¿liwoœci ruchu", 'H'));
@@ -72,7 +75,7 @@ bool Gra::kolejka(Gracz gracz, Gracz przeciwnik)
     m_Plansza.rysuj();
     // Wybór ruchu - start
     if (m_szach > 1) m_szach = 0;
-    Array< Array<Ruch*> > mozliweRuchy = gracz.mozliwosciRuchu(&m_Plansza, m_szach);
+    Array< Array<Ruch*> > mozliweRuchy = gracz.mozliwosciRuchu(m_szach);
 
     cout << "Wybierz pionek, aby poruszyć. Dostepne: " << mozliweRuchy.len() << " pionków." << endl;
     for (int i = 0; i < mozliweRuchy.len(); i++)
@@ -105,11 +108,11 @@ bool Gra::kolejka(Gracz gracz, Gracz przeciwnik)
         pionek->jakaLitera() == "O"
         && cel->poziom() == (gracz.kierunek() == 1 ? 8 : 1)
     ) pionek->awansuj(m_TypyPionkow[4]); // Damka
-    if (gracz.czySzach(pionek, &m_Plansza)) m_szach = true;
+    if (gracz.czySzach(pionek)) m_szach = true;
     else m_szach = false;
 
     if (!m_demo) zapisz();
-    else sleep(1);
+    else this_thread::sleep_for(chrono::seconds(1));
     return false;
 }
 

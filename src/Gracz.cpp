@@ -14,26 +14,26 @@
 using namespace Szachy;
 using namespace std;
 
-void Gracz::generujPionki(Array<TypPionka*> typyPionkow, Plansza* plansza)
+void Gracz::generujPionki(Array<TypPionka*> typyPionkow)
 {
     bool jestCzarny = m_KolorPionkow.JakaWartosc() == 0;
     int poziom = jestCzarny ? 2 : 7;
     for(unsigned int pion = 1; pion <= 8; pion++) // generowanie pionow
     {
-        m_pionki[pion - 1] = new Pionek(typyPionkow[0], plansza->pobierzPole(poziom, pion), &m_KolorPionkow);
+        m_pionki[pion - 1] = new Pionek(typyPionkow[0], m_Plansza->pobierzPole(poziom, pion), &m_KolorPionkow);
     }
 
     poziom = jestCzarny ? 1 : 8;
     int inc = jestCzarny ? 1 : -1;
     int pion = jestCzarny ? 1 : 8;
-    m_pionki[8] = new Pionek(typyPionkow[3], plansza->pobierzPole(poziom, pion), &m_KolorPionkow); // wieza
-    m_pionki[9] = new Pionek(typyPionkow[1], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // skoczek
-    m_pionki[10] = new Pionek(typyPionkow[2], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // goniec
-    m_pionki[11] = new Pionek(typyPionkow[4], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // hetman
-    m_pionki[12] = new Pionek(typyPionkow[5], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // krol
-    m_pionki[13] = new Pionek(typyPionkow[2], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // goniec
-    m_pionki[14] = new Pionek(typyPionkow[1], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // skoczek
-    m_pionki[15] = new Pionek(typyPionkow[3], plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // wieza
+    m_pionki[8] = new Pionek(typyPionkow[3], m_Plansza->pobierzPole(poziom, pion), &m_KolorPionkow); // wieza
+    m_pionki[9] = new Pionek(typyPionkow[1], m_Plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // skoczek
+    m_pionki[10] = new Pionek(typyPionkow[2], m_Plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // goniec
+    m_pionki[11] = new Pionek(typyPionkow[4], m_Plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // hetman
+    m_pionki[12] = new Pionek(typyPionkow[5], m_Plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // krol
+    m_pionki[13] = new Pionek(typyPionkow[2], m_Plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // goniec
+    m_pionki[14] = new Pionek(typyPionkow[1], m_Plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // skoczek
+    m_pionki[15] = new Pionek(typyPionkow[3], m_Plansza->pobierzPole(poziom, pion += inc), &m_KolorPionkow); // wieza
 }
 
 void Gracz::przydzielPionki()
@@ -48,7 +48,7 @@ Gracz::Gracz(Array<TypPionka*> typyPionkow, Plansza* plansza, unsigned char kolo
     m_KolorPionkow(kolor == 0 ? "Czarny" : "Biały", kolor)
 {
     m_Plansza = plansza;
-    generujPionki(typyPionkow, plansza);
+    generujPionki(typyPionkow);
     if (!kontynnuj)
     {
         przydzielPionki();
@@ -196,10 +196,10 @@ void przeszukajPolaPionka(Pionek* pionek, Array<Pole>* pola, int xd, int yd, Pla
     } while(sprawdzCzyPoleWolne(dupPole, x, y, plansza));
 }
 
-Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
+Array<Pole>& Gracz::mozliwePolaPionka(Pionek* pionek)
 {
     Kolor* kolor = pionek->JakiKolor();
-    int k = kierunek(kolor); // kierunek
+    int k = kierunek(); // kierunek
     Array<Pole>* pola = new Array<Pole>(10);
     string litera = pionek->jakaLitera();
     Pole* pole = pionek->jakaPozycja();
@@ -210,19 +210,19 @@ Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
             Pole* potPole1 = dup(pole);
             if (
                 !pionek->czyBylPierwszyruch()
-                && sprawdzCzyPoleWolne(potPole1, 2 * k, 0, plansza)
+                && sprawdzCzyPoleWolne(potPole1, 2 * k, 0, m_Plansza)
             )
                 pola->push(potPole1);
             Pole* potPole2 = dup(pole);
-            if (sprawdzCzyPoleWolne(potPole2, 1 * k, 0, plansza))
+            if (sprawdzCzyPoleWolne(potPole2, 1 * k, 0, m_Plansza))
                 pola->push(potPole2);
 
             // Bicie na ukos
             Pole* potPole3 = dup(pole);
-            if (sprawdzCzyMozeBic(pionek, potPole3, 1 * k, -1, plansza))
+            if (sprawdzCzyMozeBic(pionek, potPole3, 1 * k, -1, m_Plansza))
                 pola->push(potPole3);
             Pole* potPole4 = dup(pole);
-            if (sprawdzCzyMozeBic(pionek, potPole4, 1 * k, 1, plansza))
+            if (sprawdzCzyMozeBic(pionek, potPole4, 1 * k, 1, m_Plansza))
                 pola->push(potPole4);
         }; break;
         case 'S':
@@ -232,33 +232,33 @@ Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
                 if (m == 0) continue;
                 int j = abs(m) == 1 ? 2 : 1;
                 Pole* potPole1 = dup(pole);
-                if (sprawdzCzyMozePrzejsc(pionek, potPole1, m, j, plansza))
+                if (sprawdzCzyMozePrzejsc(pionek, potPole1, m, j, m_Plansza))
                     pola->push(potPole1);
                 Pole* potPole2 = dup(pole);
-                if (sprawdzCzyMozePrzejsc(pionek, potPole2, m, -j, plansza))
+                if (sprawdzCzyMozePrzejsc(pionek, potPole2, m, -j, m_Plansza))
                     pola->push(potPole2);
             }
         }; break;
         case 'W':
         {
-            przeszukajPolaPionka(pionek, pola, 1, 0, plansza);
-            przeszukajPolaPionka(pionek, pola, -1, 0, plansza);
-            przeszukajPolaPionka(pionek, pola, 0, 1, plansza);
-            przeszukajPolaPionka(pionek, pola, 0, -1, plansza);
+            przeszukajPolaPionka(pionek, pola, 1, 0, m_Plansza);
+            przeszukajPolaPionka(pionek, pola, -1, 0, m_Plansza);
+            przeszukajPolaPionka(pionek, pola, 0, 1, m_Plansza);
+            przeszukajPolaPionka(pionek, pola, 0, -1, m_Plansza);
         }; break;
         case 'H':
         {
-            przeszukajPolaPionka(pionek, pola, 1, 0, plansza);
-            przeszukajPolaPionka(pionek, pola, -1, 0, plansza);
-            przeszukajPolaPionka(pionek, pola, 0, 1, plansza);
-            przeszukajPolaPionka(pionek, pola, 0, -1, plansza);
+            przeszukajPolaPionka(pionek, pola, 1, 0, m_Plansza);
+            przeszukajPolaPionka(pionek, pola, -1, 0, m_Plansza);
+            przeszukajPolaPionka(pionek, pola, 0, 1, m_Plansza);
+            przeszukajPolaPionka(pionek, pola, 0, -1, m_Plansza);
         };
         case 'G':
         {
-            przeszukajPolaPionka(pionek, pola, 1, 1, plansza);
-            przeszukajPolaPionka(pionek, pola, 1, -1, plansza);
-            przeszukajPolaPionka(pionek, pola, -1, 1, plansza);
-            przeszukajPolaPionka(pionek, pola, -1, -1, plansza);
+            przeszukajPolaPionka(pionek, pola, 1, 1, m_Plansza);
+            przeszukajPolaPionka(pionek, pola, 1, -1, m_Plansza);
+            przeszukajPolaPionka(pionek, pola, -1, 1, m_Plansza);
+            przeszukajPolaPionka(pionek, pola, -1, -1, m_Plansza);
         }; break;
         case 'K':
         {
@@ -268,8 +268,8 @@ Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
                 if (l == 0 && j == 0) continue;
                 Pole* potPole = dup(pole);
                 if (
-                    sprawdzCzyMozePrzejsc(pionek, potPole, j, l, plansza)
-                    && poleBezpieczne(potPole, kolor, plansza)
+                    sprawdzCzyMozePrzejsc(pionek, potPole, j, l, m_Plansza)
+                    && poleBezpieczne(potPole, kolor, m_Plansza)
                 ) pola->push(potPole);
             };
         }
@@ -278,9 +278,9 @@ Array<Pole>& mozliwePolaPionka(Pionek* pionek, Plansza* plansza)
     return polaRef;
 }
 
-Array<Ruch*>& mozliwosciPionka(Pionek* pionek, Plansza* plansza)
+Array<Ruch*>& Gracz::mozliwosciPionka(Pionek* pionek)
 {
-    Array<Pole> pola = mozliwePolaPionka(pionek, plansza);
+    Array<Pole> pola = mozliwePolaPionka(pionek);
     Array<Ruch*>* ruchy = new Array<Ruch*>(pola.len());
     for (int j = 0; j < pola.len(); j++)
     {
@@ -290,7 +290,7 @@ Array<Ruch*>& mozliwosciPionka(Pionek* pionek, Plansza* plansza)
     return ruchyRef;
 }
 
-Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(Plansza* plansza, bool szach)
+Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(bool szach)
 {
     Array< Array<Ruch*> > ruchyPionkow;
     for (int i = 0; i < 16; i++)
@@ -300,7 +300,7 @@ Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(Plansza* plansza, bool szach)
         if (szach && pionek->jakaLitera() != "K") continue;
         if (!pionek->czyZbity())
         {
-            Array<Ruch*> ruchy = mozliwosciPionka(pionek, plansza);
+            Array<Ruch*> ruchy = mozliwosciPionka(pionek);
             if (ruchy.len() > 0) ruchyPionkow.push(ruchy);
         }
     }
@@ -308,12 +308,12 @@ Array< Array<Ruch*> >& Gracz::mozliwosciRuchu(Plansza* plansza, bool szach)
     return ruchyPionkowRef;
 }
 
-bool Gracz::czySzach(Pionek* pionek, Plansza* plansza)
+bool Gracz::czySzach(Pionek* pionek)
 {
-    Array<Pole> pola = mozliwePolaPionka(pionek, plansza);
+    Array<Pole> pola = mozliwePolaPionka(pionek);
     for (int i = 0; i < pola.len(); i++)
     {
-        Pionek* potKrol = plansza->pobierzPionek(&pola[i]);
+        Pionek* potKrol = m_Plansza->pobierzPionek(&pola[i]);
         if (
             potKrol == 0
             || potKrol->jakaLitera() != "K"

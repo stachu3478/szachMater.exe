@@ -3,11 +3,24 @@
 
 #include <string>
 
+/*!
+    \brief Reprezentuje kolor
+    znaków i t³¹ w konsoli
+*/
 class Kolor
 {
     public:
-        /** Default constructor */
+        /*!
+            \brief Konstruktor domyœlny
+            Nie generuje ¿adnych danych, dla pustej referencji
+        */
         Kolor();
+        /*!
+            \brief Tworzy kolor i przypisuje mu
+            wartoœæ oraz nazwê
+            \param nazwa Nazwa danego koloru
+            \param wartosc Liczba okreœlaj¹ca kolorstykê w konsoli
+        */
         Kolor(std::string nazwa, unsigned char wartosc);
         /** Default destructor */
         virtual ~Kolor();
