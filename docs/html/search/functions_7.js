@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nazwa_113',['nazwa',['../class_szachy_1_1_pionek.html#ae23ccc53b18b52703938e72a9a52ac39',1,'Szachy::Pionek::nazwa()'],['../class_szachy_1_1_pole.html#adaf1052b2eb1c2f1a588b646a814b19a',1,'Szachy::Pole::nazwa()']]]
+  ['mozliwosciruchu_114',['mozliwosciRuchu',['../class_szachy_1_1_gracz.html#a232cacc05cb16a2793d0852795475d6e',1,'Szachy::Gracz']]]
 ];

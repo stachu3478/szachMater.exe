@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gra_70',['Gra',['../class_szachy_1_1_gra.html',1,'Szachy']]],
-  ['gracz_71',['Gracz',['../class_szachy_1_1_gracz.html',1,'Szachy']]]
+  ['gra_71',['Gra',['../class_szachy_1_1_gra.html',1,'Szachy']]],
+  ['gracz_72',['Gracz',['../class_szachy_1_1_gracz.html',1,'Szachy']]]
 ];

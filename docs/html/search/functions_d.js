@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['_7ekolor_140',['~Kolor',['../class_kolor.html#aa395601e62f22f60f31849fd2670f693',1,'Kolor']]],
-  ['_7epole_141',['~Pole',['../class_szachy_1_1_pole.html#a8ffc1398fffb2970c624b1dbfa1b6242',1,'Szachy::Pole']]],
-  ['_7erangeerror_142',['~RangeError',['../class_range_error.html#aa4b5dff5cada53959b180735e2e9493c',1,'RangeError']]],
-  ['_7etester_143',['~Tester',['../class_tester.html#ad89c81ada6e54c7d747d7e528f81f323',1,'Tester']]],
-  ['_7etyppionka_144',['~TypPionka',['../class_szachy_1_1_typ_pionka.html#a6d6476d4f51ab29f84b9819bc3c74b21',1,'Szachy::TypPionka']]]
+  ['zaladuj_139',['zaladuj',['../class_szachy_1_1_gracz.html#a36aae189ecc212e3283f4010e2342d8a',1,'Szachy::Gracz::zaladuj()'],['../class_szachy_1_1_pionek.html#a074b56ca01fbedf70ae257eaaa493891',1,'Szachy::Pionek::zaladuj()']]],
+  ['zapisz_140',['zapisz',['../class_szachy_1_1_gracz.html#a831ee73f7932e71aeeff043efb6368ff',1,'Szachy::Gracz::zapisz()'],['../class_szachy_1_1_pionek.html#a87b2e9e12dfbd0664b540acce1f406f1',1,'Szachy::Pionek::zapisz()']]],
+  ['zbij_141',['zbij',['../class_szachy_1_1_pionek.html#ada4857cc938afea0d49499127130ab3a',1,'Szachy::Pionek']]]
 ];

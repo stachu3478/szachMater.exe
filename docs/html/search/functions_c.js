@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['zaladuj_137',['zaladuj',['../class_szachy_1_1_gracz.html#a36aae189ecc212e3283f4010e2342d8a',1,'Szachy::Gracz::zaladuj()'],['../class_szachy_1_1_pionek.html#a074b56ca01fbedf70ae257eaaa493891',1,'Szachy::Pionek::zaladuj()']]],
-  ['zapisz_138',['zapisz',['../class_szachy_1_1_gracz.html#a831ee73f7932e71aeeff043efb6368ff',1,'Szachy::Gracz::zapisz()'],['../class_szachy_1_1_pionek.html#a87b2e9e12dfbd0664b540acce1f406f1',1,'Szachy::Pionek::zapisz()']]],
-  ['zbij_139',['zbij',['../class_szachy_1_1_pionek.html#ada4857cc938afea0d49499127130ab3a',1,'Szachy::Pionek']]]
+  ['tester_136',['Tester',['../class_tester.html#ad70b2b2bbf6c564e710680ec1e0ae2d6',1,'Tester']]],
+  ['tochar_137',['toChar',['../to_char_8h.html#aed351fc005cd18a0509c01c2a29226f3',1,'toChar.h']]],
+  ['typpionka_138',['TypPionka',['../class_szachy_1_1_typ_pionka.html#a995bd0fc9963c2b3a587c1f5f17c0c3a',1,'Szachy::TypPionka']]]
 ];

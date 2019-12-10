@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kolor_73',['Kolor',['../class_kolor.html',1,'']]]
+  ['kolor_74',['Kolor',['../class_kolor.html',1,'']]]
 ];

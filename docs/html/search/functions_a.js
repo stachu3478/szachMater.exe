@@ -1,9 +1,16 @@
 var searchData=
 [
-  ['random_128',['random',['../class_array.html#a14680cd5f7baf303b097a05ef0802f9a',1,'Array']]],
-  ['rangeerror_129',['RangeError',['../class_range_error.html#a652560f44556f05d3f739997821afb47',1,'RangeError']]],
-  ['read_130',['read',['../class_array.html#a07da6f1c347b176d921355d275d51143',1,'Array']]],
-  ['rozpocznij_131',['rozpocznij',['../class_szachy_1_1_gra.html#a49b1a411aed73d220f07c283140af46e',1,'Szachy::Gra']]],
-  ['ruch_132',['Ruch',['../class_szachy_1_1_ruch.html#a3192e1722bc67d067012e597572e567d',1,'Szachy::Ruch::Ruch()'],['../class_szachy_1_1_ruch.html#a384cb627139400c65d2fb6857bdb5906',1,'Szachy::Ruch::Ruch(Pionek *pionek, Pole *na)']]],
-  ['rysuj_133',['rysuj',['../class_szachy_1_1_plansza.html#a6c80bfbb97702638d15a4440c1f84c29',1,'Szachy::Plansza']]]
+  ['pion_117',['pion',['../class_szachy_1_1_pole.html#ac5b93c7f456f016fbfe711dd7a6ad35f',1,'Szachy::Pole']]],
+  ['pionek_118',['Pionek',['../class_szachy_1_1_pionek.html#aa63c00eba7563510089722e22205d24f',1,'Szachy::Pionek']]],
+  ['plansza_119',['Plansza',['../class_szachy_1_1_plansza.html#ab215a21b704cab446bdb13ae66ed4bd5',1,'Szachy::Plansza::Plansza(int rozmiar)'],['../class_szachy_1_1_plansza.html#ad324bcf8dd19985f65cc2651046c9817',1,'Szachy::Plansza::Plansza()']]],
+  ['pobierznumer_120',['pobierzNumer',['../class_szachy_1_1_pole.html#a6f2a9fe46f53bc52b0da8674f9aa0935',1,'Szachy::Pole']]],
+  ['pobierzpionek_121',['pobierzPionek',['../class_szachy_1_1_gracz.html#affe0a584025b927e478143890150e047',1,'Szachy::Gracz::pobierzPionek()'],['../class_szachy_1_1_plansza.html#aef659ecaa112a751a14d49f091dba533',1,'Szachy::Plansza::pobierzPionek()']]],
+  ['pobierzpole_122',['pobierzPole',['../class_szachy_1_1_plansza.html#a803b9f732e2d88a80c898853611b2bcc',1,'Szachy::Plansza::pobierzPole(char poziom, char pion)'],['../class_szachy_1_1_plansza.html#a5c8146136893e84ee2cf0922edc2ef41',1,'Szachy::Plansza::pobierzPole(int i)']]],
+  ['pobierzpoleprzes_123',['pobierzPolePrzes',['../class_szachy_1_1_plansza.html#ab43e1476ef98ad582750c592e14c6562',1,'Szachy::Plansza']]],
+  ['pole_124',['Pole',['../class_szachy_1_1_pole.html#aa81bee04b2e8ba875d9228c2e6aeed1a',1,'Szachy::Pole::Pole(int num, Kolor *kolor)'],['../class_szachy_1_1_pole.html#a20a5dee524ccb85d5350506323e1ae40',1,'Szachy::Pole::Pole(int poziom, int pion)'],['../class_szachy_1_1_pole.html#a9ec71098899f24ff12958042ceabd996',1,'Szachy::Pole::Pole(Szachy::Pole *pole)']]],
+  ['poziom_125',['poziom',['../class_szachy_1_1_pole.html#a9ce3de286a274f71076f4f5fb9ddd563',1,'Szachy::Pole']]],
+  ['przenies_126',['przenies',['../class_szachy_1_1_pionek.html#a9caed54b107d0546600b5144862b60ac',1,'Szachy::Pionek']]],
+  ['przeniespionek_127',['przeniesPionek',['../class_szachy_1_1_plansza.html#a685dc140c5022f70bd79eb85a8887eba',1,'Szachy::Plansza']]],
+  ['przydzielpionek_128',['przydzielPionek',['../class_szachy_1_1_plansza.html#a31b2ab01eb632a302e8cb2ead6b8b564',1,'Szachy::Plansza']]],
+  ['push_129',['push',['../class_array.html#aa3bed4eebf299e4b3b4a2483eca4483c',1,'Array']]]
 ];

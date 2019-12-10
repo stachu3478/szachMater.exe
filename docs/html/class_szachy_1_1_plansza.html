@@ -111,9 +111,9 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_plansza.html#a6c80bfbb97702638d15a4440c1f84c29">rysuj</a> ()</td></tr>
 <tr class="memdesc:a6c80bfbb97702638d15a4440c1f84c29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyprowadza w konsoli planszê z polami i pionkami w ustawionych kolorach. <br /></td></tr>
 <tr class="separator:a6c80bfbb97702638d15a4440c1f84c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95a1486fdd6905e3e05b341738eca13c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_szachy_1_1_pole.html">Pole</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_plansza.html#a95a1486fdd6905e3e05b341738eca13c">pobierzPole</a> (unsigned int poziom, unsigned int pion)</td></tr>
-<tr class="memdesc:a95a1486fdd6905e3e05b341738eca13c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobiera klasê Pola z planszy.  <a href="class_szachy_1_1_plansza.html#a95a1486fdd6905e3e05b341738eca13c">More...</a><br /></td></tr>
-<tr class="separator:a95a1486fdd6905e3e05b341738eca13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803b9f732e2d88a80c898853611b2bcc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_szachy_1_1_pole.html">Pole</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_plansza.html#a803b9f732e2d88a80c898853611b2bcc">pobierzPole</a> (char poziom, char pion)</td></tr>
+<tr class="memdesc:a803b9f732e2d88a80c898853611b2bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobiera klasê Pola z planszy.  <a href="class_szachy_1_1_plansza.html#a803b9f732e2d88a80c898853611b2bcc">More...</a><br /></td></tr>
+<tr class="separator:a803b9f732e2d88a80c898853611b2bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c8146136893e84ee2cf0922edc2ef41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_szachy_1_1_pole.html">Pole</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_szachy_1_1_plansza.html#a5c8146136893e84ee2cf0922edc2ef41">pobierzPole</a> (int i)</td></tr>
 <tr class="memdesc:a5c8146136893e84ee2cf0922edc2ef41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobiera klasê Pola z planszy.  <a href="class_szachy_1_1_plansza.html#a5c8146136893e84ee2cf0922edc2ef41">More...</a><br /></td></tr>
 <tr class="separator:a5c8146136893e84ee2cf0922edc2ef41"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,8 +194,45 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a id="a803b9f732e2d88a80c898853611b2bcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a803b9f732e2d88a80c898853611b2bcc">&#9670;&nbsp;</a></span>pobierzPole() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_szachy_1_1_pole.html">Pole</a>* Szachy::Plansza::pobierzPole </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>poziom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>pion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pobiera klasê Pola z planszy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">poziom</td><td>Poziom planszy </td></tr>
+    <tr><td class="paramname">pion</td><td>Pion planszy </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5c8146136893e84ee2cf0922edc2ef41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c8146136893e84ee2cf0922edc2ef41">&#9670;&nbsp;</a></span>pobierzPole() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c8146136893e84ee2cf0922edc2ef41">&#9670;&nbsp;</a></span>pobierzPole() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,43 +251,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Indeks pola na planszy </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a95a1486fdd6905e3e05b341738eca13c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95a1486fdd6905e3e05b341738eca13c">&#9670;&nbsp;</a></span>pobierzPole() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_szachy_1_1_pole.html">Pole</a>* Szachy::Plansza::pobierzPole </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>poziom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>pion</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Pobiera klasê Pola z planszy. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">poziom</td><td>Poziom planszy </td></tr>
-    <tr><td class="paramname">pion</td><td>Pion planszy </td></tr>
   </table>
   </dd>
 </dl>

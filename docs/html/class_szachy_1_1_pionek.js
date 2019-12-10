@@ -5,6 +5,7 @@ var class_szachy_1_1_pionek =
     [ "awansuj", "class_szachy_1_1_pionek.html#a44a99cd71ad490bb0acbb9f6e14b869a", null ],
     [ "czyBylPierwszyruch", "class_szachy_1_1_pionek.html#aa0cd72a29339dcf33fbc1b37aa1e6c30", null ],
     [ "czyZbity", "class_szachy_1_1_pionek.html#a671c4584965926ce09fb1864a284ddb3", null ],
+    [ "iloscRuchow", "class_szachy_1_1_pionek.html#a74301887a9683d05d54daa02e9b38e6b", null ],
     [ "jakaLitera", "class_szachy_1_1_pionek.html#aa7b590aa1ec30926f6e92f34225fb6cd", null ],
     [ "jakaPozycja", "class_szachy_1_1_pionek.html#a6b0330aa0335d6e39cdf0c05dd96cf8d", null ],
     [ "JakiKolor", "class_szachy_1_1_pionek.html#a638dd7ab61d16faeb8f199da776778d5", null ],
