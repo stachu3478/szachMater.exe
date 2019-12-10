@@ -207,15 +207,17 @@ Array<Pole>& Gracz::mozliwePolaPionka(Pionek* pionek)
     {
         case 'O':
         {
-            Pole* potPole1 = dup(pole);
-            if (
-                !pionek->czyBylPierwszyruch()
-                && sprawdzCzyPoleWolne(potPole1, 2 * k, 0, m_Plansza)
-            )
-                pola->push(potPole1);
             Pole* potPole2 = dup(pole);
             if (sprawdzCzyPoleWolne(potPole2, 1 * k, 0, m_Plansza))
+            {
                 pola->push(potPole2);
+                Pole* potPole1 = dup(pole);
+                if (
+                    !pionek->czyBylPierwszyruch()
+                    && sprawdzCzyPoleWolne(potPole1, 2 * k, 0, m_Plansza)
+                )
+                    pola->push(potPole1);
+            }
 
             // Bicie na ukos
             Pole* potPole3 = dup(pole);
@@ -224,6 +226,22 @@ Array<Pole>& Gracz::mozliwePolaPionka(Pionek* pionek)
             Pole* potPole4 = dup(pole);
             if (sprawdzCzyMozeBic(pionek, potPole4, 1 * k, 1, m_Plansza))
                 pola->push(potPole4);
+
+            // Bicie w przelocie
+            Pole* potPole5 = dup(pole);
+            if (sprawdzCzyMozeBic(pionek, potPole5, 0, -1, m_Plansza) && pole->poziom() == (k == 1 ? 5 : 4)
+                && m_Plansza->pobierzPionek(potPole5)->iloscRuchow() == 1)
+            {
+                m_Plansza->pobierzPolePrzes(potPole5, k, 0);
+                pola->push(potPole5);
+            }
+            Pole* potPole6 = dup(pole);
+            if (sprawdzCzyMozeBic(pionek, potPole6, 0, 1, m_Plansza) && pole->poziom() == (k == 1 ? 5 : 4)
+                && m_Plansza->pobierzPionek(potPole6)->iloscRuchow() == 1)
+            {
+                m_Plansza->pobierzPolePrzes(potPole6, k, 0);
+                pola->push(potPole6);
+            }
         }; break;
         case 'S':
         {

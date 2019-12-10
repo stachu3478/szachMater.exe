@@ -57,11 +57,15 @@ namespace Szachy
             /*!
                 \brief Mówi czy jakikolwiek ruch tym pionkiem zosta³ wykonany
             */
-            bool czyBylPierwszyruch() { return m_bylPierwszyRuch; }
+            bool czyBylPierwszyruch() { return m_LiczbaRuchow > 0; }
+            /*!
+                \brief Mówi, ile ruchów wykonał dany pionek
+            */
+            int iloscRuchow() { return m_LiczbaRuchow; }
             /*!
                 \brief Mówi czy pionek zosta³ ju¿ zbity
             */
-            bool czyZbity() { return m_zbity; }
+            bool czyZbity() { return m_zbity == 1; }
             /*!
                 \brief Podmienia typ pionka
                 \param typ Docelowy typ
@@ -89,8 +93,9 @@ namespace Szachy
             Szachy::TypPionka* m_typ;
             Szachy::Pole* m_pozycja;
             Kolor* m_Kolor;
-            bool m_bylPierwszyRuch;
-            bool m_zbity;
+            int m_LiczbaRuchow;
+            /// FIXME po przypisaniu wartości 1 nadal ma wartość 0
+            int m_zbity;
     };
 };
 

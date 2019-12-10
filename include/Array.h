@@ -46,7 +46,14 @@ template <class T> class Array
             try
             {
                 int id;
-                std::cin >> id;
+                std::string var1;
+                char var2;
+                while (!(std::cin >> id))
+                {
+                    std::cout << "Nie udało się wczytać liczby, spróbuj jeszcze raz\n";
+                    std::cin.clear();
+                    std::cin.ignore();
+                }
                 return refer(id - 1);
             }
             catch(RangeError e)

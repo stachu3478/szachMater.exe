@@ -14,12 +14,13 @@ Pionek::Pionek(TypPionka* typ, Pole* pozycja, Kolor* kolor)
     m_Kolor = kolor;
     m_typ = typ;
     m_pozycja = pozycja;
+    m_LiczbaRuchow = 0;
 }
 
 void Pionek::przenies(Pole* pole)
 {
     m_pozycja = pole;
-    m_bylPierwszyRuch = true;
+    m_LiczbaRuchow++;
 }
 
 void Pionek::zbij()
@@ -29,18 +30,18 @@ void Pionek::zbij()
         cout << "Nie można zbić króla!!!" << endl;
         throw *this;
     };
-    m_zbity = true;
+    m_zbity = 1;
 }
 
 void Pionek::zapisz(ofstream& out)
 {
-    out << (m_bylPierwszyRuch ? 1 : 0) << endl;
-    out << (m_zbity ? 1 : 0) << endl;
+    out << m_LiczbaRuchow << endl;
+    out << m_zbity << endl;
 }
 
 void Pionek::zaladuj(ifstream& in)
 {
-    in >> m_bylPierwszyRuch;
+    in >> m_LiczbaRuchow;
     in >> m_zbity;
 }
 

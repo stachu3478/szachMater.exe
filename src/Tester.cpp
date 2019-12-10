@@ -6,6 +6,7 @@
 #include "Array.h"
 #include "TypPionka.h"
 #include "Pole.h"
+#include "Pionek.h"
 #include "Plansza.h"
 #include "Gracz.h"
 
@@ -100,6 +101,19 @@ void testStringChar()
     assert(sca == sb, false);
 }
 
+void testPionek()
+{
+    TypPionka* typ1 = new TypPionka("a", "b", 'q');
+    Kolor* kolor1 = new Kolor();
+    Pole* pole1 = new Pole();
+    TypPionka* typ = typ1;
+    Kolor* kolor = kolor1;
+    Pole* pole = pole1;
+    Pionek pion(&*typ, &*pole, &*kolor);
+    pion.zbij();
+    assert(pion.czyZbity(), true);
+}
+
 Tester::Tester()
 {
     testArray();
@@ -108,6 +122,7 @@ Tester::Tester()
     testGracz();
     testPlansza();
     testStringChar();
+    testPionek();
 }
 
 Tester::~Tester()

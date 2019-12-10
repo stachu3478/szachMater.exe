@@ -98,15 +98,31 @@ void Plansza::przydzielPionek(Pionek* pionek)
     if (m_PozycjePionkow[id] != 0)
     {
         Pionek* zbity = m_PozycjePionkow[id];
-        // zbity->zbij();
+        zbity->zbij();
     }
     m_PozycjePionkow[id] = pionek;
+}
+
+Pole*& dup2(Pole* pole)
+{
+    Pole* poleDup = pole;
+    Pole*& poleDupRef = poleDup;
+    return poleDupRef;
 }
 
 void Plansza::przeniesPionek(Pionek* pionek, Pole* pozycja)
 {
     char id = pionek->jakaPozycja()->pobierzNumer();
     m_PozycjePionkow[id] = 0;
+    // bicie w przelocie
+    if (pionek->jakaLitera() == "O" && pionek->jakaPozycja()->pion() != pozycja->pion() && pobierzPionek(pozycja) == 0)
+    {
+        // FIXME nie zbija pionka
+        cout <<  pionek->jakaPozycja()->poziom() << endl;
+        Pole* pole = pobierzPole(pionek->jakaPozycja()->poziom(), pozycja->pion());
+        Pionek* zbity = pobierzPionek(pole);
+        zbity->zbij();
+    }
     pionek->przenies(pozycja);
     przydzielPionek(pionek);
 }
