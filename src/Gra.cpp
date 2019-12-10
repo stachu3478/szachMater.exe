@@ -41,6 +41,7 @@ Gra::Gra(bool kontynnuj):
     m_Plansza(8),
     m_TypyPionkow(6)
 {
+    m_Kolejka = 0;
     generujTypyPionkow();
     m_szach = false;
     m_koniec = false;
@@ -65,6 +66,7 @@ void Gra::rozpocznij(bool demo)
         else
             kolejka(m_Gracz2, m_Gracz1);
         m_Kolejka = !m_Kolejka;
+        cout << m_Kolejka << endl;
     }
     remove("savegame.txt");
 }

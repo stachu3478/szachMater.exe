@@ -62,7 +62,7 @@ void Plansza::rysuj()
     cout << " ABCDEFGH " << endl;
 }
 
-Pole* Plansza::pobierzPole(unsigned int poziom, unsigned int pion)
+Pole* Plansza::pobierzPole(char poziom, char pion)
 {
     int indeks = poziom * 8 + pion - 9;
     Pole* pole = m_Pola[indeks];
@@ -117,10 +117,9 @@ void Plansza::przeniesPionek(Pionek* pionek, Pole* pozycja)
     // bicie w przelocie
     if (pionek->jakaLitera() == "O" && pionek->jakaPozycja()->pion() != pozycja->pion() && pobierzPionek(pozycja) == 0)
     {
-        // FIXME nie zbija pionka
-        cout <<  pionek->jakaPozycja()->poziom() << endl;
         Pole* pole = pobierzPole(pionek->jakaPozycja()->poziom(), pozycja->pion());
         Pionek* zbity = pobierzPionek(pole);
+        m_PozycjePionkow[pole->pobierzNumer()] = 0;
         zbity->zbij();
     }
     pionek->przenies(pozycja);

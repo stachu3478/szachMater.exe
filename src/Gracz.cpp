@@ -359,8 +359,9 @@ void Gracz::zaladuj(ifstream& in)
     for (int i = 0; i < 16; i++)
     {
         in >> pozycja;
-        m_Plansza->przeniesPionek(m_pionki[i], m_Plansza->pobierzPole(pozycja));
         m_pionki[i]->zaladuj(in);
+        if (!m_pionki[i]->czyZbity())
+            m_Plansza->przeniesPionek(m_pionki[i], m_Plansza->pobierzPole(pozycja));
     };
 }
 

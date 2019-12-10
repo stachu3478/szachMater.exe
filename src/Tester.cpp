@@ -68,6 +68,11 @@ void testPlansza()
     assert((int)pole->pion(), 3);
     Pole*& poleRef = pole;
 
+    Pole* pole2 = plansza->pobierzPole(pole->poziom(), pole->pion());
+    assert((int)pole->poziom(), 2);
+    assert((int)pole->pion(), 3);
+    assert(pole == pole2, true);
+
     assert(plansza->pobierzPolePrzes(poleRef, 1, 2), true);
     assert((int)pole->poziom(), 3);
     assert((int)pole->pion(), 5);

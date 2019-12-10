@@ -39,10 +39,12 @@ void Pionek::zapisz(ofstream& out)
     out << m_zbity << endl;
 }
 
+// Przy ładowawniu potrzeba znou ustawić pionek który zwiększa liczbę ruchów
 void Pionek::zaladuj(ifstream& in)
 {
     in >> m_LiczbaRuchow;
     in >> m_zbity;
+    m_LiczbaRuchow--;
 }
 
 Pionek::~Pionek()

@@ -40,7 +40,7 @@ namespace Szachy
                 \param poziom Poziom planszy
                 \param pion Pion planszy
             */
-            Pole* pobierzPole(unsigned int poziom, unsigned int pion);
+            Pole* pobierzPole(char poziom, char pion);
             /*!
                 \brief Pobiera klasê Pola z planszy
                 \param i Indeks pola na planszy
